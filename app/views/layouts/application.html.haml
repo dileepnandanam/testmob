@@ -20,6 +20,7 @@
         - if ['client', 'platform'].include?(current_user.try :usertype)
           = link_to 'Builds', tests_path, class: "#{phase('builds')} sidebar-item"
           = link_to 'New build', new_test_path, class: "#{phase('new_build')} sidebar-item"
+          = link_to 'Interactive Test', basic_motion_test_induviduals_path, class: "#{phase('test')} sidebar-item"
           - if current_user.try(:usertype) == 'platform'
             = link_to 'demo requests', root_path, class: "#{phase('users')} sidebar-item"
             = link_to 'configure', configure_tests_path, class: "#{phase('config')} sidebar-item"

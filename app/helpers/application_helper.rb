@@ -3,7 +3,15 @@ module ApplicationHelper
     'tests_index' => 'builds',
     'tests_new'  => 'new_build',
     'home_show' => 'users',
-    'tests_configure' => 'config'
+    'tests_configure' => 'config',
+    'test_induviduals_advanced_mode' => 'test',
+    'test_induviduals_basic_motion' => 'test',
+    'test_induviduals_connections' => 'test',
+    'test_induviduals_developer' => 'test',
+    'test_induviduals_interpolated_mode' => 'test',
+    'test_induviduals_others' => 'test',
+    'test_induviduals_power_control' => 'test',
+    'test_induviduals_rig_control' => 'test'
   }
 
   def phase(name)

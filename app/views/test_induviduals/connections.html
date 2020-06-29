@@ -1,0 +1,65 @@
+<div id="connections" class="row nav-content">
+    <div class="col-6 text-center">
+        <div class="port-container">
+            <h5>Serial Connection</h5>
+            <form class="form">
+                <div class="form-row">
+                    <div class="col-auto">
+                        <div class="form-inline">
+                            <label class="port-label">Port : </label>
+                            <select name="port" class="form-control port-select" required>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-primary mb-2">Refresh</button>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <div class="form-inline">
+                            <label class="port-label">Boud : </label>
+                            <select name="boud" class="form-control port-select" required>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" data-value="connect" class="btn btn-primary connect-button">Connect</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-6 text-center">
+        <div class="port-container">
+            <h5>Ethernet</h5>
+            <form class="form">
+                <div class="form-row">
+                    <div class="col-auto">
+                        <div class="form-inline">
+                            <label class="port-label">IP : </label>
+                            <input name="ip" type="text" class="form-control port-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <div class="form-inline">
+                            <label class="port-label">Port : </label>
+                            <input name="port" type="text" class="form-control port-input">
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" data-value="connect" class="btn btn-primary connect-button">Connect</button>
+            </form>
+        </div>
+    </div>
+</div>

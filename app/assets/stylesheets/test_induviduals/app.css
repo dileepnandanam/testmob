@@ -1,0 +1,187 @@
+header {
+    padding: 10px;
+    background-color: #008388;
+    text-align: center;
+}
+
+.custom-nav {
+    border: 1px solid #d8d7d7;
+}
+
+.custom-nav .nav-item {
+    border-bottom: 1px solid #d8d7d7;
+    width: 199.5px;
+}
+
+.inline-label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 12px;
+}
+
+label {
+    font-size: 13px;
+}
+
+header .logo {
+    width: 300px;
+}
+
+.quaco-header {
+    padding: 15px;
+}
+
+.torque-container {
+    text-align: center;
+}
+
+.torque-container button {
+    padding: 5px 30px;
+    margin: 10px 20px;
+}
+
+.operation {
+    display: flex;
+    height: 33px;
+}
+
+.get-pos .form-control {
+    margin-right: 10px;
+}
+
+.operation .box, .get-pos .box {
+    border: 1px solid #cccccc;
+    padding: 10px;
+    width: 100%;
+}
+
+.operation .label {
+    margin: 4px;
+}
+
+.margin-10 {
+    margin: 10px;
+}
+
+.command-operation {
+    margin-bottom: 10px;
+}
+
+.command-progess {
+    display: flex;
+}
+
+.command-progess .inline-label {
+    flex-grow: 1;
+}
+
+.command-progess .progress {
+    flex-grow: 6;
+}
+
+.port-container {
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.port-container h5 {
+    margin-bottom: 15px;
+}
+
+.port-container .form-inline {
+    margin-bottom: 10px;
+}
+
+.connect-button {
+    width: 70%;
+    min-width: 100px;
+    padding: 15px;
+    margin: 20px 10px 10px;
+}
+
+.move-button {
+    padding: 15px;
+}
+
+.port-select, .port-input {
+    width: 100px !important;
+    margin-left: 20px;
+}
+
+.port-label {
+    width: 100px;
+}
+
+#nav-content {
+    padding: 15px !important;
+    border: 1px solid #dee2e6;
+    border-top: none;
+}
+
+.nav-content {
+    display: none;
+}
+
+.container-box {
+    width: 800px;
+}
+
+.move-params-input {
+    width: 50px
+}
+
+.right-divider {
+    border-right: 1px solid #cccccc;
+}
+
+.return-checkbox {
+    margin: auto;
+    margin-top: 20px;
+}
+
+.margin-top-15 {
+    margin-top: 15px;
+}
+
+.margin-b-9 {
+    margin-bottom: 9px;
+}
+
+.margin-top-5 {
+    margin-top: 5px;
+}
+
+.point-input {
+    width: 70px !important;
+}
+
+.point-label {
+    margin-right: 5px;
+}
+
+.form-inline-margin {
+    margin-right: 10px;
+}
+
+.inline-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inline-form>* {
+    order: 1;
+}
+
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}

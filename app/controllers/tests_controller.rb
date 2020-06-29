@@ -1,4 +1,8 @@
 class TestsController < ApplicationController
+  def submit
+    render plain: 'submitted'
+  end
+
   def show
     @test = current_user.tests.find(params[:id]) || Test.new
   end

@@ -4,5 +4,5 @@
       Builds
     - current_user.tests.order('created_at desc').each do |test|
       .test
-        = link_to "buld_#{test.id}", test_path(test)
+        = link_to "build_#{test.id}", test_path(test)
     = link_to 'New Build', new_test_path, class: 'new-test'
