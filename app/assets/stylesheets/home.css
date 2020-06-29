@@ -3,14 +3,14 @@
   display: block;
   height: 60px;
 }
-.nav-item {
+.nav-bar-item {
   color: white;
   padding: 8px 12px;
   border-radius: 6px;
   margin: 4px;
   display: inline-block;
 }
-.nav-item:hover {
+.nav-bar-item:hover {
   background: white;
   color: black;
   text-decoration: none;

@@ -1,0 +1,32 @@
+.container-fluid
+  .container-box
+    %section
+      = render partial: 'header'
+
+    %section
+      %ul.nav.nav-tabs.custom-nav
+        %li.nav-item
+          %a.nav-link{"data-target-id" => "connections", "data-url" => "partials/connections.html", :href => "javascript:void(0)"} Connections
+        %li.nav-item
+          %a.nav-link{"data-target-id" => "basic_motion", "data-url" => "partials/basic_motion.html", :href => "javascript:void(0)"}
+            Basic
+            motion
+        %li.nav-item
+          %a.nav-link{"data-target-id" => "advanced_mode", "data-url" => "partials/advanced_mode.html", :href => "javascript:void(0)"}
+            Advanced
+            Motion
+        %li.nav-item
+          %a.nav-link{"data-target-id" => "interpolated_mode", "data-url" => "partials/interpolated_mode.html", :href => "javascript:void(0)"} Interpolated Motion
+        %li.nav-item
+          %a.nav-link{"data-target-id" => "others", "data-url" => "partials/others.html", :href => "javascript:void(0)"} Others
+        %li.nav-item
+          %a.nav-link{"data-target-id" => "rig_control", "data-url" => "partials/rig_control.html", :href => "javascript:void(0)"}
+            Rig
+            Control
+        %li.nav-item
+          %a.nav-link{"data-target-id" => "power_control", "data-url" => "partials/power_control.html", :href => "javascript:void(0)"}
+            Power
+            Control
+    %section
+      #nav-content
+        = render partial: action_name

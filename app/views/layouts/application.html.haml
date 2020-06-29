@@ -12,10 +12,10 @@
     .common
       .nav-bar
         - if current_user
-          = link_to "log out", destroy_user_session_path, class: 'nav-item float-right', method: :delete
+          = link_to "log out", destroy_user_session_path, class: 'nav-bar-item float-right', method: :delete
         - else
-          = link_to "log in", new_user_session_path, class: 'nav-item float-right'
-          = link_to "sign up", new_user_registration_path, class: 'nav-item float-right'
+          = link_to "log in", new_user_session_path, class: 'nav-bar-item float-right'
+          = link_to "sign up", new_user_registration_path, class: 'nav-bar-item float-right'
       .float-left.sidebar.col-lg-3  
         - if ['client', 'platform'].include?(current_user.try :usertype)
           = link_to 'Builds', tests_path, class: "#{phase('builds')} sidebar-item"
