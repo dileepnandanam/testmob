@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>QUACO
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css" />
+    <script src="config/config.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <img class="logo" src="assets/logo.png" />
+    </header>
+    <div class="container-fluid">
+        <div class="container-box">
+            <section class="quaco-header">
+                <div class="row margin-b-9">
+                    <div class="col-4 torque-container">
+                        <div class="form-inline">
+                            <label class="inline-label">Torque</label>
+                            <input class="toggle-switch input_switch" data-action="torque" type="checkbox" checked data-toggle="toggle"
+                                data-onstyle="success">
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="form-inline get-pos">
+                            <input type="text" class="form-control">
+                            <button type="button" class="btn btn-primary label">GET POS</button>
+                        </div>
+                    </div>
+                    <div class="col-3 operation">
+                        <label class="label">Operation</label>
+                        <div class="box"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <button type="button" class="btn btn-primary">HOME</button>
+                        <button type="button" class="btn btn-primary">GET STATUS</button>
+                    </div>
+                    <div class="col-8 command-operation">
+                        <div class="command-progess form-inline">
+                            <label class="inline-label">Command Status</label>
+                            <div class="progress margin-10">
+                                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+            <section>
+                <ul class="nav nav-tabs custom-nav">
+                    <li class="nav-item">
+                        <a data-target-id="connections" data-url='partials/connections.html' class="nav-link"
+                            href="javascript:void(0)">Connections</a>
+                    </li>
+                    <li class="nav-item">
+                        <a data-target-id="basic_motion" data-url='partials/basic_motion.html' class="nav-link"
+                            href="javascript:void(0)">Basic
+                            motion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a data-target-id="advanced_mode" data-url='partials/advanced_mode.html' class="nav-link"
+                            href="javascript:void(0)">Advanced
+                            Motion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a data-target-id="interpolated_mode" data-url='partials/interpolated_mode.html'
+                            class="nav-link" href="javascript:void(0)">Interpolated Motion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a data-target-id="others" data-url='partials/others.html' class="nav-link"
+                            href="javascript:void(0)">Others</a>
+                    </li>
+                    <li class="nav-item">
+                        <a data-target-id="rig_control" data-url='partials/rig_control.html' class="nav-link"
+                            href="javascript:void(0)">Rig
+                            Control</a>
+                    </li>
+                    <li class="nav-item">
+                        <a data-target-id="power_control" data-url='partials/power_control.html' class="nav-link"
+                            href="javascript:void(0)">Power
+                            Control</a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <div id="nav-content">
+                </div>
+            </section>
+        </div>
+        <video id="video" src="http://localhost:8080/desktop.ogg" autoplay="autoplay" />
+    </div>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script src="js/partialLoader.js"></script>
+    <script src="js/submit.js"></script>
+</body>
+
+</html>
