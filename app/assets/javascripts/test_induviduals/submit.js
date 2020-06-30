@@ -21,7 +21,7 @@ function addSubmitEvent() {
 };
 
 function callApi(type, parameters) {
-    $.post(APP_CONFIG.apiEndpoint, { function_type: type, parameters }, function (success, error) {
+    $.post(APP_CONFIG.apiEndpoint, { api_function: type, parameters }, function (success, error) {
         console.log(success);
     })
 }

@@ -125,4 +125,9 @@ button.torque-toggle.btn.btn-primary {
 }
 .form-row input {
   width: 90px;
-  margin-left: -5px;}
+  margin-left: -5px;
+}
+.base-led-toggle {
+  margin: 12px;
+  padding: 12px;
+}

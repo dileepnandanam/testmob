@@ -51,8 +51,10 @@
                 <div class="col-6">
                     <div class="form-inline">
                         <label class="inline-label">Base Led</label>
-                        <button type="submit" data-value="base_led_on" class="btn btn-primary submit-button button_submit">ON</button>
-                        <button type="submit" data-value="base_led_off" class="btn btn-primary submit-button" button_submit>OFF</button>
+                        <div class="row">
+                            <button type="submit" data-value="base_led_on" class="base-led-toggle btn btn-primary submit-button button_submit">ON</button>
+                            <button type="submit" data-value="base_led_off" class="base-led-toggle btn btn-primary submit-button button_submit">OFF</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,8 +67,8 @@
                     <h5>Power</h5>
                 </div>
                 <div class="col-9">
-                    <button type="button" data-value="power_restart" data-action="power" class="btn btn-primary submit-button button_submit">RESTART</button>
-                    <button type="button" data-value="shutdown" data-action="power_shut_down" class="btn btn-primary submit-button">SHUTDOWN</button>
+                    <button type="button" data-action="power_restart" class="btn btn-primary submit-button button_submit">RESTART</button>
+                    <button type="button" data-action="power_shutdown" class="btn btn-primary submit-button button_submit">SHUTDOWN</button>
                 </div>
             </div>
         </div>

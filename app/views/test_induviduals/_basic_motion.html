@@ -32,60 +32,64 @@
     <div class="col-6 text-center">
         <div class="port-container">
             <h5>Touch Event</h5>
-            <div class="row">
-                <div class="col-12">
-                    <div class="form-row text-left">
-                        <div class="col-auto">
-                            <label class="port-label">Duration (MSec)</label>
-                            <input type="text" class="form-control move-params-input">
-                        </div>
-                        <div class="col-auto">
-                            <label class="port-label">Back Pos (mm)</label>
-                            <input type="text" class="form-control move-params-input">
-                        </div>
-                        <div class="col-auto">
-                            <label class="port-label">Force (gm)</label>
-                            <input type="text" class="form-control move-params-input">
-                        </div>
-                        <div class="col-auto margin-top-15">
-                            <button type="button" class="btn btn-primary move-button" data-value="touch_event_move">Move</button>
+            <form class="form">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-row text-left">
+                            <div class="col-auto">
+                                <label class="port-label">Duration (MSec)</label>
+                                <input name="duration" type="text" class="form-control move-params-input">
+                            </div>
+                            <div class="col-auto">
+                                <label class="port-label">Back Pos (mm)</label>
+                                <input name="back_pos" type="text" class="form-control move-params-input">
+                            </div>
+                            <div class="col-auto">
+                                <label class="port-label">Force (gm)</label>
+                                <input name="force" type="text" class="form-control move-params-input">
+                            </div>
+                            <div class="col-auto margin-top-15">
+                                <button type="submit" class="btn btn-primary move-button" data-value="touch_event_move">Move</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
     <div class="col-12 text-center">
         <div class="port-container">
             <h5>Touch</h5>
-            <div class="row text-left">
-                <div class="col-2">
-                    <label class="port-label">X Position</label>
-                    <input type="text" class="form-control move-params-input">
+            <form class="form">
+                <div class="row text-left">
+                    <div class="col-2">
+                        <label class="port-label">X Position</label>
+                        <input name="x" type="text" class="form-control move-params-input">
+                    </div>
+                    <div class="col-2">
+                        <label class="port-label">Y Position</label>
+                        <input name="y" type="text" class="form-control move-params-input">
+                    </div>
+                    <div class="col-2">
+                        <label class="port-label">Duration (MSec)</label>
+                        <input name="duration" type="text" class="form-control move-params-input">
+                    </div>
+                    <div class="col-2">
+                        <label class="port-label">Back Pos (mm)</label>
+                        <input name="back_pos" type="text" class="form-control move-params-input">
+                    </div>
+                    <div class="col-4">
+                        <label class="port-label">Force (gm)</label>
+                        <input name="force" type="text" class="form-control move-params-input">
+                    </div>
                 </div>
-                <div class="col-2">
-                    <label class="port-label">Y Position</label>
-                    <input type="text" class="form-control move-params-input">
+                <div class="row text-left margin-top-15">
+                    <div class="col-12 text-right">
+                        <button type="submit" class="btn btn-primary move-button" data-value="touch_touch">Touch</button>
+                        <button type="submit" class="btn btn-primary move-button" data-value="touch_touch_and_return">Touch / Return</button>
+                    </div>
                 </div>
-                <div class="col-2">
-                    <label class="port-label">Duration (MSec)</label>
-                    <input type="text" class="form-control move-params-input">
-                </div>
-                <div class="col-2">
-                    <label class="port-label">Back Pos (mm)</label>
-                    <input type="text" class="form-control move-params-input">
-                </div>
-                <div class="col-4">
-                    <label class="port-label">Force (gm)</label>
-                    <input type="text" class="form-control move-params-input">
-                </div>
-            </div>
-            <div class="row text-left margin-top-15">
-                <div class="col-12 text-right">
-                    <button type="button" class="btn btn-primary move-button" data-value="touch_touch">Touch</button>
-                    <button type="button" class="btn btn-primary move-button" data-value="touch_touch_and_return">Touch / Return</button>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
     <div class="col-6 text-center">
@@ -93,19 +97,23 @@
             <div class="row text-center">
                 <div class="col-6 right-divider">
                     <h5>Touch Down</h5>
-                    <div class="form-inline">
-                        <label class="port-label">Force</label>
-                        <input type="text" class="form-control port-input">
-                    </div>
-                    <button type="button" class="btn btn-primary move-button" data-value="touch_down_move">Move</button>
+                    <form class="form">
+                        <div class="form-inline">
+                            <label class="port-label">Force</label>
+                            <input name="force" type="text" class="form-control port-input">
+                        </div>
+                        <button type="submit" class="btn btn-primary move-button" data-value="touch_down_move">Move</button>
+                    </form>
                 </div>
                 <div class="col-6">
                     <h5>Move STM Up</h5>
-                    <div class="form-inline">
-                        <label class="port-label">Back Pos (mm)</label>
-                        <input type="text" class="form-control port-input">
-                    </div>
-                    <button type="button" class="btn btn-primary move-button" data-value="move_stm_up_move">Move</button>
+                    <form class="form">
+                        <div class="form-inline">
+                            <label class="port-label">Back Pos (mm)</label>
+                            <input name="back_pos" type="text" class="form-control port-input">
+                        </div>
+                        <button type="submit" class="btn btn-primary move-button" data-value="move_stm_up_move">Move</button>
+                    </form>
                 </div>
             </div>
         </div>

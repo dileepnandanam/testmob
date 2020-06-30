@@ -3,7 +3,10 @@ class TestsController < ApplicationController
   skip_before_action :verify_authenticity_token
   
   def submit
-    render plain: 'submitted'
+    api_function = params[:api_function]
+
+    api_params = params[:parameters]
+    
   end
 
   def show
