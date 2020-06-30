@@ -107,3 +107,22 @@ a.highlited-tab {
   border-left: 1px solid blue !important;
   border-right: 1px solid blue !important;
 }
+button.torque-toggle.btn.btn-primary {
+  padding: 6px;
+  margin: auto;
+  margin-left: 0px;
+}
+.buzzer_set_origin {
+  padding: 0px;
+  margin-left: 12px;
+}
+.form-row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -5px;
+}
+.form-row input {
+  width: 90px;
+  margin-left: -5px;}

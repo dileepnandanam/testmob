@@ -1,3 +1,6 @@
+$(document).on('turbolinks:load', function() {
+    addSubmitEvent()
+})
 function addSubmitEvent() {
     $(".form").submit(function (event) {
         var functionType = $(this).find("button[type=submit]:focus").data("value");

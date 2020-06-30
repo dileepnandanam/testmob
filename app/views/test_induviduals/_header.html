@@ -2,15 +2,14 @@
     <div class="row margin-b-9">
         <div class="col-4 torque-container">
             <div class="form-inline">
-                <label class="inline-label">Torque</label>
-                <input class="toggle-switch input_switch" data-action="torque" type="checkbox" checked data-toggle="toggle"
-                    data-onstyle="success">
+                <button type="button" class="button_submit torque-toggle btn btn-primary pull-left" data-action="torque_on">TORQUE ON</button>
+                <button type="button" class="button_submit torque-toggle btn btn-primary pull-right" data-action="torque_off">TORQUE OFF</button>
             </div>
         </div>
         <div class="col-5">
             <div class="form-inline get-pos">
                 <input type="text" class="form-control">
-                <button type="button" class="btn btn-primary label">GET POS</button>
+                <button type="button" class="button_submit btn btn-primary label" data-action="get_pos">GET POS</button>
             </div>
         </div>
         <div class="col-3 operation">
@@ -20,8 +19,8 @@
     </div>
     <div class="row">
         <div class="col-4">
-            <button type="button" class="btn btn-primary">HOME</button>
-            <button type="button" class="btn btn-primary">GET STATUS</button>
+            <button type="button" class="button_submit btn btn-primary" data-action="home">HOME</button>
+            <button type="button" class="button_submit btn btn-primary" data-action="get_status">GET STATUS</button>
         </div>
         <div class="col-8 command-operation">
             <div class="command-progess form-inline">

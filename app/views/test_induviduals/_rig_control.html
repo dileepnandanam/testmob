@@ -1,48 +1,19 @@
 <div id="rig_control" class="row nav-content">
-    <div class="col-6">
+    <div class="col-7">
         <div class="port-container">
             <h5>Rig Light</h5>
-            <form class="form">
-                <div class="row">
-                    <div class="col-8">
-                        <div class="form-inline">
-                            <label class="point-label">X Position</label>
-                            <input name="x" type="text" class="form-control">
-                        </div>
-                        <div class="form-inline">
-                            <label class="point-label">Y Position</label>
-                            <input name="y" type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <button type="submit" data-value="set_origin" class="btn btn-primary submit-button margin-b-9">Set Origin</button>
-                        <button type="submit" data-value="reset_origin" class="btn btn-primary submit-button">Origin Reset</button>
-                    </div>
+            <div class="col-4 torque-container">
+                <div class="form-inline">
+                    <button type="button" class="button_submit torque-toggle btn btn-primary pull-left" data-action="rig_light_on">ON</button>
+                    <button type="button" class="button_submit torque-toggle btn btn-primary pull-right" data-action="rig_light_off">OFF</button>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
-    <div class="col-6">
+    <div class="col-5">
         <div class="port-container">
             <h5>Buzzer</h5>
-            <form class="form">
-                <div class="row">
-                    <div class="col-8">
-                        <div class="form-inline">
-                            <label class="point-label">IP</label>
-                            <input value="ip" type="text" class="form-control">
-                        </div>
-                        <div class="form-inline">
-                            <label class="point-label">Port</label>
-                            <input value="port" type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <button type="submit" data-value="buzzer_set" class="btn btn-primary submit-button">Set</button>
-                    </div>
-                </div>
-
-            </form>
+            <button type="button" class="button_submit torque-toggle btn btn-primary pull-right" data-action="buzzer_of">OFF</button>
         </div>
     </div>
     <div class="col-6">
@@ -52,16 +23,16 @@
                 <div class="row">
                     <div class="col-8">
                         <div class="form-inline">
-                            <label class="point-label">IP</label>
+                            <label class="point-label">name</label>
                             <input value="ip" type="text" class="form-control">
                         </div>
                         <div class="form-inline">
-                            <label class="point-label">Port</label>
+                            <label class="point-label">index</label>
                             <input name="port" type="text" class="form-control">
                         </div>
                     </div>
                     <div class="col-4">
-                        <button type="submit" data-value="dut_set" class="btn btn-primary submit-button">Set</button>
+                        <button type="submit" data-value="dut_profile_name_set" class="btn btn-primary submit-button">Set</button>
                     </div>
                 </div>
 
@@ -71,24 +42,7 @@
     <div class="col-6">
         <div class="port-container">
             <h5>Robot Lift Axis</h5>
-            <form class="form">
-                <div class="row">
-                    <div class="col-8">
-                        <div class="form-inline">
-                            <label class="point-label">IP</label>
-                            <input value="ip" type="text" class="form-control">
-                        </div>
-                        <div class="form-inline">
-                            <label class="point-label">Port</label>
-                            <input value="port" type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <button type="submit" data-value="axis_set" class="btn btn-primary submit-button">Set</button>
-                    </div>
-                </div>
-
-            </form>
+            
         </div>
     </div>
 </div>

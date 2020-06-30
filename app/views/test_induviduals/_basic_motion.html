@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <div class="col-4">
-                        <button type="submit" data-value="move" class="btn btn-primary move-button">Move</button>
+                        <button type="submit" data-value="move_to_xy_plane_move" class="btn btn-primary move-button" value="move_to_xy_plane">Move</button>
                     </div>
                 </div>
             </form>
@@ -48,7 +48,7 @@
                             <input type="text" class="form-control move-params-input">
                         </div>
                         <div class="col-auto margin-top-15">
-                            <button type="button" class="btn btn-primary move-button">Move</button>
+                            <button type="button" class="btn btn-primary move-button" data-value="touch_event_move">Move</button>
                         </div>
                     </div>
                 </div>
@@ -82,8 +82,8 @@
             </div>
             <div class="row text-left margin-top-15">
                 <div class="col-12 text-right">
-                    <button type="button" class="btn btn-primary move-button">Touch</button>
-                    <button type="button" class="btn btn-primary move-button">Touch / Return</button>
+                    <button type="button" class="btn btn-primary move-button" data-value="touch_touch">Touch</button>
+                    <button type="button" class="btn btn-primary move-button" data-value="touch_touch_and_return">Touch / Return</button>
                 </div>
             </div>
         </div>
@@ -97,7 +97,7 @@
                         <label class="port-label">Force</label>
                         <input type="text" class="form-control port-input">
                     </div>
-                    <button type="button" class="btn btn-primary move-button">Move</button>
+                    <button type="button" class="btn btn-primary move-button" data-value="touch_down_move">Move</button>
                 </div>
                 <div class="col-6">
                     <h5>Move STM Up</h5>
@@ -105,7 +105,7 @@
                         <label class="port-label">Back Pos (mm)</label>
                         <input type="text" class="form-control port-input">
                     </div>
-                    <button type="button" class="btn btn-primary move-button">Move</button>
+                    <button type="button" class="btn btn-primary move-button" data-value="move_stm_up_move">Move</button>
                 </div>
             </div>
         </div>
