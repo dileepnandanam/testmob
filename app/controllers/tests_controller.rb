@@ -4,9 +4,24 @@ class TestsController < ApplicationController
   
   def submit
     api_function = params[:api_function]
-
+    encoded_api_function = Quaco::API_FUNCTION_MAP[api_function]
     api_params = params[:parameters]
-    
+
+    if api_params.present?
+      api_params = api_params.permit(
+        :x,:y,:x1,:y1,:x2,:y2,:speed,:duration,:back_pos,:force,:delay,:new_name,:index,:ip,:port
+      ).to_h.values
+    end
+
+    if api_params.present?
+      encoded_api_call = encoded_api_function +
+                         api_params.join(':') +
+                         ':'
+    else
+      encoded_api_call = encoded_api_function
+    end
+
+    render plain: encoded_api_call
   end
 
   def show
