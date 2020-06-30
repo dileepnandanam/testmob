@@ -5,28 +5,28 @@
 
     %section
       %ul.nav.nav-tabs.custom-nav
+        - if false
+          %li.nav-item
+            %a.nav-link{:href => "/test_induviduals/connections", class: action_name == 'connections' ? 'highlited-tab' : ''} 
+              Connections
         %li.nav-item
-          %a.nav-link{"data-target-id" => "connections", "data-url" => "partials/connections.html", :href => "javascript:void(0)"} Connections
+          %a.nav-link{:href => "/test_induviduals/basic_motion", class: action_name == 'basic_motion' ? 'highlited-tab' : ''}
+            Basic motion
         %li.nav-item
-          %a.nav-link{"data-target-id" => "basic_motion", "data-url" => "partials/basic_motion.html", :href => "javascript:void(0)"}
-            Basic
-            motion
+          %a.nav-link{:href => "/test_induviduals/advanced_mode", class: action_name == 'advanced_mode' ? 'highlited-tab' : ''}
+            Advanced Motion
         %li.nav-item
-          %a.nav-link{"data-target-id" => "advanced_mode", "data-url" => "partials/advanced_mode.html", :href => "javascript:void(0)"}
-            Advanced
-            Motion
+          %a.nav-link{:href => "/test_induviduals/interpolated_mode", class: action_name == 'interpolated_mode' ? 'highlited-tab' : ''}
+            Interpolated Motion
         %li.nav-item
-          %a.nav-link{"data-target-id" => "interpolated_mode", "data-url" => "partials/interpolated_mode.html", :href => "javascript:void(0)"} Interpolated Motion
+          %a.nav-link{:href => "/test_induviduals/others", class: action_name == 'others' ? 'highlited-tab' : ''}
+            Others
         %li.nav-item
-          %a.nav-link{"data-target-id" => "others", "data-url" => "partials/others.html", :href => "javascript:void(0)"} Others
+          %a.nav-link{:href => "/test_induviduals/rig_control", class: action_name == 'rig_control' ? 'highlited-tab' : ''}
+            Rig Control
         %li.nav-item
-          %a.nav-link{"data-target-id" => "rig_control", "data-url" => "partials/rig_control.html", :href => "javascript:void(0)"}
-            Rig
-            Control
-        %li.nav-item
-          %a.nav-link{"data-target-id" => "power_control", "data-url" => "partials/power_control.html", :href => "javascript:void(0)"}
-            Power
-            Control
+          %a.nav-link{:href => "/test_induviduals/power_control", class: action_name == 'power_control' ? 'highlited-tab' : ''}
+            Power Control
     %section
       #nav-content
         = render partial: action_name

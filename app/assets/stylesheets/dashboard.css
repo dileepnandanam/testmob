@@ -98,3 +98,12 @@
   padding: 16px;
   margin-bottom: 20px;
 }
+.nav-item {
+  font-size: 18px;
+}
+a.highlited-tab {
+  border-radius: 8px 8px 0px 0px !important;
+  border-top: 1px solid blue !important;
+  border-left: 1px solid blue !important;
+  border-right: 1px solid blue !important;
+}
