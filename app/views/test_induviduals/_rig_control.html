@@ -1,19 +1,18 @@
 <div id="rig_control" class="row nav-content">
-    <div class="col-7">
-        <div class="port-container">
+    <div class="col-6">
+        <div class="port-container rig-control-container">
             <h5>Rig Light</h5>
-            <div class="col-4 torque-container">
-                <div class="form-inline">
-                    <button type="button" class="button_submit torque-toggle btn btn-primary pull-left" data-action="rig_light_on">ON</button>
-                    <button type="button" class="button_submit torque-toggle btn btn-primary pull-right" data-action="rig_light_off">OFF</button>
-                </div>
-            </div>
+
+            <button type="button" class="rig_light_button button_submit btn btn-primary pull-left" data-action="rig_light_on">ON</button>
+            <button type="button" class="rig_light_button button_submit btn btn-primary pull-right" data-action="rig_light_off">OFF</button>
+            <div class="clearfix"></div>
+        
         </div>
     </div>
-    <div class="col-5">
-        <div class="port-container">
+    <div class="col-6">
+        <div class="controll-container port-container">
             <h5>Buzzer</h5>
-            <button type="button" class="button_submit torque-toggle btn btn-primary pull-right" data-action="buzzer_of">OFF</button>
+            <button type="button" class="button_submit btn btn-primary pull-right buzzer_of" data-action="buzzer_of">OFF</button>
         </div>
     </div>
     <div class="col-6">
@@ -32,7 +31,7 @@
                         </div>
                     </div>
                     <div class="col-4">
-                        <button type="submit" data-value="dut_profile_name_set" class="btn btn-primary submit-button">Set</button>
+                        <button type="submit" data-value="dut_profile_name_set" class="btn btn-primary submit-button dut_profile_name_set">Set</button>
                     </div>
                 </div>
 
@@ -40,7 +39,7 @@
         </div>
     </div>
     <div class="col-6">
-        <div class="port-container">
+        <div class="port-container robot-axis-container">
             <h5>Robot Lift Axis</h5>
             
         </div>

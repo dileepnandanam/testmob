@@ -131,3 +131,39 @@ button.torque-toggle.btn.btn-primary {
   margin: 12px;
   padding: 12px;
 }
+.controll-container {
+  height: 200px;
+}
+.robot-axis-container {
+  height: 214px;
+}
+.dut_profile_name_set {
+  padding: 40px !important;
+  margin-top: 17px;
+  margin-left: -18px;
+}
+.rig_light_button {
+  padding: 30px !important;
+  display: inline-block;
+  margin-left: 20px;
+}
+.rig-control-container {
+  height: 200px;
+}
+.buzzer_of {
+  padding: 30px 92px !important;
+  margin-left: 50px;
+}
+.move_xy_container {
+  height: 217px;
+}
+.move_to_xy_plane_move {
+  margin-left: -30px !important;
+  padding: 29px !important;
+}
+.touch_event_move {
+  margin-right: 23px !important;
+}
+.down-up-controll-container {
+  margin: auto;
+}
