@@ -16,6 +16,10 @@ class QuacoTelnet
     @@connection
   end
 
+  def self.closed?
+    @@connection.sock.closed?
+  end
+
   def self.execute(user_id, line)
     self.connection.cmd(line) do |data| 
       OutputSender.perform_later(user_id, line, data)
@@ -24,11 +28,12 @@ class QuacoTelnet
   end
 
   def self.execute_now(line)
-    if self.connection.nil?
+    if self.closed?
       return 'disconnected'
     end
     self.connection.cmd(line) do |data| 
       result = data
+      break
     end
     result
   end
