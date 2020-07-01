@@ -1,6 +1,7 @@
 class QuacoTelnet
   require 'net/telnet'
   @@connection = nil
+  @@result = nil
 
   def self.connect
     @@connection = Net::Telnet::new('Host' => AppConfig.where(name: 'host').first.value,
@@ -31,10 +32,11 @@ class QuacoTelnet
     if self.closed?
       return 'disconnected'
     end
+    @@result = nil
     self.connection.cmd(line) do |data| 
-      result = data
+      @@result = data
       break
     end
-    result
+    @@result
   end
 end
