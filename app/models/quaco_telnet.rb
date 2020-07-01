@@ -22,4 +22,14 @@ class QuacoTelnet
       break
     end
   end
+
+  def self.execute_now(line)
+    if self.connection.nil?
+      return 'disconnected'
+    end
+    self.connection.cmd(line) do |data| 
+      result = data
+    end
+    result
+  end
 end

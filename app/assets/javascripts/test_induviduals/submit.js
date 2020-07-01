@@ -23,6 +23,8 @@ function addSubmitEvent() {
 function callApi(type, parameters) {
     $.post(APP_CONFIG.apiEndpoint, { api_function: type, parameters }, function (success, error) {
         console.log(success);
+        $('.box').html(success.api_call)
+        $('.api-response').val(success.result)
     })
 }
 

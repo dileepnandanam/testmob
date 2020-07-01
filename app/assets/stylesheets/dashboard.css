@@ -16,7 +16,7 @@
   max-width: 500px
 }
 
-.code, .spec {
+.code, .spec, .video-feedback {
   margin-top: 0px;
   width: 100%;
   border: 1px solid black;
@@ -166,4 +166,13 @@ button.torque-toggle.btn.btn-primary {
 }
 .down-up-controll-container {
   margin: auto;
+}
+.video-feedback {
+  margin-bottom: 12px;
+}
+.video-feedback iframe {
+  width: 100%;
+}
+.box {
+  font-size: 12px;
 }
