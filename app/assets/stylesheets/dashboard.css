@@ -176,3 +176,30 @@ button.torque-toggle.btn.btn-primary {
 .box {
   font-size: 12px;
 }
+.video-feedback {
+  position: relative;
+}
+.video-feedback-inner {
+  overflow: hidden;
+  width: 100%;
+}
+.video-feedback-inner iframe {
+  margin-top: -52px;
+  margin-bottom: -52px;
+}
+
+.top-shadow {
+  position: absolute;
+  width: 93%;
+  top: 0px;
+  height: 62px;
+  background-color: #fefaf0;
+}
+
+.bottom-shadow {
+  position: absolute;
+  width: 92%;
+  top: 281px;
+  height: 58px;
+  background-color: #fefaf0;
+}

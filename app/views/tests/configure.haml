@@ -28,5 +28,6 @@
   .connection.float-left
     %h3
       TELNET
+      .clearfix
       = link_to 'Connect to Quaco via Telnet', connect_app_configs_path(type: 'telnet'), class: 'connection-action', method: :put
       = link_to 'Disconnect from Quaco Telnet', disconnect_app_configs_path(type: 'telnet'), class: 'connection-action', method: :put

@@ -1,6 +1,5 @@
 .ide
-  .video-feedback
-    = raw AppConfig.where(name: 'youtube_iframe').first.value
+  = render partial: 'tests/video_feedback'
 .container-fluid
   .container-box
     %section

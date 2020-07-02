@@ -1,7 +1,6 @@
 .dashboard.default-content
   .ide
-    .video-feedback
-      = raw AppConfig.where(name: 'youtube_iframe').first.value
+    = render partial: 'tests/video_feedback'
     .code
       = simple_form_for(@test, html: {remote: true}) do |f|
         = f.input :code

@@ -1,5 +1,8 @@
 $(document).on('turbolinks:load', function() {
     addSubmitEvent()
+    $('button').click(function(e) {
+        $(this).focus()
+    })
 })
 function addSubmitEvent() {
     $(".form").submit(function (event) {
