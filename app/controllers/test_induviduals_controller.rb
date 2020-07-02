@@ -1,5 +1,5 @@
 class TestInduvidualsController < ApplicationController
-  
+  before_action :check_user
   def advanced_mode
     render 'test_induvidual_common_template'
   end
@@ -32,4 +32,11 @@ class TestInduvidualsController < ApplicationController
     render 'test_induvidual_common_template'
   end
 
+  protected
+
+  def check_user
+    unless ['platform', 'client'].include? current_user.try(:usertype)
+      redirect_to root_path
+    end
+  end
 end
