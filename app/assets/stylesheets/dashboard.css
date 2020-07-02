@@ -185,21 +185,35 @@ button.torque-toggle.btn.btn-primary {
 }
 .video-feedback-inner iframe {
   margin-top: -52px;
-  margin-bottom: -52px;
+  margin-bottom: -61px;
 }
 
 .top-shadow {
   position: absolute;
   width: 93%;
-  top: 0px;
-  height: 62px;
-  background-color: #fefaf0;
+  top: 20px;
+  height: 82px;
+  background-color: transparent;
 }
 
 .bottom-shadow {
   position: absolute;
   width: 92%;
-  top: 281px;
-  height: 58px;
-  background-color: #fefaf0;
+  top: 150px;
+  height: 81px;
+  background-color: transparent;
+}
+.left-shadow {
+  height: 210px;
+  width: 196px;
+  position: absolute;
+}
+.right-shadow {
+  left: 282px;
+  height: 212px;
+  width: 196px;
+  position: absolute;
+}
+.get_pos {
+  margin-top: 12px;
 }

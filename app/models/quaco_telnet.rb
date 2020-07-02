@@ -29,7 +29,7 @@ class QuacoTelnet
   end
 
   def self.execute_now(line)
-    if self.closed?
+    if self.connection.nil? || self.closed?
       return 'disconnected'
     end
     @@result = nil
