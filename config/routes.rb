@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users do 
     put :request_demo, on: :member
     put :accept_demo, on: :member
+    put :pending_demo, on: :member
   end
 
   resources :tests do

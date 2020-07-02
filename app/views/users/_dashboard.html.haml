@@ -13,7 +13,7 @@
       - User.where(usertype: 'pending').all.each do |u|
         .demo-request
           .float-left= u.email
-          .float-right= link_to 'accept', accept_demo_user_path(u), class: 'accept-demo-request', method: :put
+          .float-right= link_to 'schedule', accept_demo_user_path(u), class: 'accept-demo-request', method: :put
           .clearfix
       .clearfix
     .request-list
@@ -21,4 +21,6 @@
         Scheduled Demo Requests
       - User.where(usertype: 'client').all.each do |u|
         .demo-request
-          = u.email
+          .float-left= u.email
+          .float-right= link_to 'make pending', pending_demo_user_path(u), class: 'accept-demo-request', method: :put
+          .clearfix

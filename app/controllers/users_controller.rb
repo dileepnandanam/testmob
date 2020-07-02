@@ -16,6 +16,13 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def pending_demo
+    if current_user.usertype == 'platform'
+      User.find(params[:id]).update usertype: 'pending'
+    end
+    redirect_to root_path
+  end
+
   protected
 
   def check_user
