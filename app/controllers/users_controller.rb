@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
   def check_user
     unless current_user
-      redirect_to new_user_sessions_path
+      redirect_to new_user_session_path
     end
   end
 end
