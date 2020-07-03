@@ -1,6 +1,4 @@
-.ide.pull-left.col-lg-4
-  = render partial: 'tests/video_feedback'
-.container-fluid.pull-right.col-lg-8
+.container-fluid.interactive-ui.pull-right.col-lg-8
   .container-box
     %section
       = render partial: 'test_induviduals/header'
@@ -9,27 +7,27 @@
       %ul.nav.nav-tabs.custom-nav
         - if false
           %li.nav-item
-            %a.nav-link{:href => "/test_induviduals/connections", class: action_name == 'connections' ? 'highlited-tab' : ''} 
+            %a.nav-link{:href => "/test_induviduals/connections", class: action_name == 'connections' ? 'highlited-tab' : '', data:{remote: true, target: 'connection'}}
               Connections
         %li.nav-item
-          %a.nav-link{:href => "/test_induviduals/basic_motion", class: action_name == 'basic_motion' ? 'highlited-tab' : ''}
+          %a.nav-link{:href => "/test_induviduals/basic_motion", class: action_name == 'basic_motion' ? 'highlited-tab' : '', data:{remote: true, target: 'basic_motion'}}
             Basic motion
         %li.nav-item
-          %a.nav-link{:href => "/test_induviduals/advanced_mode", class: action_name == 'advanced_mode' ? 'highlited-tab' : ''}
+          %a.nav-link{:href => "/test_induviduals/advanced_mode", class: action_name == 'advanced_mode' ? 'highlited-tab' : '', data:{remote: true, target: 'advanced_mode'}}
             Advanced Motion
         %li.nav-item
-          %a.nav-link{:href => "/test_induviduals/interpolated_mode", class: action_name == 'interpolated_mode' ? 'highlited-tab' : ''}
+          %a.nav-link{:href => "/test_induviduals/interpolated_mode", class: action_name == 'interpolated_mode' ? 'highlited-tab' : '', data:{remote: true, target: 'interpolated_mode'}}
             Interpolated Motion
         %li.nav-item
-          %a.nav-link{:href => "/test_induviduals/others", class: action_name == 'others' ? 'highlited-tab' : ''}
+          %a.nav-link{:href => "/test_induviduals/others", class: action_name == 'others' ? 'highlited-tab' : '', data:{remote: true, target: 'others'}}
             Others
         %li.nav-item
-          %a.nav-link{:href => "/test_induviduals/rig_control", class: action_name == 'rig_control' ? 'highlited-tab' : ''}
+          %a.nav-link{:href => "/test_induviduals/rig_control", class: action_name == 'rig_control' ? 'highlited-tab' : '', data:{remote: true, target: 'rig_control'}}
             Rig Control
         - if current_user && current_user.usertype == 'platform'  
           %li.nav-item
-            %a.nav-link{:href => "/test_induviduals/power_control", class: action_name == 'power_control' ? 'highlited-tab' : ''}
+            %a.nav-link{:href => "/test_induviduals/power_control", class: action_name == 'power_control' ? 'highlited-tab' : '', data:{remote: true, target: 'power_control'}}
               Power Control
     %section
       #nav-content
-        = render partial: action_name
+        = render partial: (@initial_template || action_name)

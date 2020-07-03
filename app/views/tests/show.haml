@@ -1,11 +1,7 @@
-.dashboard.default-content
-  .pull-left.col-lg-3
-    .ide
-      = render partial: 'tests/video_feedback'
-      .code
-        = simple_form_for(@test, html: {remote: true}) do |f|
-          = f.input :code
-          = f.submit 'execute', class: 'submit-code'
-      .result
-  .pull-right.col-lg-9
-    .interactive
+.side-panel.col-lg-4.pull-left
+  = render partial: 'tests/video_feedback'
+  .clearfix
+  = render partial: 'tests/ide'
+  .clearfix
+.interactive-pannel.col-lg-7.pull-right
+  = render template: 'test_induviduals/test_induvidual_common_template'

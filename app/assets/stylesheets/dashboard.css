@@ -6,7 +6,8 @@
 .ide {
   width: 100%;
   margin-top: 20px;
-  max-width: 500px
+  max-width: 400px;
+  display: grid;
 }
 .config-container {
   width: 100%;
@@ -204,15 +205,35 @@ button.torque-toggle.btn.btn-primary {
 }
 .left-shadow {
   height: 210px;
-  width: 196px;
+  width: 146px;
   position: absolute;
 }
 .right-shadow {
-  left: 282px;
+  left: 227px;
   height: 212px;
-  width: 196px;
+  width: 151px;
   position: absolute;
 }
-.get_pos {
-  margin-top: 12px;
+
+.side-panel {
+  padding: 12px;
+  display: inline-block;
+}
+.interactive-pannel {
+  display: inline-block;
+  padding: 12px;
+  width: 841px !important;
+  padding: 0px;
+}
+.interactive-ui {
+  display: inline-block;
+  margin: 0px !important;
+}
+.api-response {
+  width: 150px !important;
+  margin-top: 0px !important;
+}
+.get-pos {
+  margin-left: 12px !important;
+  margin-top: 0px !important;
 }

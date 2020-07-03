@@ -1,0 +1,6 @@
+.ide
+  .code
+    = simple_form_for(@test, html: {remote: true}) do |f|
+      = f.input :code
+      = f.submit 'execute', class: 'submit-code'
+  .result

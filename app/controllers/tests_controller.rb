@@ -31,10 +31,12 @@ class TestsController < ApplicationController
 
   def show
     @test = current_user.tests.find(params[:id]) || Test.new
+    @initial_template = 'test_induviduals/basic_motion'
   end
 
   def new
     @test = Test.new
+    @initial_template = 'test_induviduals/basic_motion'
     render 'show'
   end
 
