@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   root to: "home#show"
   resources :users do 
     put :request_demo, on: :member
-    get :accept_demo, on: :member
+    put :accept_demo, on: :member
+    put :demo_finished, on: :member
     put :pending_demo, on: :member
   end
 

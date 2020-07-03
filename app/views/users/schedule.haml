@@ -1,7 +1,7 @@
 = simple_form_for(@user) do |u|
-  = u.input :start, as: :datetime_picker
+  = u.input :start
   .clearfix
-  = u.input :end, as: :datetime_picker
+  = u.input :end
   .clearfix
   = u.submit 'schedule'
   = link_to 'cancel', '#', class: 'cancel-form'

@@ -1,10 +1,10 @@
 .dashboard.default-content
-  - if current_user.usertype.blank?
+  - if ['finished', nil].include? current_user.usertype
     = link_to 'Request a demo', request_demo_user_path(current_user), class: 'request-demo', method: :put
   - elsif current_user.usertype == 'client'
     = link_to 'Use Quaco remotely', tests_path
   - elsif current_user.usertype == 'pending'
-    = 'Request for demo pending'
+    = 'Request for demo pending. We will get back to you soon...'
   - elsif current_user.usertype == 'platform'
     .request-list
       %h3
@@ -13,7 +13,7 @@
       - User.where(usertype: 'pending').all.each do |u|
         .demo-request
           .float-left= u.email
-          = link_to 'schedule', accept_demo_user_path(u), class: 'schedule-demo-request float-right', remote: true
+          = link_to 'schedule', accept_demo_user_path(u), class: 'schedule-demo-request float-right', method: :put
           .clearfix
           .schedule-demo-request-form
           .clearfix
@@ -22,6 +22,16 @@
       %h3
         Scheduled Demo Requests
       - User.where(usertype: 'client').all.each do |u|
+        .demo-request
+          .float-left= u.email
+          .float-left.schedule-time= " from #{u.start} to #{u.end}"
+          .float-right= link_to 'make pending', pending_demo_user_path(u), class: 'accept-demo-request', method: :put
+          .float-right= link_to 'finished', demo_finished_user_path(u), class: 'accept-demo-request', method: :put
+          .clearfix
+    .request-list
+      %h3
+        Finished Demos
+      - User.where(usertype: 'finished').all.each do |u|
         .demo-request
           .float-left= u.email
           .float-left.schedule-time= " from #{u.start} to #{u.end}"

@@ -68,7 +68,7 @@ class TestsController < ApplicationController
   end
 
   def restrict_access
-    if current_user.usertype == 'pending'
+    if ['pending', 'finished'].include? current_user.usertype
       redirect_to root_path and return
     end
   end

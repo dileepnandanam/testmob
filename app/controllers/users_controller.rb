@@ -1,17 +1,20 @@
 class UsersController < ApplicationController
   before_action :check_user
   def show
-    render plain: 'fghj'
+    @user = User.find(params[:id])
   end
 
   def request_demo
     current_user.update usertype: 'pending'
+    UserMailer.with(user: current_user).inbound_demo_request.deliver_later
     redirect_to root_path
   end
 
   def accept_demo
-    @user = User.find(params[:id])
-    render 'schedule', layout: false
+    if current_user.usertype == 'platform'
+      User.find(params[:id]).update usertype: 'client', start: nil, end: nil
+    end
+    redirect_to root_path
   end
 
   def pending_demo
@@ -21,10 +24,14 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def demo_finished
+    if current_user.usertype == 'platform'
+      User.find(params[:id]).update usertype: 'finished', start: nil, end: nil
+    end
+    redirect_to root_path
+  end
+
   def update
-    user_params = params.require(:user).permit(:start, :end)
-    binding.pry
-    User.find(params[:id]).update user_params.merge(usertype: 'client')
     redirect_to root_path
   end
 
