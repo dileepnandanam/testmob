@@ -10,16 +10,21 @@ class UsersController < ApplicationController
   end
 
   def accept_demo
-    if current_user.usertype == 'platform'
-      User.find(params[:id]).update usertype: 'client'
-    end
-    redirect_to root_path
+    @user = User.find(params[:id])
+    render 'schedule', layout: false
   end
 
   def pending_demo
     if current_user.usertype == 'platform'
-      User.find(params[:id]).update usertype: 'pending'
+      User.find(params[:id]).update usertype: 'pending', start: nil, end: nil
     end
+    redirect_to root_path
+  end
+
+  def update
+    user_params = params.require(:user).permit(:start, :end)
+    binding.pry
+    User.find(params[:id]).update user_params.merge(usertype: 'client')
     redirect_to root_path
   end
 

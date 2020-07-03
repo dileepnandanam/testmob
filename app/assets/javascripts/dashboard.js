@@ -12,4 +12,15 @@ $(document).on('turbolinks:load', function() {
     addSubmitEvent()
   })
 
+  $(document).on('ajax:success', '.schedule-demo-request', function(e) {
+    $(this).siblings('.schedule-demo-request-form').html(e.detail[2].responseText)
+    $('.datetime_picker').datetimepicker();
+  })
+
+  $(document).on('click', '.cancel-form', function(e) {
+    $(this).closest('form').remvoe()
+    e.preventDefault()
+  })
+
+
 })

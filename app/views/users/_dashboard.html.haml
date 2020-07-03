@@ -13,7 +13,9 @@
       - User.where(usertype: 'pending').all.each do |u|
         .demo-request
           .float-left= u.email
-          .float-right= link_to 'schedule', accept_demo_user_path(u), class: 'accept-demo-request', method: :put
+          = link_to 'schedule', accept_demo_user_path(u), class: 'schedule-demo-request float-right', remote: true
+          .clearfix
+          .schedule-demo-request-form
           .clearfix
       .clearfix
     .request-list
@@ -22,5 +24,6 @@
       - User.where(usertype: 'client').all.each do |u|
         .demo-request
           .float-left= u.email
+          .float-left.schedule-time= " from #{u.start} to #{u.end}"
           .float-right= link_to 'make pending', pending_demo_user_path(u), class: 'accept-demo-request', method: :put
           .clearfix

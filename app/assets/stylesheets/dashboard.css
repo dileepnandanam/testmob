@@ -237,3 +237,9 @@ button.torque-toggle.btn.btn-primary {
   margin-left: 12px !important;
   margin-top: 0px !important;
 }
+.demo-request {
+  display: inline;
+}
+.schedule-time {
+  margin-left: 20px;
+}
