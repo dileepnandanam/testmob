@@ -1,8 +1,12 @@
 class TestsController < ApplicationController
+  before_action :restrict_access
   protect_from_forgery with: :null_session
   skip_before_action :verify_authenticity_token
   
   def submit
+    if current_user.usertype == 'pending'
+      redirect_to root_path and return
+    end
     api_function = params[:api_function]
     encoded_api_function = Quaco::API_FUNCTION_MAP[api_function]
     api_params = params[:parameters]
@@ -64,5 +68,11 @@ class TestsController < ApplicationController
 
   def test_params
     params.require(:test).permit(:code, :spec)
+  end
+
+  def restrict_access
+    if current_user.usertype == 'pending'
+      redirect_to root_path and return
+    end
   end
 end

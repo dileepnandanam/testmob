@@ -28,7 +28,7 @@ class Quaco
     '5_volt_power_out_on' => 'DP:0:1:' ,#pl
     '5_volt_power_out_off' => 'DP:0:0:' ,#pl
     '12_volt_power_out_on' => 'DP:1:1:' ,#pl
-    '12_volt_power_out_off' => 'DP:1:0' ,#pl
+    '12_volt_power_out_off' => 'DP:1:0:' ,#pl
     'rig_light_on' => 'XL:1:' ,
     'rig_light_off' => 'XL:0:' ,
     'buzzer_of' => 'b:0:' ,
@@ -37,7 +37,8 @@ class Quaco
 
 
   @@connection = nil
-  def self.connect(type)
+  def self.connect
+    type = 'telnet'
     if type == 'tcp'
       @@connection = QuacoTcp
       QuacoTcp.connect
@@ -55,6 +56,10 @@ class Quaco
 
   def self.connection
     @@connection
+  end
+
+  def self.closed?
+    @@connection.nil? || @connection.closed?
   end
 
   def self.execute(user_id, line)
