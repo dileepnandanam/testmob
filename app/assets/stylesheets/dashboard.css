@@ -246,3 +246,7 @@ button.torque-toggle.btn.btn-primary {
 .accept-demo-request {
   margin-left: 16px;
 }
+.code textarea {
+  background: #553939 !important;
+  color: #e2eb51 !important;
+}
