@@ -5,7 +5,7 @@
 }
 .ide {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 58px;
   max-width: 400px;
   display: grid;
 }
@@ -249,4 +249,7 @@ button.torque-toggle.btn.btn-primary {
 .code textarea {
   background: #553939 !important;
   color: #e2eb51 !important;
+}
+.interactive-pannel {
+  position: absolute !important;
 }
