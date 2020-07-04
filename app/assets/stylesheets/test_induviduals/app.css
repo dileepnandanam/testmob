@@ -97,7 +97,7 @@ header .logo {
 }
 .port-container .api-response {
     display: inline-block;
-    width: 99px !important;
+    width: 111px !important;
     border: 1px solid black;
     height: 46px;
 }
@@ -205,8 +205,8 @@ header .logo {
     border-bottom: none !important;
 }
 .robot_lift_axis_z_axis_height {
-    margin-top: -35px !important;
-    margin-left: 77px !important;
+    margin-top: -200px !important;
+    margin-left: 200px !important;
 }
 .robot_lift_axis_move {
     margin-top: 16px !important;
