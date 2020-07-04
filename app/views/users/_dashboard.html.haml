@@ -12,7 +12,7 @@
       .clearfix
       - User.where(usertype: 'pending').all.each do |u|
         .demo-request
-          .float-left= u.email
+          = link_to u.email, user_path(u), class: 'float-left'
           = link_to 'schedule', accept_demo_user_path(u), class: 'schedule-demo-request float-right', method: :put
           .clearfix
           .schedule-demo-request-form

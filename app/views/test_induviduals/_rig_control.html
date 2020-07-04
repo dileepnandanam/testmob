@@ -41,6 +41,22 @@
     <div class="col-6">
         <div class="port-container robot-axis-container">
             <h5>Robot Lift Axis</h5>
+            <form class="form">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="form-inline">
+                            <label class="point-label">height</label>
+                            <input name="height" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <button type="submit" data-value="robot_lift_axis_move" class="btn btn-primary robot_lift_axis_move submit-button">move</button>
+                    </div>
+                </div>
+
+            </form>
+            <div class='api-response' ></div>
+            <button type="submit" data-value="robot_lift_axis_z_axis_height" class="btn btn-primary submit-button robot_lift_axis_z_axis_height">z-Axis Height</button>
             
         </div>
     </div>

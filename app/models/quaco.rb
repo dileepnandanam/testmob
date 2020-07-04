@@ -25,14 +25,16 @@ class Quaco
     'base_led_off' => 'L:1:' ,
     'power_restart' => 's:0:' ,#platform
     'power_shutdown' => 's:1' ,#platform
-    '5_volt_power_out_on' => 'DP:0:1:' ,#pl
-    '5_volt_power_out_off' => 'DP:0:0:' ,#pl
-    '12_volt_power_out_on' => 'DP:1:1:' ,#pl
-    '12_volt_power_out_off' => 'DP:1:0:' ,#pl
+    '5_volt_power_out_on' => 'DP:0:1:' ,#platform
+    '5_volt_power_out_off' => 'DP:0:0:' ,#platform
+    '12_volt_power_out_on' => 'DP:1:1:' ,#platform
+    '12_volt_power_out_off' => 'DP:1:0:' ,#platform
     'rig_light_on' => 'XL:1:' ,
     'rig_light_off' => 'XL:0:' ,
     'buzzer_of' => 'b:0:' ,
-    'dut_profile_name_set' => 'REDP:' 
+    'dut_profile_name_set' => 'REDP:',
+    'robot_lift_axis_z_axis_height' => 'ZP:',
+    'robot_lift_axis_move' => 'ZH:'
   }
 
 
