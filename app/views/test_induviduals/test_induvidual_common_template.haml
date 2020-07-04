@@ -10,7 +10,7 @@
             %a.nav-link{:href => "/test_induviduals/connections", class: action_name == 'connections' ? 'highlited-tab' : '', data:{remote: true, target: 'connection'}}
               Connections
         %li.nav-item
-          %a.nav-link{:href => "/test_induviduals/basic_motion", class: action_name == 'basic_motion' ? 'highlited-tab' : '', data:{remote: true, target: 'basic_motion'}}
+          %a.nav-link{:href => "/test_induviduals/basic_motion", class: action_name == 'basic_motion' || action_name == 'new' ? 'highlited-tab' : '', data:{remote: true, target: 'basic_motion'}}
             Basic motion
         %li.nav-item
           %a.nav-link{:href => "/test_induviduals/advanced_mode", class: action_name == 'advanced_mode' ? 'highlited-tab' : '', data:{remote: true, target: 'advanced_mode'}}
