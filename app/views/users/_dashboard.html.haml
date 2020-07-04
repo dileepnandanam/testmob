@@ -24,7 +24,6 @@
       - User.where(usertype: 'client').all.each do |u|
         .demo-request
           .float-left= u.email
-          .float-left.schedule-time= " from #{u.start} to #{u.end}"
           .float-right= link_to 'make pending', pending_demo_user_path(u), class: 'accept-demo-request', method: :put
           .float-right= link_to 'finished', demo_finished_user_path(u), class: 'accept-demo-request', method: :put
           .clearfix
