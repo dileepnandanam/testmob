@@ -21,6 +21,13 @@ $(document).on('turbolinks:load', function() {
     $(this).closest('form').remvoe()
     e.preventDefault()
   })
-
+  
+  if($('#capture').length > 0) {
+    var socket = io.connect('quaco.sastrarobotics.com');
+    socket.on('image',(data)=>{
+      const image = document.getElementById("capture");
+      image.src = `data:image/jpeg;base64,${data}`;
+    });
+  }
 
 })

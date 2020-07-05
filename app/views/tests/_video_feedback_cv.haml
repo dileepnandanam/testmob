@@ -1,10 +1,1 @@
-
 %img#capture
-
-:javascript
-  
-  var socket = io.connect('quaco.sastrarobotics.com');
-  socket.on('image',(data)=>{
-      const image = document.getElementById("capture");
-      image.src = `data:image/jpeg;base64,${data}`;
-  });
