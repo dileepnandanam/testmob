@@ -253,3 +253,8 @@ button.torque-toggle.btn.btn-primary {
 .interactive-pannel {
   position: absolute !important;
 }
+#capture {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+}

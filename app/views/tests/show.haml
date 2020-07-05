@@ -1,5 +1,9 @@
 .side-panel.col-lg-4.pull-left
-  = render partial: 'tests/video_feedback'
+  
+  - if true
+    = render partial: 'tests/video_feedback_cv'
+  - if false
+    = render partial: 'tests/video_feedback'
   .clearfix
   = render partial: 'tests/ide'
   .clearfix
