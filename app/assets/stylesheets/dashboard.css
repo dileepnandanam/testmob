@@ -182,6 +182,7 @@ button.torque-toggle.btn.btn-primary {
 .video-feedback-inner {
   overflow: hidden;
   width: 100%;
+  height: 400px;
 }
 .video-feedback-inner iframe {
   margin-top: -52px;
