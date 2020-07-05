@@ -3,7 +3,7 @@
 
 :javascript
   
-  var socket = io.connect('http://61.2.141.215:3000');
+  var socket = io.connect('quaco.sastrarobotics.com/stream');
   socket.on('image',(data)=>{
       const image = document.getElementById("capture");
       image.src = `data:image/jpeg;base64,${data}`;
