@@ -22,7 +22,7 @@ $(document).on('turbolinks:load', function() {
     e.preventDefault()
   })
   
-  if($('#capture').length > 0) {
+  if($('#capture').length > 0 && false) {
     var socket = io.connect('quaco.sastrarobotics.com');
     socket.on('image',(data)=>{
       const image = document.getElementById("capture");
