@@ -31,8 +31,11 @@
         = link_to 'Disconnect from Quaco Socket', disconnect_app_configs_path(type: 'tcp'), class: 'connection-action', method: :put
 
   .connection.float-left
-    %h3
-      TELNET
-      .clearfix
-      = link_to 'Connect to Quaco via Telnet', connect_app_configs_path(type: 'telnet'), class: 'connection-action', method: :put
-      = link_to 'Disconnect from Quaco Telnet', disconnect_app_configs_path(type: 'telnet'), class: 'connection-action', method: :put
+    - if !Quaco.closed?
+      = image_tag('connected')
+    - else
+      = image_tag('disconnected')
+
+    .clearfix
+    = link_to 'Connect to Quaco via Telnet', connect_app_configs_path(type: 'telnet'), class: 'connection-action', method: :put
+    = link_to 'Disconnect from Quaco Telnet', disconnect_app_configs_path(type: 'telnet'), class: 'connection-action', method: :put
