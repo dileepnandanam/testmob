@@ -13,7 +13,7 @@
       .nav-bar
         - if current_user
           = link_to "log out", destroy_user_session_path, class: 'nav-bar-item float-right', method: :delete
-          = link_to "Documents", 'https://drive.google.com/file/d/1CgD6Yp_VOx3jGzFlxKvhKO9AHHdLMOR8/view?usp=sharing', class: 'nav-bar-item float-right', target: '_blank'
+          = link_to "Documents", AppConfig.where(name: 'document_link').first.try(:value), class: 'nav-bar-item float-right', target: '_blank'
         - else
           = link_to "log in", new_user_session_path, class: 'nav-bar-item float-right'
           = link_to "sign up", new_user_registration_path, class: 'nav-bar-item float-right'
