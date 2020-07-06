@@ -1,9 +1,4 @@
-.ide.stream
-  .video-feedback
-    .top-shadow
-    .bottom-shadow
-    .left-shadow
-    .right-shadow
-    .video-feedback-inner
-      = raw AppConfig.where(name: 'youtube_iframe').first.value
+
+  %video{:autoplay => "", :height => "240", :width => "320"}
+    %source{:src => "http://61.2.141.215:8081"}
 %img#capture
