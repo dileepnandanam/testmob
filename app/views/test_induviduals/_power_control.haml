@@ -1,0 +1,23 @@
+#power_control.row.nav-content
+  .col-6
+    .port-container
+      .form-inline
+        %label.inline-label 5 volt power out
+        %button.btn.btn-primary.button_submit.submit-button.button_submit.torque-toggle{"data-action" => "5_volt_power_out_on", :type => "button"} ON
+        %button.btn.btn-primary.button_submit.submit-button.button_submit.torque-toggle{"data-action" => "5_volt_power_out_off", :type => "button"} OFF
+  .col-6
+    .port-container
+      .form-inline
+        %label.inline-label 12 volt power out
+        %button.btn.btn-primary.button_submit.submit-button.button_submit.torque-toggle{"data-action" => "12_volt_power_out_on", :type => "button"} ON
+        %button.btn.btn-primary.button_submit.submit-button.button_submit.torque-toggle{"data-action" => "12_volt_power_out_off", :type => "button"} OFF
+  - if current_user.usertype == 'platform'  
+    .col-12
+      .port-container.text-center
+        .row
+          .col-3
+            %h5 Power
+          .col-9
+            %button.btn.btn-primary.submit-button.button_submit{"data-action" => "power_restart", :type => "button"} RESTART
+            %button.btn.btn-primary.submit-button.button_submit{"data-action" => "power_shutdown", :type => "button"} SHUTDOWN
+
