@@ -8,11 +8,12 @@
   = simple_form_for(AppConfig.where(name: 'port').first_or_create) do |f|
     = f.input :value
     = f.submit
-  %br
-  Youtube Iframe
-  = simple_form_for(AppConfig.where(name: 'youtube_iframe').first_or_create) do |f|
-    = f.input :value
-    = f.submit
+  - if false
+    %br
+    Youtube Iframe
+    = simple_form_for(AppConfig.where(name: 'youtube_iframe').first_or_create) do |f|
+      = f.input :value
+      = f.submit
   %br
   Document Link
   = simple_form_for(AppConfig.where(name: 'document_link').first_or_create) do |f|
