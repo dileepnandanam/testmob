@@ -10,6 +10,11 @@ class AppConfigsController < ApplicationController
     redirect_to configure_tests_path
   end
 
+  def flush
+    Quaco.flush
+    redirect_to new_test_path
+  end
+
   def update
     unless current_user.usertype == 'platform'
       redirect_to root_path and return

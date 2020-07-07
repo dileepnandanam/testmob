@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   end
 
   resources :app_configs do
+    put :flush, on: :collection
     put :connect, on: :collection
     put :disconnect, on: :collection
   end

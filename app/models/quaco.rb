@@ -52,6 +52,10 @@ class Quaco
     end
   end
 
+  def flush
+    @@connection && @@connection.connection.waitfor(/\n/)
+  end
+
   def self.disconnect
     self.connection.disconnect
   end
@@ -61,7 +65,7 @@ class Quaco
   end
 
   def self.closed?
-    @@connection.nil? || @connection.closed?
+    @@connection.nil? || @@connection.closed?
   end
 
   def self.execute(user_id, line)
