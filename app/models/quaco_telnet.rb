@@ -6,7 +6,7 @@ class QuacoTelnet
   def self.connect
     @@connection = Net::Telnet::new('Host' => AppConfig.where(name: 'host').first.value,
                           'Port' => AppConfig.where(name: 'port').first.value.to_i,
-                          'Telnetmode' => false)
+                          'Telnetmode' => false, "Timeout" => 100)
   end
 
   def self.disconnect
