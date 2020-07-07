@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', function() {
   //})
 
   $('.submit-code').click(function() {
-    $('.result').html('Executing...')
+    $('.result-status').html('Executing...')
   })
 
   $(document).on('ajax:success', '.nav-link', function(e) {

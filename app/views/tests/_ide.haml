@@ -4,4 +4,6 @@
       = f.input :code, input_html: {value: (@test.persisted? ? @test.code : Test.first.code)}
       = f.submit 'execute', class: 'submit-code'
   .result
-    Result:
+    .result-status
+      Result:
+    .result-inner
