@@ -18,7 +18,7 @@ class QuacoTelnet
   end
 
   def self.closed?
-    @@connection.sock.closed?
+    @@connection && @@connection.sock.closed?
   end
 
   def self.execute(user_id, line)
