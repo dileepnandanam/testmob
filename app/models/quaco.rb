@@ -52,7 +52,7 @@ class Quaco
     end
   end
 
-  def flush
+  def self.flush
     @@connection && @@connection.connection.waitfor(/\n/)
   end
 
