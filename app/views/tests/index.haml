@@ -5,4 +5,5 @@
     - current_user.tests.order('created_at desc').each do |test|
       .test
         = link_to "build_#{test.id}", test_path(test)
+        = link_to 'delete', test_path(test), method: :delete, class: 'pull-right float-right'
     = link_to 'New Build', new_test_path, class: 'new-test'

@@ -61,6 +61,11 @@ class TestsController < ApplicationController
     redirect_to root_path unless current_user.usertype == 'platform'
   end
 
+  def destroy
+    Test.find(params[:id]).delete
+    redirect_to tests_path
+  end
+
   protected
 
   def test_params

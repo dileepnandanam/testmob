@@ -19,6 +19,11 @@
   = simple_form_for(AppConfig.where(name: 'document_link').first_or_create) do |f|
     = f.input :value
     = f.submit
+  %br
+  Sales Email 
+  = simple_form_for(AppConfig.where(name: 'sales_email').first_or_create) do |f|
+    = f.input :value
+    = f.submit
 
 
   %br
