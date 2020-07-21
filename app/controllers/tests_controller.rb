@@ -10,7 +10,7 @@ class TestsController < ApplicationController
 
     if api_params.present?
       api_params = api_params.permit(
-        :x,:y,:x1,:y1,:x2,:y2,:speed,:duration,:back_pos,:height,:force,:delay,:new_name,:index,:ip,:port
+        :x,:y,:x1,:y1,:x2,:y2,:taps,:delay,:speed,:duration,:back_pos,:height,:force,:new_name,:index,:ip,:port
       ).to_h.values
     end
 

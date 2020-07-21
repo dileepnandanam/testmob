@@ -4,7 +4,7 @@ class Quaco
     'swipe_swipe' => 'w:' ,
     'swipe_swipe_and_return' => 'w:r:' ,
     'flick_flick' => 'f:l:' ,
-    'touch_tap' => 't:f:' ,
+    'touch_tap' => 't:m:' ,
     'move_to_xy_plane_move' => 'p:f:' ,
     'touch_event_move' => 't:e:' ,
     'touch_touch' => 't:f:' ,
