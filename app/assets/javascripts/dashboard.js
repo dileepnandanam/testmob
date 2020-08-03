@@ -3,6 +3,11 @@ $(document).on('turbolinks:load', function() {
   //  $('.result').html(e.detail[2].responseText)
   //})
 
+    addSubmitEvent()
+    $('button').click(function(event) {
+        $(this).focus()
+    })
+
   $('.submit-code').click(function() {
     $('.result-status').html('Executing...')
   })
