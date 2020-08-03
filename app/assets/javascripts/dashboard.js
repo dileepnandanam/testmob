@@ -1,12 +1,15 @@
+focusAlternative = function() {
+  $('button').click(function(event) {
+    $(this).focus()
+  })
+}
 $(document).on('turbolinks:load', function() {
   //$('.code form').on('ajax:success', function(e) {
   //  $('.result').html(e.detail[2].responseText)
   //})
 
     addSubmitEvent()
-    $('button').click(function(event) {
-        $(this).focus()
-    })
+    focusAlternative()
 
   $('.submit-code').click(function() {
     $('.result-status').html('Executing...')
@@ -15,6 +18,7 @@ $(document).on('turbolinks:load', function() {
   $(document).on('ajax:success', '.nav-link', function(e) {
     $('.interactive-ui').replaceWith(e.detail[2].responseText)
     addSubmitEvent()
+    focusAlternative()
   })
 
   $(document).on('ajax:success', '.schedule-demo-request', function(e) {
