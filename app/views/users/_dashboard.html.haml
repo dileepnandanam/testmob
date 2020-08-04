@@ -10,7 +10,7 @@
       %h3
         Pending Demo Requests
       .clearfix
-      - User.where(usertype: 'pending').all.each do |u|
+      - User.where(usertype: 'pending').order('created_at DESC').all.each do |u|
         .demo-request
           = link_to u.email, user_path(u), class: 'float-left'
           = link_to 'schedule', accept_demo_user_path(u), class: 'schedule-demo-request float-right', method: :put
@@ -21,7 +21,7 @@
     .request-list
       %h3
         Scheduled Demo Requests
-      - User.where(usertype: 'client').all.each do |u|
+      - User.where(usertype: 'client').order('created_at DESC').all.each do |u|
         .demo-request
           .float-left= u.email
           .float-right= link_to 'make pending', pending_demo_user_path(u), class: 'accept-demo-request', method: :put
@@ -30,7 +30,7 @@
     .request-list
       %h3
         Finished Demos
-      - User.where(usertype: 'finished').all.each do |u|
+      - User.where(usertype: 'finished').order('created_at DESC').all.each do |u|
         .demo-request
           .float-left= u.email
           .float-right= link_to 'make pending', pending_demo_user_path(u), class: 'accept-demo-request', method: :put
