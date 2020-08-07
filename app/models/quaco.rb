@@ -24,7 +24,7 @@ class Quaco
     'base_led_on' => 'L:0:' ,
     'base_led_off' => 'L:1:' ,
     'power_restart' => 's:0:' ,#platform
-    'power_shutdown' => 's:1' ,#platform
+    'power_shutdown' => 's:1:' ,#platform
     '5_volt_power_out_on' => 'DP:0:1:' ,#platform
     '5_volt_power_out_off' => 'DP:0:0:' ,#platform
     '12_volt_power_out_on' => 'DP:1:1:' ,#platform
