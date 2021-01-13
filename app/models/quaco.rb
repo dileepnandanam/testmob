@@ -34,7 +34,10 @@ class Quaco
     'buzzer_of' => 'b:0:' ,
     'dut_profile_name_set' => 'REDP:',
     'robot_lift_axis_z_axis_height' => 'ZP:',
-    'robot_lift_axis_move' => 'ZH:'
+    'robot_lift_axis_move' => 'ZH:',
+    'dimenzio_move_to_xy_plane_move' => 'p:',
+    'dimenzio_pick_card' => 'm:',
+    'dimenzio_drop_card' => 'n:'
   }
 
 
@@ -69,7 +72,10 @@ class Quaco
     self.connection.execute(user_id, line)
   end
 
-  def self.execute_now(user_id, line)
-    self.connection.execute(user_id, line)
+  def self.execute_now(line)
+    if self.closed?
+      return 'disconnected'
+    end
+    self.connection.execute(line)
   end
 end

@@ -31,9 +31,6 @@ class Quaco2Telnet
   end
 
   def self.execute_now(line)
-    if self.connection.nil? || self.closed?
-      return 'disconnected'
-    end
     @@result = []
     self.connection.cmd(line) do |data| 
       @@result << data
