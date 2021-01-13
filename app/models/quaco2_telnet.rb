@@ -37,6 +37,6 @@ class Quaco2Telnet
       @@result << data
       break if data[-2..-1] == "\n\n"
     end
-    @@result.gsub("\n","<br />")
+    @@result.join('').gsub("\n","<br />")
   end
 end
