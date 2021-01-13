@@ -21,9 +21,7 @@ class AppConfigsController < ApplicationController
     end
 
     config = AppConfig.find(params[:id])
-    if config.name == 'target_quaco'
-      Quaco.disconnect
-    end
+
     config.update params.require(:app_config).permit(:value)
     redirect_to configure_tests_path
   end
