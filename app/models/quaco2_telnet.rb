@@ -22,10 +22,12 @@ class Quaco2Telnet
   end
 
   def self.execute(user_id, line)
+    output = []
     self.connection.cmd(line) do |data| 
-      OutputSender.perform_later(user_id, line, data.gsub("\n", "<br />"))
+      output << data
       break if data[-2..-1] == "\n\n"
     end
+    OutputSender.perform_later(user_id, line, output.join('').gsub("\n", "<br />"))
   end
 
   def self.execute_now(line)
