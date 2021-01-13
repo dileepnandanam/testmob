@@ -23,8 +23,8 @@ class Quaco2Telnet
 
   def self.execute(user_id, line)
     self.connection.cmd(line) do |data| 
-      OutputSender.perform_later(user_id, line, data)
-      break
+      OutputSender.perform_later(user_id, line, data.gsub("\n", "<br />"))
+      break if data[-2..-1] == "\n\n"
     end
   end
 
@@ -32,11 +32,11 @@ class Quaco2Telnet
     if self.connection.nil? || self.closed?
       return 'disconnected'
     end
-    @@result = nil
+    @@result = []
     self.connection.cmd(line) do |data| 
-      @@result = data
-      break
+      @@result << data
+      break if data[-2..-1] == "\n\n"
     end
-    @@result
+    @@result.gsub("\n","<br />")
   end
 end
