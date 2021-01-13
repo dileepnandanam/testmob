@@ -25,6 +25,13 @@
     = f.input :value
     = f.submit
 
+  %br
+  Target Quaco
+  = simple_form_for(AppConfig.where(name: 'target_quaco').first_or_create) do |f|
+    = f.collection_radio_buttons :value, [['quaco_1', 'Quaco 1'], ['quaco_2', 'Quaco 2']], :first, :last, item_wrapper_class: 'clearfix'
+    .clearfix
+    = f.submit
+
 
   %br
   - if false

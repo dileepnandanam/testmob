@@ -269,3 +269,15 @@ button.torque-toggle.btn.btn-primary {
   padding: 12px;
   font-size: 20px;
 }
+
+input[type="radio"], input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+  margin-right: 12px;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+}
+label {
+  font-size: 20px !important;
+}

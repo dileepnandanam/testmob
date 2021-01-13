@@ -48,7 +48,9 @@ class Quaco
     else
       @@connection = QuacoTelnet
       QuacoTelnet.connect
-      QuacoTelnet.connection.waitfor(/\n/)
+      if AppConfig.where(name: 'target_quaco').first.value == 'quaco_1'
+        QuacoTelnet.connection.waitfor(/\n/)
+      end
     end
   end
 
