@@ -76,6 +76,6 @@ class Quaco
     if self.closed?
       return 'disconnected'
     end
-    self.connection.execute(line)
+    self.connection.execute_now(line)
   end
 end
