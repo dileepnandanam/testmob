@@ -1,4 +1,4 @@
-class QuacoTelnet
+class Quaco2Telnet
   require 'net/telnet'
   @@connection = nil
   @@result = nil

@@ -39,18 +39,13 @@ class Quaco
 
 
   @@connection = nil
-  def self.connect(type)
-    type = 'telnet'
-    if type == 'tcp'
-      @@connection = QuacoTcp
-      QuacoTcp.connect
-      QuacoTcp.connection.read
+  def self.connect
+    if AppConfig.where(name: 'target_quaco').first == 'quaco_2'
+      @@connection = Quaco2Telnet
+      Quaco2Telnet.connect
     else
       @@connection = QuacoTelnet
       QuacoTelnet.connect
-      if AppConfig.where(name: 'target_quaco').first.value == 'quaco_1'
-        QuacoTelnet.connection.waitfor(/\n/)
-      end
     end
   end
 
@@ -71,6 +66,10 @@ class Quaco
   end
 
   def self.execute(user_id, line)
+    self.connection.execute(user_id, line)
+  end
+
+  def self.execute_now(user_id, line)
     self.connection.execute(user_id, line)
   end
 end

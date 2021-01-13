@@ -1,7 +1,7 @@
 class AppConfigsController < ApplicationController
 
   def connect
-    Quaco.connect(params[:type])
+    Quaco.connect
     redirect_to configure_tests_path
   end
 
@@ -19,7 +19,12 @@ class AppConfigsController < ApplicationController
     unless current_user.usertype == 'platform'
       redirect_to root_path and return
     end
-    AppConfig.find(params[:id]).update params.require(:app_config).permit(:value)
+
+    config = AppConfig.find(params[:id])
+    if config.name == 'target_quaco'
+      Quaco.disconnect
+    end
+    config.update params.require(:app_config).permit(:value)
     redirect_to configure_tests_path
   end
 end

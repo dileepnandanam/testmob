@@ -22,7 +22,7 @@ class TestsController < ApplicationController
       encoded_api_call = encoded_api_function
     end
 
-    result = QuacoTelnet.execute_now(encoded_api_call)
+    result = Quaco.execute_now(encoded_api_call)
 
     render json: {
       api_call: encoded_api_call,
