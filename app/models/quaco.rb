@@ -40,7 +40,7 @@ class Quaco
 
   @@connection = nil
   def self.connect
-    if AppConfig.where(name: 'target_quaco').first == 'quaco_2'
+    if AppConfig.where(name: 'target_quaco').first.value == 'quaco_2'
       @@connection = Quaco2Telnet
       Quaco2Telnet.connect
     else
