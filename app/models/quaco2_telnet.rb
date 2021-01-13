@@ -34,7 +34,7 @@ class Quaco2Telnet
     @@result = []
     self.connection.cmd(line) do |data| 
       @@result << data
-      break if data[-2..-1] == "\n\n"
+      break if data[-2..-1] == "\n\n" || data[-2..-1] == "1\n"
     end
     @@result.join('').gsub("\n","<br />")
   end
