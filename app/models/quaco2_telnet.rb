@@ -25,7 +25,7 @@ class Quaco2Telnet
     output = []
     self.connection.cmd(line) do |data| 
       output << data
-      break if data[-2..-1] == "\n\n"
+      break if data[-2..-1] == "\n\n" || data[-2..-1] == "1\n"
     end
     OutputSender.perform_later(user_id, line, output.join('').gsub("\n", "<br />"))
   end

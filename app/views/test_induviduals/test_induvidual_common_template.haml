@@ -24,6 +24,9 @@
         %li.nav-item
           %a.nav-link{:href => "/test_induviduals/rig_control", class: action_name == 'rig_control' ? 'highlited-tab' : '', data:{remote: true, target: 'rig_control'}}
             Rig Control
+        %li.nav-item
+          %a.nav-link{:href => "/test_induviduals/dimenzio", class: action_name == 'dimenzio' ? 'highlited-tab' : '', data:{remote: true, target: 'dimenzio'}}
+            Dimenzio
         - if current_user && current_user.usertype == 'platform'  
           %li.nav-item
             %a.nav-link{:href => "/test_induviduals/power_control", class: action_name == 'power_control' ? 'highlited-tab' : '', data:{remote: true, target: 'power_control'}}

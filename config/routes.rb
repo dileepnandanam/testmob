@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     get :others, on: :collection
     get :power_control, on: :collection
     get :rig_control, on: :collection
+    get :dimenzio, on: :collection
   end
 
   resources :app_configs do
