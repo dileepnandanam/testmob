@@ -12,7 +12,12 @@ class OutputSender < ApplicationJob
     -10 => "Parameter data type is wrong"
   }
   def perform(user_id, line, output)
-    output_code = output.encode("UTF-8", invalid: :replace).strip.to_i
+    if AppConfig.where(name: 'target_quaco').first.value == 'quaco_2'
+      output_code = output
+    else
+      output_code = output.encode("UTF-8", invalid: :replace).strip.to_i
+    end
+    
     @user = User.find(user_id)
     ApplicationCable::NotificationsChannel.broadcast_to(
       @user,
