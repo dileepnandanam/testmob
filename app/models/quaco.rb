@@ -37,7 +37,8 @@ class Quaco
     'robot_lift_axis_move' => 'ZH:',
     'dimenzio_move_to_xy_plane_move' => 'p:',
     'dimenzio_pick_card' => 'm:',
-    'dimenzio_drop_card' => 'n:'
+    'dimenzio_drop_card' => 'n:',
+    'dimenzio_press_button' => 'b:'
   }
 
 
