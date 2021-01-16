@@ -39,8 +39,8 @@ $(document).on('turbolinks:load', function() {
     });
   }
 
-  $(document).on('ajax:success', '.scenario-form', function() {
-    $(this).siblings('.scenario-result').html('')
+  $(document).on('click', '.scenario-form input[type="submit"]', function() {
+    $(this).closest('form').siblings('.scenario-result').html('')
   })
 
 })
