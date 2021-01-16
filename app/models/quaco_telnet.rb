@@ -23,10 +23,13 @@ class QuacoTelnet
   end
 
   def self.execute(user_id, line, target)
+    result = nil
     self.connection.cmd(line) do |data| 
+      result = data
       OutputSender.perform_later(user_id, line, data, target)
       break
     end
+    return result.encode("UTF-8", invalid: :replace).strip.to_i
   end
 
   def self.execute_now(line)

@@ -7,11 +7,13 @@ class TestScenarioRunner < ApplicationJob
       if line.starts_with?('delay')
         OutputSender.perform_later(user_id, line, '1', 'target')
         sleep(line.split(':').last.to_f)
+        result = '1'
       elsif
         line.starts_with?('comment')
         OutputSender.perform_later(user_id, line.split(':').last, '', target)
+        result = '1'
       else
-        Quaco.execute(user_id, line, 'target') if line.present?
+        result = Quaco.execute(user_id, line, 'target') if line.present?
       end
     end
   end

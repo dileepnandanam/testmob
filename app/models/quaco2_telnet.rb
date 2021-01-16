@@ -28,6 +28,7 @@ class Quaco2Telnet
       break if data[-2..-1] == "\n\n" || data[-2..-1] == "1\n"
     end
     OutputSender.perform_later(user_id, line, output.join('').gsub("\n", "<br />"), target)
+    return output.join('').gsub("\n", ",")
   end
 
   def self.execute_now(line)
