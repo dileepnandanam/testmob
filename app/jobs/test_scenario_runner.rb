@@ -5,13 +5,13 @@ class TestScenarioRunner < ApplicationJob
     @test = TestScenario.find(test_id)
     @test.code.split(/\n/).each do |line|
       if line.starts_with?('delay')
-        OutputSender.perform_later(user_id, line, '1', target)
+        OutputSender.perform_later(user_id, line, '1', 'target')
         sleep(line.split(':').last.to_f)
       elsif
         line.starts_with?('comment')
         OutputSender.perform_later(user_id, line.split(':').last, '', target)
       else
-        Quaco.execute(user_id, line, target) if line.present?
+        Quaco.execute(user_id, line, 'target') if line.present?
       end
     end
   end
