@@ -36,6 +36,10 @@ class TestInduvidualsController < ApplicationController
     render 'test_induvidual_common_template', layout: false
   end
 
+  def test_scenarios
+    render 'test_induvidual_common_template', layout: false
+  end
+
   protected
 
   def check_user

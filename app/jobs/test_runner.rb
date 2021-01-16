@@ -1,7 +1,7 @@
 class TestRunner < ApplicationJob
   queue_as :default
 
-  def perform(test_id) 
+  def perform(test_id)
     @test = Test.find(test_id)
     @test.code.split(/\n/).each do |line|
       if line.starts_with?('delay')

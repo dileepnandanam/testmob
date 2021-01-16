@@ -26,7 +26,10 @@ Rails.application.routes.draw do
     get :power_control, on: :collection
     get :rig_control, on: :collection
     get :dimenzio, on: :collection
+    get :test_scenarios, on: :collection
   end
+
+  resources :test_scenarios
 
   resources :app_configs do
     put :flush, on: :collection

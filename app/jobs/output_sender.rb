@@ -11,7 +11,7 @@ class OutputSender < ApplicationJob
     -9 => "Wrong number of parameters",
     -10 => "Parameter data type is wrong"
   }
-  def perform(user_id, line, output)
+  def perform(user_id, line, output, target='.result-inner')
     if AppConfig.where(name: 'target_quaco').first.value == 'quaco_2'
       output_code = output
     else
@@ -22,7 +22,7 @@ class OutputSender < ApplicationJob
     ApplicationCable::NotificationsChannel.broadcast_to(
       @user,
       message: "<div class='result-line'>#{line}<br/>#{output_code}</div>"
-      #message: output
+      target: target
     )
   end
 end

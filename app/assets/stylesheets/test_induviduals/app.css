@@ -85,6 +85,12 @@ header .logo {
     padding: 20px;
     margin-bottom: 15px;
 }
+.scenario-port-container {
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
 .port-container input.form-control {
     border: 1px solid black;
 }
