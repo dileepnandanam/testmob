@@ -69,7 +69,7 @@ class Quaco
     @@connection.nil? || @@connection.closed?
   end
 
-  def self.execute(user_id, line)
+  def self.execute(user_id, line, target)
     self.connection.execute(user_id, line)
   end
 

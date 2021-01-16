@@ -21,13 +21,13 @@ class Quaco2Telnet
     @@connection.try(:sock).try(:closed?)
   end
 
-  def self.execute(user_id, line)
+  def self.execute(user_id, line, target)
     output = []
     self.connection.cmd(line) do |data| 
       output << data
       break if data[-2..-1] == "\n\n" || data[-2..-1] == "1\n"
     end
-    OutputSender.perform_later(user_id, line, output.join('').gsub("\n", "<br />"))
+    OutputSender.perform_later(user_id, line, output.join('').gsub("\n", "<br />"), target)
   end
 
   def self.execute_now(line)

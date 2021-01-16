@@ -5,25 +5,25 @@
   %h3
     Quaco
   - test = TestScenario.for('Open Chrome App')
-  = simple_form_for(test, html: {class: 'form'}, remote: true) do |f|
+  = simple_form_for(test, html: {class: 'scenario-form'}, remote: true) do |f|
     .code-input{class: current_user.usertype == 'platform' ? '' : 'd-none'}
       = f.input :code
-    = f.submit test.name, class: 'button_submit btn btn-primary'
+    = f.submit test.name, class: 'btn btn-primary'
   .scenario-result{id: "result_#{test.id}"}
 
 .scenario-port-container
   %h3
     Dimenzio
   - test = TestScenario.for('Card Insert and Key entry')
-  = simple_form_for(test, html: {class: 'form'}, remote: true) do |f|
+  = simple_form_for(test, html: {class: 'scenario-form'}, remote: true) do |f|
     .code-input{class: current_user.usertype == 'platform' ? '' : 'd-none'}
       = f.input :code
-    = f.submit test.name, class: 'button_submit btn btn-primary'
+    = f.submit test.name, class: 'btn btn-primary'
   .scenario-result{id: "result_#{test.id}"}
 
   - test = TestScenario.for('Key entry and cash removal')
-  = simple_form_for(test, html: {class: 'form'}, remote: true) do |f|
+  = simple_form_for(test, html: {class: 'scenario-form'}, remote: true) do |f|
     .code-input{class: current_user.usertype == 'platform' ? '' : 'd-none'}
       = f.input :code
-    = f.submit test.name, class: 'button_submit btn btn-primary'
+    = f.submit test.name, class: 'btn btn-primary'
   .scenario-result{id: "result_#{test.id}"}

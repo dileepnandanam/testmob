@@ -11,7 +11,7 @@ class OutputSender < ApplicationJob
     -9 => "Wrong number of parameters",
     -10 => "Parameter data type is wrong"
   }
-  def perform(user_id, line, output, target='.result-inner')
+  def perform(user_id, line, output, target)
     if AppConfig.where(name: 'target_quaco').first.value == 'quaco_2'
       output_code = output
     else

@@ -47,14 +47,14 @@ class TestsController < ApplicationController
 
   def create
     @test = current_user.tests.create test_params
-    TestRunner.perform_later(@test.id)
+    TestRunner.perform_later(@test.id, '.result-inner')
     render plain: 'started'
   end
 
   def update
     @test = current_user.tests.find(params[:id])
     @test.update test_params
-    TestRunner.perform_later(@test.id)
+    TestRunner.perform_later(@test.id, '.result-inner')
   end
 
   def configure

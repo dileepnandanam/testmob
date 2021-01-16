@@ -22,9 +22,9 @@ class QuacoTelnet
     @@connection.try(:sock).try(:closed?)
   end
 
-  def self.execute(user_id, line)
+  def self.execute(user_id, line, target)
     self.connection.cmd(line) do |data| 
-      OutputSender.perform_later(user_id, line, data)
+      OutputSender.perform_later(user_id, line, data, target)
       break
     end
   end
