@@ -8,7 +8,7 @@ class TestScenarioRunner < ApplicationJob
         OutputSender.perform_later(user_id, line, '1', target)
         sleep(line.split(':').last.to_f)
       else
-        Quaco.execute(user_id, line) if line.present?
+        Quaco.execute(user_id, line, target) if line.present?
       end
     end
   end
