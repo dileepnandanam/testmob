@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', function() {
     App.cable.subscriptions.create("ApplicationCable::NotificationsChannel", {
       received(data) {
         $(data.target).append(data.message)
-        $(data.target).scrollTop($('.result-inner').prop('scrollHeight'))
+        $(data.target).scrollTop($(data.target).prop('scrollHeight'))
       }
     })
     notification_channel_subscribed = 1
