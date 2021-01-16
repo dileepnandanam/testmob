@@ -286,4 +286,5 @@ input[type="radio"], input[type="checkbox"] {
   min-height: 44px;
   background: black;
   margin-top: 12px;
+  margin-bottom: 12px;
 }
