@@ -42,6 +42,10 @@ $(document).on('turbolinks:load', function() {
   $(document).on('click', '.scenario-form input[type="submit"]', function() {
     $(this).closest('form').siblings('.scenario-result').html('')
     $(this).siblings('.report-link').html('')
+    var that = this
+    $(that).hide()
+    $(that).siblings('.loader').removeClass('d-none')
+    setTimeout(function() {$(that).show(); $(that).siblings('.loader').addClass('d-none')}, 5*1000)
   })
 
 })

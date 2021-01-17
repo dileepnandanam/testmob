@@ -292,6 +292,7 @@ input[type="radio"], input[type="checkbox"] {
   color: white;
   font-size: 20px;
   padding: 12px;
+  min-height: 64px;
 }
 .bar_chart_header {
   font-size: 22px;
@@ -309,4 +310,16 @@ input[type="radio"], input[type="checkbox"] {
   border: 1px solid black;
   padding: 12px;
   text-align: center;
+}
+.report_link {
+  display: none;
+}
+.report_link:first-child {
+  display: block;
+}
+.scenario-btn-cont {
+  height: 44px;
+}
+.loader img {
+  width: 36px;
 }
