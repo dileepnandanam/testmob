@@ -3,7 +3,7 @@ class TestScenariosController < ApplicationController
 
   def update
     @test = TestScenario.find(params[:id])
-    @test.update test_params
+    @test.update test_params if current_user.usertype == 'platform'
     TestScenarioRunner.perform_later(@test.id, current_user.id, "#result_#{@test.id}")
   end
 

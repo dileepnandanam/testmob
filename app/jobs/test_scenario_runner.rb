@@ -20,7 +20,7 @@ class TestScenarioRunner < ApplicationJob
         OutputSender.perform_later(user_id, line.split(':').last, '', target)
         result = '1'
       else
-        result = Quaco.execute(user_id, line, 'target') if line.present?
+        result = Quaco.execute(user_id, line, 'invalid_target') if line.present?
       end
       results << result
     end

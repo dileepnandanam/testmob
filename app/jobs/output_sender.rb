@@ -15,7 +15,7 @@ class OutputSender < ApplicationJob
     if AppConfig.where(name: 'target_quaco').first.value == 'quaco_2'
       output_code = output
     else
-      output_code = output.encode("UTF-8", invalid: :replace).strip.to_i
+      output_code = output.length > 0 ? output.encode("UTF-8", invalid: :replace).strip.to_i : output
     end
     
     @user = User.find(user_id)
