@@ -308,4 +308,5 @@ input[type="radio"], input[type="checkbox"] {
 .final-result td, th {
   border: 1px solid black;
   padding: 12px;
+  text-align: center;
 }
