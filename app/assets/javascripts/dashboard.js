@@ -41,6 +41,7 @@ $(document).on('turbolinks:load', function() {
 
   $(document).on('click', '.scenario-form input[type="submit"]', function() {
     $(this).closest('form').siblings('.scenario-result').html('')
+    $(this).siblings('.report-link').html('')
   })
 
 })

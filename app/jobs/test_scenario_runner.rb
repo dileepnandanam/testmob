@@ -3,7 +3,14 @@ class TestScenarioRunner < ApplicationJob
 
   def perform(test_id, user_id, target)
     @test = TestScenario.find(test_id)
-    @test.code.split(/\n/).each do |line|
+    @test.update(start_at: Time.now)
+    results = []
+    lines = @test.code.split(/\n/)
+    lines.each do |line|
+      if Quaco.closed?
+        OutputSender.perform_later(user_id, 'disconnected', '', target)
+        break
+      end
       if line.starts_with?('delay')
         OutputSender.perform_later(user_id, line, '1', 'target')
         sleep(line.split(':').last.to_f)
@@ -15,6 +22,10 @@ class TestScenarioRunner < ApplicationJob
       else
         result = Quaco.execute(user_id, line, 'target') if line.present?
       end
+      results << result
     end
+    success = (results.count == lines.count)
+    @test.update(end_at: Time.now, success: success)
+    ReportNotifier.perform_later(user_id, @test.id)
   end
 end

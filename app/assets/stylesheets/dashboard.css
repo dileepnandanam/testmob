@@ -293,3 +293,19 @@ input[type="radio"], input[type="checkbox"] {
   font-size: 20px;
   padding: 12px;
 }
+.bar_chart_header {
+  font-size: 22px;
+  color: #757575;
+}
+.final-result {
+  border: 1px solid black;
+  margin: auto;
+  margin-top: 24px;
+}
+.final-result tr {
+  border: 1px solid black;
+}
+.final-result td, th {
+  border: 1px solid black;
+  padding: 12px;
+}

@@ -7,6 +7,10 @@ class TestScenariosController < ApplicationController
     TestScenarioRunner.perform_later(@test.id, current_user.id, "#result_#{@test.id}")
   end
 
+  def show
+    @test = TestScenario.find(params[:id])
+  end
+
   protected
 
   def test_params

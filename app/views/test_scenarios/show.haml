@@ -1,0 +1,125 @@
+%h3.text-center.mt-5
+  Quaco Test Studio
+%h4.text-center.mt-3
+  Complete HMI testing solution - delivering you a Human-like testing powers
+
+%h1.text-center.mt-3
+  Test Summary
+
+.mt-3.ml-3.pull-left
+  %table
+    %tr
+      %td
+        Test Scenario Name
+      %td
+        = ": #{@test.name}"
+    %tr  
+      %td
+        Test Group Name
+      %td
+        = ": #{@test.name}"
+    %tr  
+      %td
+        Test Suite Name
+      %td
+        = ": #{@test.name}"
+    %tr  
+      %td
+        Test Case Name
+      %td
+        = ": #{@test.name}"
+
+.mt-3.ml-3.float-left
+  %table
+    %tr
+      %td
+        Number of Test Cases
+      %td
+        = ": 01"
+    %tr  
+      %td
+        Number of Test Suites
+      %td
+        = ": 01/01"
+    %tr  
+      %td
+        Number of Test Groups
+      %td
+        = ": 01/01"
+    %tr  
+      %td
+        Number of Test Scenarios
+      %td
+        = ": 01/01"
+    %tr  
+      %td
+        Number of Iterations
+      %td
+        = ": 01"
+
+.mt-3.ml-3.mr-3.float-right
+  %table
+    %tr
+      %td
+        Test Scenario created by
+      %td
+        = ": Sastra"
+    %tr
+      %td
+        Test Group created by
+      %td
+        = ": Sastra"
+    %tr
+    %td
+      Test Suite created by
+    %td
+      = ": Sastra"
+    %tr
+      %td
+        Test case created by
+      %td
+        = ": Sastra"
+    %tr
+      %td
+        Date
+      %td
+        = @test.start_at.strftime("%B %d")
+    %tr
+      %td
+        Time
+      %td
+        = @test.start_at.strftime("%H:%M:%S") + " UST"
+
+.clearfix
+.mb-5.d-inline-block
+  .mt-4.ml-5.float-left
+    .pi-chart
+      = image_tag("result_#{@test.success}")
+  .mt-5.ml-5.float-left
+    %h3.bar_chart_header
+      Time for completion
+    .bar-chart
+      %canvas#bar_chart{data: {time: @test.duration, max: @test.duration * 1.5}, height: '400px', width: '400px'}
+
+
+.mt-5.ml-3.mr-3.mb-4{style: "width: 100%"}
+  %table.final-result
+    %tr
+      %th
+        Sl. no.
+      %th
+        Test Group/Scenario/Suite/Case
+      %th
+        Iterations
+      %th
+        Result
+    %tr
+      %td
+        1
+      %td
+        = @test.name
+      %td
+        01
+      %td
+        = @test.success ? "Success" : "Failed"
+
