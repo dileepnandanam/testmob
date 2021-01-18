@@ -4,7 +4,7 @@
 .scenario-port-container
   %h3
     Quaco
-  .s1
+  .s1.test-scenario
     - test = TestScenario.for('Open Chrome App')
     = simple_form_for(test, html: {class: 'scenario-form'}, remote: true) do |f|
       .code-input{class: current_user.usertype == 'platform' ? '' : 'd-none'}
@@ -16,7 +16,7 @@
         .report-link.float-right{id: "report_link_#{test.id}"}
         .clearfix
     .scenario-result{id: "result_#{test.id}"}
-  .s2
+  .s2.test-scenario
     - test = TestScenario.for('Keyboard Test Case')
     = simple_form_for(test, html: {class: 'scenario-form'}, remote: true) do |f|
       .code-input{class: current_user.usertype == 'platform' ? '' : 'd-none'}
@@ -32,7 +32,7 @@
 .scenario-port-container
   %h3
     Dimenzio
-  .s1
+  .s1.test-scenario
     - test = TestScenario.for('Card Insert and Key entry')
     = simple_form_for(test, html: {class: 'scenario-form'}, remote: true) do |f|
       .code-input{class: current_user.usertype == 'platform' ? '' : 'd-none'}
@@ -45,7 +45,7 @@
         .clearfix
     .scenario-result{id: "result_#{test.id}"}
 
-  .s2
+  .s2.test-scenario
     - test = TestScenario.for('Key entry and cash removal')
     = simple_form_for(test, html: {class: 'scenario-form'}, remote: true) do |f|
       .code-input{class: current_user.usertype == 'platform' ? '' : 'd-none'}

@@ -323,3 +323,9 @@ input[type="radio"], input[type="checkbox"] {
 .loader img {
   width: 36px;
 }
+.test-scenario {
+  border: 1px solid;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
