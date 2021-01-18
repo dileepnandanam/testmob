@@ -10,7 +10,7 @@
     = f.submit
   
   %br
-  Galery Link
+  Gallery Link
   = simple_form_for(AppConfig.where(name: 'galery_link').first_or_create) do |f|
     = f.input :value
     = f.submit
