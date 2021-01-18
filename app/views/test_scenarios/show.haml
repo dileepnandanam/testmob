@@ -83,12 +83,12 @@
       %td
         Date
       %td
-        = @test.start_at.strftime("%B %d")
+        = ': ' + @test.start_at.strftime("%B %d")
     %tr
       %td
         Time
       %td
-        = @test.start_at.strftime("%H:%M:%S") + " UST"
+        = ': ' + @test.start_at.strftime("%H:%M:%S") + " UST"
 
 .clearfix
 .mb-5.d-inline-block
