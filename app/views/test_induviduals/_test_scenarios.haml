@@ -4,17 +4,30 @@
 .scenario-port-container
   %h3
     Quaco
-  - test = TestScenario.for('Open Chrome App')
-  = simple_form_for(test, html: {class: 'scenario-form'}, remote: true) do |f|
-    .code-input{class: current_user.usertype == 'platform' ? '' : 'd-none'}
-      = f.input :code
-    .scenario-btn-cont
-      = f.submit test.name, class: 'btn btn-primary float-left'
-      .float-left.loader.d-none
-        = image_tag('loader.gif')
-      .report-link.float-right{id: "report_link_#{test.id}"}
-      .clearfix
-  .scenario-result{id: "result_#{test.id}"}
+  .s1
+    - test = TestScenario.for('Open Chrome App')
+    = simple_form_for(test, html: {class: 'scenario-form'}, remote: true) do |f|
+      .code-input{class: current_user.usertype == 'platform' ? '' : 'd-none'}
+        = f.input :code
+      .scenario-btn-cont
+        = f.submit test.name, class: 'btn btn-primary float-left'
+        .float-left.loader.d-none
+          = image_tag('loader.gif')
+        .report-link.float-right{id: "report_link_#{test.id}"}
+        .clearfix
+    .scenario-result{id: "result_#{test.id}"}
+  .s2
+    - test = TestScenario.for('Keyboard Test Case')
+    = simple_form_for(test, html: {class: 'scenario-form'}, remote: true) do |f|
+      .code-input{class: current_user.usertype == 'platform' ? '' : 'd-none'}
+        = f.input :code
+      .scenario-btn-cont
+        = f.submit test.name, class: 'btn btn-primary float-left'
+        .float-left.loader.d-none
+          = image_tag('loader.gif')
+        .report-link.float-right{id: "report_link_#{test.id}"}
+        .clearfix
+    .scenario-result{id: "result_#{test.id}"}
 
 .scenario-port-container
   %h3
