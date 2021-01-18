@@ -29,7 +29,7 @@
             Dimenzio
         %li.nav-item
           %a.nav-link{:href => "/test_induviduals/test_scenarios", class: action_name == 'test_scenarios' ? 'highlited-tab' : '', data:{remote: true, target: 'test_scenarios'}}
-            Test Scenarios
+            Demo Test Cases
         - if current_user && current_user.usertype == 'platform'  
           %li.nav-item
             %a.nav-link{:href => "/test_induviduals/power_control", class: action_name == 'power_control' ? 'highlited-tab' : '', data:{remote: true, target: 'power_control'}}
