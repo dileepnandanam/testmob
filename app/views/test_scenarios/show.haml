@@ -91,16 +91,6 @@
         = ': ' + @test.start_at.strftime("%H:%M:%S") + " UST"
 
 .clearfix
-.mb-5.d-inline-block
-  .mt-4.ml-5.float-left
-    .pi-chart
-      = image_tag("result_#{@test.success}")
-  .mt-5.ml-5.float-left
-    %h3.bar_chart_header
-      Time for completion
-    .bar-chart
-      %canvas#bar_chart{data: {time: @test.duration, max: @test.duration * 1.5 + 3}, height: '400px', width: '400px'}
-
 
 .mt-5.mb-4{style: "width: 100%"}
   %table.final-result
@@ -122,4 +112,16 @@
         01
       %td
         = @test.success ? "Success" : "Failed"
+
+.mb-5.d-inline-block
+  .mt-4.ml-5.float-left
+    .pi-chart
+      = image_tag("result_#{@test.success}")
+  .mt-5.ml-5.float-left
+    %h3.bar_chart_header
+      Time for completion
+    .bar-chart
+      %canvas#bar_chart{data: {time: @test.duration, max: @test.duration * 1.5 + 3}, height: '400px', width: '400px'}
+
+
 
