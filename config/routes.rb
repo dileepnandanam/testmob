@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     put :demo_finished, on: :member
     put :pending_demo, on: :member
   end
+  scope 'api', module: 'api' do
+    get '/actions/:action_id', to: 'actions#perform'
+  end
 
   resources :tests do
     post :execute, on: :member
