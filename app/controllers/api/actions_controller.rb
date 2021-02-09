@@ -33,7 +33,7 @@ class Api::ActionsController < ApplicationController
     email = params[:email] || request.headers['email']
     user = User.where(access_token: access_token, email: email).first
 
-    unless user.present? && ['client', 'platform'].include?(user.usertype)
+    unless user.present? && ['client', 'platform'].include?(user.usertype) && user.access_token.present?
       render json: {message: 'Access denied'}, status: 401 and return
     end
   end
