@@ -1,0 +1,2 @@
+class ApiDoc < ApplicationRecord
+end

@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     post :submit, on: :collection
   end
 
+  resources :api_docs
+
   resources :test_induviduals do
     get :advanced_mode, on: :collection
     get :basic_motion, on: :collection

@@ -328,3 +328,51 @@ input[type="radio"], input[type="checkbox"] {
   border-radius: 6px;
   margin-bottom: 12px;
 }
+.api-doc-form {
+  padding: 12px;
+  width: 100%;
+  max-width: 700px;
+}
+.api-doc-form textarea {
+  height: 700px !important;
+}
+.api-docs {
+  width: 100%;
+}
+.api-doc-sidebar {
+  width: 25%;
+  float: left;
+  padding: 0px !important;
+}
+.api-doc-content {
+  width: 75%;
+  float: right;
+  padding: 22px;
+}
+.api-doc {
+  padding: 12px;
+  border: 1px solid black;
+  background-color: blue;
+  color: white !important;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+}
+.api-doc:hover {
+  background-color: brown;
+  color: yellow !important;
+  text-decoration: none;
+}
+.api-doc.edit {
+  padding: 3px 12px;
+  background-color: green;
+}
+pre {
+  display: block;
+  font-size: 87.5%;
+  border: 1px solid #e49f9f;
+  background: #c4ca9e;
+  padding: 12px;
+  border-radius: 12px;
+}

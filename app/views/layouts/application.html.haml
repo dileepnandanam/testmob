@@ -18,6 +18,7 @@
           = link_to "log out", destroy_user_session_path, class: 'nav-bar-item float-right', method: :delete  
           = link_to "Documents", AppConfig.where(name: 'document_link').first.try(:value), class: 'nav-bar-item float-right', target: '_blank'
           = link_to "Gallery", AppConfig.where(name: 'galery_link').first.try(:value), class: 'nav-bar-item float-right', target: '_blank'
+          = link_to "API docs", api_docs_path, class: 'nav-bar-item float-right', target: '_blank'
         - else
           = link_to "log in", new_user_session_path, class: 'nav-bar-item float-right'
           = link_to "sign up", new_user_registration_path, class: 'nav-bar-item float-right'

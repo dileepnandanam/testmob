@@ -1,0 +1,8 @@
+.api-docs
+  .api-doc-sidebar
+    = render partial: 'sidebar'
+  .api-doc-content
+    %h1
+      = @api_doc.name
+    %p
+      = raw @api_doc.content
