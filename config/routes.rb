@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   scope 'api', module: 'api' do
     get '/actions/:action_id', to: 'actions#perform'
+    get '/auth/login', to: 'auth#login'
   end
 
   resources :tests do
