@@ -2,3 +2,4 @@
   = link_to doc.name, api_doc_path(doc), class: 'api-doc'
   - if current_user.try(:usertype) == 'platform'
     = link_to 'Edit', edit_api_doc_path(doc), class: 'api-doc edit'
+= link_to 'New', new_api_doc_path, class: 'api-doc edit'
