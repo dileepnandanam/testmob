@@ -89,9 +89,9 @@
 }
 .demo-request {
   width: 100%;
-  max-width: 500px;
   border-bottom: 1px solid black;
   height: 40px;
+  display: inline-block;
 }
 .request-list {
   background-color: #b9b5b5;
@@ -237,9 +237,6 @@ button.torque-toggle.btn.btn-primary {
 .get-pos {
   margin-left: 12px !important;
   margin-top: 0px !important;
-}
-.demo-request {
-  display: inline;
 }
 .schedule-time {
   margin-left: 20px;
