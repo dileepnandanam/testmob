@@ -1,5 +1,5 @@
 - ApiDoc.order('id ASC').all.each do |doc|
-  = link_to doc.name, api_doc_path(doc), class: 'api-doc'
+  = link_to doc.name, api_doc_path(doc), class: 'api-doc ' + (doc.id == @api_doc.id ? 'active' : '')
   - if current_user.try(:usertype) == 'platform'
     = link_to 'Edit', edit_api_doc_path(doc), class: 'api-doc edit'
 - if current_user.try(:usertype) == 'platform'

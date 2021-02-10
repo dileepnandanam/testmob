@@ -368,6 +368,10 @@ input[type="radio"], input[type="checkbox"] {
   padding: 3px 12px;
   background-color: green;
 }
+.api-doc.active {
+  background: none;
+  color: black !important;
+}
 pre {
   display: block;
   font-size: 87.5%;
