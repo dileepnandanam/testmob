@@ -1,6 +1,6 @@
 class Api::ActionsController < ApplicationController
   before_action :respond_to_sandbox_mode
-  before_action :authenticate!
+  before_action :check_user!
 
   def perform
     quaco_api_call = encoded_api_call
@@ -24,12 +24,9 @@ class Api::ActionsController < ApplicationController
     end
   end
 
-  def authenticate!
-    access_token = params[:access_token] || request.headers['access_token']
-    email = params[:email] || request.headers['email']
-    user = User.where(access_token: Digest::SHA1.hexdigest(access_token.to_s), email: email).first
-    
-    unless user.present? && ['client', 'platform'].include?(user.usertype)
+  def check_user!
+    user = current_user
+    unless user && ['client', 'platform'].include?(user.usertype)
       render json: {message: 'Access denied'}, status: 401 and return
     end
   end
@@ -49,5 +46,12 @@ class Api::ActionsController < ApplicationController
     else
       return encoded_api_function
     end
+  end
+
+  def current_user
+    access_token = params[:access_token] || request.headers['access_token']
+    email = params[:email] || request.headers['email']
+    user = User.where(access_token: Digest::SHA1.hexdigest(access_token.to_s), email: email).first
+    user
   end
 end
