@@ -17,5 +17,13 @@ module QuacoWeb
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     #config.active_job.queue_adapter = :resque
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*',
+          headers: :any,
+          methods: [:get, :post, :patch, :delete, :put, :options]
+      end
+    end
   end
 end
