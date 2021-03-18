@@ -65,8 +65,8 @@ $(document).on('turbolinks:load', () => {
   $(".vision-screenshot-overlay").mousemove( (e) => {
     var dragx = e.originalEvent.layerX
     var dragy = e.originalEvent.layerY
-    $('.vision-selection').css('top', dragx1+'px')
-    $('.vision-selection').css('left', dragy1+'px')
+    $('.vision-selection').css('top', dragy1+'px')
+    $('.vision-selection').css('left', dragx1+'px')
     $('.vision-selection').css('width', (dragx - dragx1)+'px')
     $('.vision-selection').css('height', (dragx - dragx1)+'px')
   })
