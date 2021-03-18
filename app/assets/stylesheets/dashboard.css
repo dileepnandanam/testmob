@@ -407,15 +407,10 @@ pre {
   z-index: 9999999999;
 }
 .vision-screenshot-container {
-  width: 1500px;
-  height: 1500px;
   position: relative;
   overflow-x: scroll;
   overflow-y: scroll;
 
-}
-.vision-screenshot {
-  width: 100%;
 }
 .vision-screenshot-overlay {
   position: absolute;

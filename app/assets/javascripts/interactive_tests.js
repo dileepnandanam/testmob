@@ -18,7 +18,7 @@ $(document).on('turbolinks:load', () => {
     var height = y2-y1
     var width = x2-x1
     var aspect_ratio = parseFloat(width)/parseFloat(height)
-    $('.crop-result').css('height', 300/aspect_ratio+'px')
+    $('.crop-result')[0].height = parseInt(300/aspect_ratio)
     var corped_image = $('.crop-result')[0]
     var canvas_context = corped_image.getContext("2d")
     var vision_image = $('.vision-screenshot')[0]
@@ -41,7 +41,7 @@ $(document).on('turbolinks:load', () => {
     dragx2 = e.originalEvent.layerX
     dragy2 = e.originalEvent.layerY
     crop(dragx1, dragy1, dragx2, dragy2)
-    $('.vision-selection').css('display', 'none')
+    //$('.vision-selection').css('display', 'none')
   })
 
   $(".vision-screenshot-overlay").mousemove( (e) => {
