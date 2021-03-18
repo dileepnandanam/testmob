@@ -24,4 +24,30 @@ $(document).on('turbolinks:load', () => {
     var vision_image = $('.vision-screenshot')[0]
     canvas_context.drawImage(vision_image, x1, y1, width, height, 0, 0, 300, 300/aspect_ratio)
   }
+
+  var dragx1 = 0
+  var dragy1 = 0
+  var dragx2 = 0
+  var dragy2 = 0
+  $('.vision-screenshot-overlay').mousedown((e) => {
+    dragx1 = e.originalEvent.layerX
+    dragy1 = e.originalEvent.layerY
+    $('.vision-selection').css('top', dragx1+'px')
+    $('.vision-selection').css('left', dragy1+'px')
+    $('.vision-selection').css('display', 'inline')
+  })
+
+  $('.vision-screenshot-overlay').mouseup((e) => {
+    dragx2 = e.originalEvent.layerX
+    dragy2 = e.originalEvent.layerY
+    crop(dragx1, dragy1, dragx2, dragy2)
+    $('.vision-selection').css('display', 'none')
+  })
+
+  $(".vision-screenshot-overlay").mousemove( (e) => {
+    var dragx = e.originalEvent.layerX
+    var dragy = e.originalEvent.layerY
+    $('.vision-selection').css('width', (dragx - dragx1)+'px')
+    $('.vision-selection').css('height', (dragy - dragy1)+'px')
+  })
 })

@@ -2,8 +2,10 @@
   .border-1.col-lg-3.quaco-panel.p-2
     = render partial: 'tests/video_feedback_cv'
   .border-1.col-lg-5.vision-panel.p-2
-    %img.vision-screenshot{src: Vision.new.capture}
-    .vision-screenshot-overlay
+    .vision-screenshot-container
+      %img.vision-screenshot{src: Vision.new.capture}
+      .vision-screenshot-overlay
+      .vision-selection
   .border-1.col-lg-4.control-panel.p-2
     = link_to 'Capture', capture_screen_shot_interactive_tests_path, remote: true, class: 'btn-primary refresh-vision controll-btn'
     .clearfix
