@@ -11,7 +11,10 @@
     .clearfix
     %canvas.crop-result
     .clearfix
-    = link_to 'Touch', '#', class: 'btn-priamry execute-touch controll-btn', data: {url: execute_touch_interactive_tests_path}
+    
+    = form_with(url: execute_touch_interactive_tests_path, remote: true, method: 'POST', class: 'execute-touch') do
+      = submit_tag 'Touch', class: 'btn-priamry execute-touch controll-btn'
+
     = link_to 'Execute predefined instructions', execute_predefined_actions_interactive_tests_path, remote: true, method: :post, class: 'btn-primary execute-predefined controll-btn'
     
     = form_with(url: execute_text_command_interactive_tests_path, method: 'POST', remote: true, class: 'execute-command') do

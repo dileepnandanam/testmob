@@ -1,6 +1,6 @@
 class Vision
   def execute_touch(image)
-    return(capture)
+    return(image)
   end
   
   def execute_predefined_actions

@@ -15,8 +15,18 @@ $(document).on('turbolinks:load', () => {
     $('.vision-screenshot').attr('src', e.detail[0].screen_shot)
     fill_overlay()
   })
+
+  $(document).on("ajax:before", ".execute-touch", function() {
+    var form = $(this)
+    form.append($('<input />',{name: 'croped_image',value: $('canvas')[0].toDataURL("image/jpeg")}))
+    $(form).find('input[name="croped_image"]').hide()
+  })
+
+  $(document).on('ajax:success', '.execute-touch', (e) => {
+    $('.vision-screenshot').attr('src', e.detail[0].screen_shot)
+  })
   
-  $('.refresh-vision, .execute-predefined, .execute-command input[type="submit"]').on('click', () => {
+  $('.refresh-vision, .execute-predefined, .execute-command input[type="submit"], .controll-btn').on('click', () => {
     set_loading()
   })
   set_loading = () => {

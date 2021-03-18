@@ -393,10 +393,12 @@ pre {
   color: black !important;
   border-radius: 8px;
   margin-top: 12px;
+  border: none;
 }
 .controll-btn:hover {
   color: black;
   background-color: blue;
+  text-decoration: none;
 }
 #text_command {
   width: 90%;
