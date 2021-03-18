@@ -377,3 +377,37 @@ pre {
   padding: 12px;
   border-radius: 12px;
 }
+.border-1 {
+  border: 1px solid;
+  box-sizing: border-box;
+
+  min-height: 100px;
+}
+.row {
+  margin: 0px !important;
+}
+.controll-btn {
+  display: inline-block;
+  padding: 12px;
+  background-color: lightblue !important;
+  color: black !important;
+  border-radius: 8px;
+  margin-top: 12px;
+}
+.controll-btn:hover {
+  color: black;
+  background-color: blue;
+}
+#text_command {
+  width: 90%;
+}
+.vision-screenshot {
+  width: 100%;
+}
+.vision-screenshot-overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+}

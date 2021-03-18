@@ -21,6 +21,13 @@ Rails.application.routes.draw do
     post :submit, on: :collection
   end
 
+  resources :interactive_tests do
+    post :execute_touch, on: :collection
+    post :execute_predefined_actions, on: :collection
+    post :execute_text_command, on: :collection
+    get :capture_screen_shot, on: :collection
+  end
+
   resources :api_docs
 
   resources :test_induviduals do
