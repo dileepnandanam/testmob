@@ -433,3 +433,6 @@ pre {
   display: none;
   background-color: #515785ab;
 }
+.quaco-panel img {
+  width: 326px !important;
+}
