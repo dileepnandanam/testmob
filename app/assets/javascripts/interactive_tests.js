@@ -3,16 +3,24 @@ var crop = null
 $(document).on('turbolinks:load', () => {
   $(document).on('ajax:success', '.refresh-vision', (e) => {
     $('.vision-screenshot').attr('src', e.detail[0].screen_shot)
+    fill_overlay()
   })
 
   $(document).on('ajax:success', '.execute-predefined', (e) => {
     $('.vision-screenshot').attr('src', e.detail[0].screen_shot)
+    fill_overlay()
   })
 
   $(document).on('ajax:success', '.execute-command', (e) => {
     $('.vision-screenshot').attr('src', e.detail[0].screen_shot)
+    fill_overlay()
   })
-
+  
+  fill_overlay = () => {
+    $('.vision-screenshot-overlay').css('width', $('.vision-screenshot').css('width'))
+    $('.vision-screenshot-overlay').css('height', $('.vision-screenshot').css('height'))
+  }
+  fill_overlay()
   
   crop = (x1,y1,x2,y2) => {
     var height = y2-y1
