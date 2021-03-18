@@ -21,7 +21,7 @@ $(document).on('turbolinks:load', () => {
     $('.vision-screenshot-overlay').css('height', $('.vision-screenshot').css('height'))
   }
   fill_overlay()
-  
+
   crop = (x1,y1,x2,y2) => {
     var height = y2-y1
     var width = x2-x1
@@ -56,7 +56,7 @@ $(document).on('turbolinks:load', () => {
   $('.vision-screenshot-overlay').mouseup((e) => {
     dragx2 = e.originalEvent.layerX
     dragy2 = e.originalEvent.layerY
-    crop(dragx1, dragy1, dragx2, dragx2)
+    crop(dragx1, dragy1, dragx2, dragy1 + dragx2 - dragx1)
     reset_drag()
   })
   $(".vision-screenshot-overlay").mouseout((e) => {
@@ -68,6 +68,6 @@ $(document).on('turbolinks:load', () => {
     $('.vision-selection').css('top', dragx1+'px')
     $('.vision-selection').css('left', dragy1+'px')
     $('.vision-selection').css('width', (dragx - dragx1)+'px')
-    $('.vision-selection').css('height', (dragx - dragy1)+'px')
+    $('.vision-selection').css('height', (dragx - dragx1)+'px')
   })
 })
