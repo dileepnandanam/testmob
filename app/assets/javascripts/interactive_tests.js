@@ -16,6 +16,12 @@ $(document).on('turbolinks:load', () => {
     fill_overlay()
   })
   
+  $('.refresh-vision, .execute-predefined, .execute-command input[type="submit"]').on('click', () => {
+    set_loading()
+  })
+  set_loading = () => {
+    $('.vision-screenshot').attr('src', $('.loading').data('url'))
+  }
   fill_overlay = () => {
     $('.vision-screenshot-overlay').css('width', $('.vision-screenshot').css('width'))
     $('.vision-screenshot-overlay').css('height', $('.vision-screenshot').css('height'))
