@@ -378,7 +378,6 @@ pre {
   border-radius: 12px;
 }
 .border-1 {
-  border: 1px solid;
   box-sizing: border-box;
 
   min-height: 100px;
@@ -402,6 +401,10 @@ pre {
 }
 #text_command {
   width: 90%;
+  display: block;
+}
+.execute-command label {
+  font-size: 20px;
 }
 .vision-panel {
   overflow: scroll;
@@ -422,8 +425,7 @@ pre {
   height: 100%;
 }
 .crop-result {
-  margin-bottom: 12px;
-  margin-top: 12px;
+  background-color: black;
   height: 300px;
   width: 300px;
   border: 1px solid black;
@@ -437,4 +439,12 @@ pre {
 }
 .quaco-panel img {
   width: 326px !important;
+}
+.action-group {
+  background: #ecf2f4;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  margin-top: 12px;
+  width: 319px;
 }

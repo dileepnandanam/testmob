@@ -7,19 +7,21 @@
       .vision-screenshot-overlay
       .vision-selection
   .border-1.col-lg-4.control-panel.p-2
-    = link_to 'Capture', capture_screen_shot_interactive_tests_path, remote: true, class: 'btn-primary refresh-vision controll-btn'
+    = link_to 'Capture screen shot', capture_screen_shot_interactive_tests_path, remote: true, class: 'btn-primary refresh-vision controll-btn'
     .clearfix
-    %canvas.crop-result
-    .clearfix
-    
-    = form_with(url: execute_touch_interactive_tests_path, remote: true, method: 'POST', class: 'execute-touch') do
-      = submit_tag 'Touch', class: 'btn-priamry execute-touch controll-btn'
+    .action-group
+      %canvas.crop-result
+      .clearfix
+      
+      = form_with(url: execute_touch_interactive_tests_path, remote: true, method: 'POST', class: 'execute-touch') do
+        = submit_tag 'Touch', class: 'btn-priamry execute-touch controll-btn'
 
     = link_to 'Execute predefined instructions', execute_predefined_actions_interactive_tests_path, remote: true, method: :post, class: 'btn-primary execute-predefined controll-btn'
     
-    = form_with(url: execute_text_command_interactive_tests_path, method: 'POST', remote: true, class: 'execute-command') do
-      = label_tag :command
-      = text_field_tag :text_command
-      = submit_tag 'Execute', class: 'controll-btn'
+    .action-group
+      = form_with(url: execute_text_command_interactive_tests_path, method: 'POST', remote: true, class: 'execute-command') do
+        = label_tag :command
+        = text_field_tag :text_command
+        = submit_tag 'Execute', class: 'controll-btn'
 .d-none
   .loading{data: {url: image_url('loading.gif')}}
