@@ -436,6 +436,7 @@ pre {
   left: 0px;
   display: none;
   background-color: #515785ab;
+  pointer-events: none;
 }
 .quaco-panel img {
   width: 326px !important;

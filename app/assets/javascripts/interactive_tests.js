@@ -59,9 +59,9 @@ $(document).on('turbolinks:load', () => {
     dragy1 = 0
     dragx2 = 0
     dragy2 = 0
+    $('.vision-selection').css('display', 'none')
     $('.vision-selection').css('top', '0px')
     $('.vision-selection').css('left', '0px')
-    $('.vision-selection').css('display', 'none')
   }
   $('.vision-screenshot-overlay').mousedown((e) => {
     dragx1 = e.originalEvent.layerX
