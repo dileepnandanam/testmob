@@ -21,7 +21,7 @@ $(document).on('turbolinks:load', () => {
 
   $(document).on("ajax:before", ".execute-touch", function() {
     var form = $(this)
-    form.append($('<input />',{name: 'croped_image',value: $('canvas')[0].toDataURL("image/bmp")}))
+    form.append($('<input />',{name: 'croped_image',value: $('canvas')[0].toDataURL("image/jpeg")}))
     $(form).find('input[name="croped_image"]').hide()
   })
 
