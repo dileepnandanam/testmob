@@ -32,23 +32,28 @@ $(document).on('turbolinks:load', () => {
   set_loading = () => {
     $('.vision-screenshot').attr('src', $('.loading').data('url'))
   }
-  fill_overlay = () => {
+  set_overlay_dimensions = () => {
     $('.vision-screenshot-overlay').css('width', $('.vision-screenshot').css('width'))
     $('.vision-screenshot-overlay').css('height', $('.vision-screenshot').css('height'))
   }
-  $('.vision-screenshot').one('load', () => {
-    fill_overlay()
-  })
+  fill_overlay = () => {
+    $('.vision-screenshot').one('load', () => {
+      set_overlay_dimensions()
+    })
+  }
+
+  fill_overlay()
 
   crop = (x1,y1,x2,y2) => {
     var height = y2-y1
     var width = x2-x1
     var aspect_ratio = parseFloat(width)/parseFloat(height)
-    $('.crop-result')[0].height = parseInt(300/aspect_ratio)
+    $('.crop-result')[0].height = height
+    $('.crop-result')[0].width = width
     var corped_image = $('.crop-result')[0]
     var canvas_context = corped_image.getContext("2d")
     var vision_image = $('.vision-screenshot')[0]
-    canvas_context.drawImage(vision_image, x1, y1, width, height, 0, 0, 300, 300/aspect_ratio)
+    canvas_context.drawImage(vision_image, x1, y1, width, height, 0, 0, width, height)
   }
 
   var dragx1 = 0
@@ -79,6 +84,7 @@ $(document).on('turbolinks:load', () => {
   })
   $(".vision-screenshot-overlay").mouseout((e) => {
     reset_drag()
+    set_overlay_dimensions()
   })
   $(".vision-screenshot-overlay").mousemove( (e) => {
     var dragx = e.originalEvent.layerX
