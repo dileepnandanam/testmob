@@ -406,7 +406,7 @@ pre {
 .execute-command label {
   font-size: 20px;
 }
-.vision-panel {
+.vision-screenshot-wrapper {
   overflow: scroll;
   max-height: 90vh;
   background-color: white;
