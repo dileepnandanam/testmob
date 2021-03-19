@@ -36,7 +36,9 @@ $(document).on('turbolinks:load', () => {
     $('.vision-screenshot-overlay').css('width', $('.vision-screenshot').css('width'))
     $('.vision-screenshot-overlay').css('height', $('.vision-screenshot').css('height'))
   }
-  fill_overlay()
+  $('.vision-screenshot').one('load', () => {
+    fill_overlay()
+  })
 
   crop = (x1,y1,x2,y2) => {
     var height = y2-y1
