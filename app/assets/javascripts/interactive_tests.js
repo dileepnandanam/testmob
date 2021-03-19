@@ -3,16 +3,19 @@ var crop = null
 $(document).on('turbolinks:load', () => {
   $(document).on('ajax:success', '.refresh-vision', (e) => {
     $('.vision-screenshot').attr('src', e.detail[0].screen_shot)
+    set_loading(false)
     fill_overlay()
   })
 
   $(document).on('ajax:success', '.execute-predefined', (e) => {
     $('.vision-screenshot').attr('src', e.detail[0].screen_shot)
+    set_loading(false)
     fill_overlay()
   })
 
   $(document).on('ajax:success', '.execute-command', (e) => {
     $('.vision-screenshot').attr('src', e.detail[0].screen_shot)
+    set_loading(false)
     fill_overlay()
   })
 
@@ -24,13 +27,15 @@ $(document).on('turbolinks:load', () => {
 
   $(document).on('ajax:success', '.execute-touch', (e) => {
     $('.vision-screenshot').attr('src', e.detail[0].screen_shot)
+    set_loading(false)
   })
   
   $('.refresh-vision, .execute-predefined, .execute-command input[type="submit"], .controll-btn').on('click', () => {
-    set_loading()
+    set_loading(true)
   })
-  set_loading = () => {
-    $('.vision-screenshot').attr('src', $('.loading').data('url'))
+  set_loading = (isLoading) => {
+    //$('.vision-screenshot').attr('src', $('.loading').data('url'))
+    $('.loading').css('display', isLoading ? 'block' : 'none')
   }
   set_overlay_dimensions = () => {
     $('.vision-screenshot-overlay').css('width', $('.vision-screenshot').css('width'))
