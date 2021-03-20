@@ -2,6 +2,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import time
 import cgi
 from cgi import parse_header, parse_multipart
+import base64
 
 #interactive console
 #import code; code.interact(local=dict(globals(), **locals()))
@@ -19,6 +20,8 @@ def capture():
 
 def execute_touch(croped_image_base64):
   print("EXECUTING TOUCH")
+  binary_img = base64.b64decode(croped_image_base64)
+  print("RECIEVED: " + str(binary_img))
 
 def execute_text_command(command):
   print("EXECUTING COMMAND: " + command)
