@@ -6,7 +6,7 @@ import base64
 
 from pypylon import pylon
 from PIL import Image as im
-import cv2
+#import cv2
 from io import BytesIO
 
 

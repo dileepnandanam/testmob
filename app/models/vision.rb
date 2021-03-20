@@ -19,6 +19,6 @@ class Vision
     #File.open(Rails.root.join('vis.bmp'), 'rb') do |img|
     #  'data:image/bmp;base64,' + Base64.strict_encode64(img.read)
     #end
-    return `curl localhost:8080/capture`
+    return 'data:image/bmp;base64,' + `curl localhost:8080/capture`
   end
 end
