@@ -1,15 +1,17 @@
 require 'base64'
 class Vision
   def execute_touch(image)
+    image_header_end_at = 'data:image/jpeg;base64,'.length
+    image = image[(image_header_end_at)..-1]
     return `curl --form "croped_image=#{image}" -X POST localhost:8080/execute_touch`
   end
   
   def execute_predefined_actions
-    return `curl -X POST localhost:8080/execute_predefined_actions`
+    return `curl --form "p=q" -X POST localhost:8080/execute_predefined_actions`
   end
   
   def execute_text_command(text)
-    return `curl --form "text=#{text}" -X POST localhost:8080/execute_touch`
+    return `curl --form "text=#{text}" -X POST localhost:8080/execute_text_command`
   end
   
   def capture
