@@ -455,6 +455,7 @@ pre {
   width: 319px;
 }
 .loading {
+  text-align: center;
   margin: auto;
   display: none;
   padding: 12px 0px;
