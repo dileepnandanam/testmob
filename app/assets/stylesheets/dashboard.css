@@ -459,5 +459,7 @@ pre {
   z-index: 99999999;
   top: 20px;
   left: 20px;
+  background-color: white;
+  padding: 12px;
   display: none;
 }
