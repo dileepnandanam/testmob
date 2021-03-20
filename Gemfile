@@ -78,4 +78,3 @@ gem "google-cloud-storage", "~> 1.8", require: false
 gem 'net-telnet'
 gem 'resque'
 gem 'rack-cors'
-gem 'curb'
