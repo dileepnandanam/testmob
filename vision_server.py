@@ -31,10 +31,12 @@ def capture():
   cv2.imwrite(filename, img)
   return filename
 
-def execute_touch(croped_image_base64):
+def execute_touch():
   print("EXECUTING TOUCH")
-  binary_img = base64.b64decode(croped_image_base64)
-  print("RECIEVED: " + str(binary_img))
+  input_image = cv2.imread('/tmp/vision_input.bmp')
+  r, vision_image = cam.read()
+  import code; code.interact(local=dict(globals(), **locals()))
+
 
 def execute_text_command(command):
   print("EXECUTING COMMAND: " + command)
@@ -47,7 +49,7 @@ def execute_predefined_actions():
 
 #SERVER, DO NOT CHANGE
 class MyServer(BaseHTTPRequestHandler):
-    def send_image_response(self, filename):
+    def send_image_filename(self, filename):
         self.send_response(200)
         self.send_header("Content-type", "text")
         self.end_headers()
@@ -55,7 +57,7 @@ class MyServer(BaseHTTPRequestHandler):
 
     def do_GET(self):
         if self.path == '/capture':
-            self.send_image_response(capture())
+            self.send_image_filename(capture())
 
     def get_params(self):
         ctype, pdict = cgi.parse_header(self.headers['content-type'])
@@ -66,18 +68,17 @@ class MyServer(BaseHTTPRequestHandler):
     def do_POST(self):
         
         if self.path == '/execute_touch':
-            croped_image_base64 = self.get_params()['croped_image'][0]
-            execute_touch(croped_image_base64)
-            self.send_image_response(capture())
+            execute_touch()
+            self.send_image_filename(capture())
 
         if self.path == '/execute_text_command':
             command = self.get_params()['text'][0]
             execute_text_command(command)
-            self.send_image_response(capture())
+            self.send_image_filename(capture())
         
         if self.path == '/execute_predefined_actions':
             execute_predefined_actions()
-            self.send_image_response(capture())   
+            self.send_image_filename(capture())   
 
 
 if __name__ == "__main__":
@@ -93,5 +94,4 @@ if __name__ == "__main__":
   except KeyboardInterrupt:
     pass
   webServer.server_close()
-  cam.Close()
   print("Server stopped.")
