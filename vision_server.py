@@ -35,7 +35,6 @@ def execute_touch():
   print("EXECUTING TOUCH")
   input_image = cv2.imread('/tmp/vision_input.bmp')
   r, vision_image = cam.read()
-  import code; code.interact(local=dict(globals(), **locals()))
 
 
 def execute_text_command(command):
