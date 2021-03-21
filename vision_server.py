@@ -26,7 +26,7 @@ cam = 0
 def capture():
   print("CAPTURING SCREENSHOT")
 
-  filename = '/tmp' + '/vision_output.png'
+  filename = '/tmp' + '/vision_output.bmp'
   r,img = cam.read()
   cv2.imwrite(filename, img)
   return filename
