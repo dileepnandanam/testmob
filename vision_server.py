@@ -33,9 +33,8 @@ def capture():
 
 def execute_touch():
   print("EXECUTING TOUCH")
-  input_image = cv2.imread('/tmp/vision_input.bmp')
+  input_image = cv2.imread('/tmp/vision_input.jpeg')
   r, vision_image = cam.read()
-
 
 def execute_text_command(command):
   print("EXECUTING COMMAND: " + command)

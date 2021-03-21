@@ -19,12 +19,11 @@ $(document).on('turbolinks:load', () => {
     fill_overlay()
   })
 
-  store_image_to = (form) => {
-    CanvasToBMP.toDataURL($('canvas')[0], function(uri) {
-      $(form).append($('<input />',{name: 'croped_image',value: uri}))
-      $(form).find('input[name="croped_image"]').hide()
-    });
-  }
+  $(document).on("ajax:before", ".execute-touch", function() {
+    var form = $(this)
+    form.append($('<input />',{name: 'croped_image',value: $('canvas')[0].toDataURL("image/jpeg")}))
+    $(form).find('input[name="croped_image"]').hide()
+  })
 
   $(document).on('ajax:success', '.execute-touch', (e) => {
     $('.vision-screenshot').attr('src', e.detail[0].screen_shot)
@@ -86,7 +85,6 @@ $(document).on('turbolinks:load', () => {
     dragx2 = e.originalEvent.layerX
     dragy2 = e.originalEvent.layerY
     crop(dragx1, dragy1, dragx2, dragy1 + dragx2 - dragx1)
-    store_image_to('.execute-touch')
     reset_drag()
   })
   $(".vision-screenshot-overlay").mouseout((e) => {

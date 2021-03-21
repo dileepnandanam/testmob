@@ -1,10 +1,10 @@
 require 'base64'
 class Vision
   def execute_touch(image)
-    image_header_end_at = 'data:image/bmp;base64,'.length
+    image_header_end_at = 'data:image/jpeg;base64,'.length
     image = image[(image_header_end_at)..-1]
 
-    f=File.open('/tmp/vision_input.bmp', 'wb')
+    f=File.open('/tmp/vision_input.jpeg', 'wb')
     f.write(Base64.strict_decode64(image))
     f.close
     image_from_filename `curl --form "p=q" -X POST localhost:8080/execute_touch`
