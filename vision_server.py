@@ -8,7 +8,7 @@ from pypylon import pylon
 from PIL import Image as im
 import cv2
 from io import BytesIO
-
+import pathlib
 
 
 #interactive console
@@ -26,7 +26,7 @@ cam = 0
 def capture():
   print("CAPTURING SCREENSHOT")
 
-  filename = os.path.abspath(os.getcwd()) + '/vision_output.png'
+  filename = str(pathlib.Path().absolute()) + '/vision_output.png'
   r,img = cam.read()
   cv2.imwrite(filename, img)
   return filename
