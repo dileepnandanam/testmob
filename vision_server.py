@@ -26,7 +26,7 @@ cam = 0
 def capture():
   print("CAPTURING SCREENSHOT")
 
-  filename = str(pathlib.Path().absolute()) + '/vision_output.png'
+  filename = '/home/sastra_admin/quaco_web' + '/vision_output.png'
   r,img = cam.read()
   cv2.imwrite(filename, img)
   return filename
