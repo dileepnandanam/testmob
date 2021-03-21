@@ -3,7 +3,7 @@ import time
 import cgi
 from cgi import parse_header, parse_multipart
 import base64
-
+import os
 from pypylon import pylon
 from PIL import Image as im
 import cv2
@@ -20,29 +20,16 @@ serverPort = 8080
 
 
 #Globals for Camera
-img = pylon.PylonImage()
-
+cam = 0
 
 #TO DO
 def capture():
   print("CAPTURING SCREENSHOT")
 
-  cam.StartGrabbing(pylon.GrabStrategy_LatestImageOnly)
-  converter = pylon.ImageFormatConverter()
-  # converting to opencv bgr format
-  converter.OutputPixelFormat = pylon.PixelType_BGR8packed
-  converter.OutputBitAlignment = pylon.OutputBitAlignment_MsbAligned
-  grabResult = cam.RetrieveResult(5000, pylon.TimeoutHandling_ThrowException)
-  # Access the image data
-  image = converter.Convert(grabResult)
-  img = image.GetArray()
-  pil_img = im.fromarray(img)
-  buff = BytesIO()
-  pil_img.save(buff, format="JPEG")
-  encoded_img = base64.b64encode(buff.getvalue()).decode("utf-8")
-  cam.StopGrabbing()
-
-  return encoded_img
+  filename = os.path.abspath(os.getcwd()) + '/vision_output.png'
+  r,img = cam.read()
+  cv2.imwrite(filename, img)
+  return filename
 
 def execute_touch(croped_image_base64):
   print("EXECUTING TOUCH")
@@ -60,11 +47,11 @@ def execute_predefined_actions():
 
 #SERVER, DO NOT CHANGE
 class MyServer(BaseHTTPRequestHandler):
-    def send_image_response(self, image_base64):
+    def send_image_response(self, filename):
         self.send_response(200)
-        self.send_header("Content-type", "base64")
+        self.send_header("Content-type", "text")
         self.end_headers()
-        self.wfile.write(bytes(image_base64, "ascii"))
+        self.wfile.write(bytes(filename, "ascii"))
 
     def do_GET(self):
         if self.path == '/capture':
@@ -96,9 +83,7 @@ class MyServer(BaseHTTPRequestHandler):
 if __name__ == "__main__":
   
   #camera....................................
-  pylon_cam = pylon.TlFactory.GetInstance()
-  cam = pylon.InstantCamera(pylon_cam.CreateFirstDevice())
-  cam.Open()
+  cam = cv2.VideoCapture(0)
   #...........................................
 
   webServer = HTTPServer((hostName, serverPort), MyServer)
