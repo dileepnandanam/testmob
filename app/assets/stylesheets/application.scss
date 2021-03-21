@@ -24,10 +24,9 @@ body {
 }
 .sidebar a {
   text-align: center;
-  display: inline-block;
   padding: 8px 12px;
   width:20%;
-  margin-left: -5px;
+  float: left;  
 }
 .sidebar, .main {
   display: inline-block;
