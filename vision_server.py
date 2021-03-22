@@ -34,7 +34,7 @@ def capture():
 def execute_touch():
     print("EXECUTING TOUCH")
     input_image = cv2.imread('/tmp/vision_input.jpeg')
-    r, vision_image = cam.read()
+    vision_image = cv2.imread('/tmp/vision_output.jpeg')
 
 def execute_text_command(command):
     print("EXECUTING COMMAND: " + command)
@@ -82,7 +82,7 @@ class MyServer(BaseHTTPRequestHandler):
 if __name__ == "__main__":
   
   #camera....................................
-  cam = cv2.VideoCapture(1)
+  cam = cv2.VideoCapture(0)
   #...........................................
 
   webServer = HTTPServer((hostName, serverPort), MyServer)
