@@ -24,23 +24,23 @@ cam = 0
 
 #TO DO
 def capture():
-  print("CAPTURING SCREENSHOT")
+    print("CAPTURING SCREENSHOT")
 
-  filename = '/tmp' + '/vision_output.bmp'
-  r,img = cam.read()
-  cv2.imwrite(filename, img)
-  return filename
+    filename = '/tmp' + '/vision_output.bmp'
+    r,img = cam.read()
+    cv2.imwrite(filename, img)
+    return filename
 
 def execute_touch():
-  print("EXECUTING TOUCH")
-  input_image = cv2.imread('/tmp/vision_input.jpeg')
-  r, vision_image = cam.read()
+    print("EXECUTING TOUCH")
+    input_image = cv2.imread('/tmp/vision_input.jpeg')
+    r, vision_image = cam.read()
 
 def execute_text_command(command):
-  print("EXECUTING COMMAND: " + command)
+    print("EXECUTING COMMAND: " + command)
 
 def execute_predefined_actions():
-  print("EXECUTING PREDEFINED ACTIONS")
+    print("EXECUTING PREDEFINED ACTIONS")
 
 
 
@@ -82,7 +82,7 @@ class MyServer(BaseHTTPRequestHandler):
 if __name__ == "__main__":
   
   #camera....................................
-  cam = cv2.VideoCapture(0)
+  cam = cv2.VideoCapture(1)
   #...........................................
 
   webServer = HTTPServer((hostName, serverPort), MyServer)
