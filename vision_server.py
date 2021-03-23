@@ -82,7 +82,7 @@ class MyServer(BaseHTTPRequestHandler):
 if __name__ == "__main__":
   
   #camera....................................
-  cam = cv2.VideoCapture(1)
+  cam = cv2.VideoCapture(-1)
   #...........................................
 
   webServer = HTTPServer((hostName, serverPort), MyServer)
