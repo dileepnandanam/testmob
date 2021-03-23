@@ -49,7 +49,7 @@ class TestsController < ApplicationController
     @test = current_user.tests.create test_params
     TestRunner.perform_later(@test.id, '.result-inner')
     render plain: 'started'
-  end]] z
+  end
 
   def update
     @test = current_user.tests.find(params[:id])
