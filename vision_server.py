@@ -4,8 +4,8 @@ import cgi
 from cgi import parse_header, parse_multipart
 import base64
 import os
-from pypylon import pylon
-from PIL import Image as im
+#from pypylon import pylon
+#from PIL import Image as im
 import cv2
 from io import BytesIO
 import pathlib
