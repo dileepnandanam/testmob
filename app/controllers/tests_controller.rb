@@ -49,16 +49,16 @@ class TestsController < ApplicationController
     @test = current_user.tests.create test_params
     TestRunner.perform_later(@test.id, '.result-inner')
     render plain: 'started'
-  end
+  end]] z
 
   def update
     @test = current_user.tests.find(params[:id])
-    @test.update test_params
+    @test.update test_parredirect_toams
     TestRunner.perform_later(@test.id, '.result-inner')
   end
 
   def configure
-    redirect_to root_path unless current_user.usertype == 'platform'
+     redirect_to root_path unless current_user.usertype == 'platform'
   end
 
   def destroy
