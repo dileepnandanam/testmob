@@ -4,8 +4,8 @@ import cgi
 from cgi import parse_header, parse_multipart
 import base64
 import os
-#from pypylon import pylon
-#from PIL import Image as im
+from pypylon import pylon
+from PIL import Image as im
 import cv2
 from io import BytesIO
 import pathlib
@@ -20,16 +20,25 @@ serverPort = 8080
 
 
 #Globals for Camera
-cam = 0
+img = pylon.PylonImage()
 
 #TO DO
 def capture():
     print("CAPTURING SCREENSHOT")
 
-    filename = '/tmp' + '/vision_output.bmp'
-    r,img = cam.read()
-    cv2.imwrite(filename, img)
-    return filename
+    cam.StartGrabbing(pylon.GrabStrategy_LatestImageOnly)
+    converter = pylon.ImageFormatConverter()
+    # converting to opencv bgr format
+    converter.OutputPixelFormat = pylon.PixelType_BGR8packed
+    converter.OutputBitAlignment = pylon.OutputBitAlignment_MsbAligned
+    grabResult = cam.RetrieveResult(5000, pylon.TimeoutHandling_ThrowException)
+    # Access the image data
+    image = converter.Convert(grabResult)
+    img = image.GetArray()
+    filename = '/tmp/vision_output.bmp'
+    cv2.imwrite(img, filename)
+    cam.StopGrabbing()
+    return(filename)
 
 def execute_touch():
     print("EXECUTING TOUCH")
@@ -82,14 +91,18 @@ class MyServer(BaseHTTPRequestHandler):
 if __name__ == "__main__":
   
   #camera....................................
-  cam = cv2.VideoCapture(-1)
-  #...........................................
+    #camera....................................
+    pylon_cam = pylon.TlFactory.GetInstance()
+    cam = pylon.InstantCamera(pylon_cam.CreateFirstDevice())
+    cam.Open()
+    #...........................................
 
-  webServer = HTTPServer((hostName, serverPort), MyServer)
-  print("Server started http://%s:%s" % (hostName, serverPort))
-  try:
-    webServer.serve_forever()
-  except KeyboardInterrupt:
-    pass
-  webServer.server_close()
-  print("Server stopped.")
+    webServer = HTTPServer((hostName, serverPort), MyServer)
+    print("Server started http://%s:%s" % (hostName, serverPort))
+    try:
+        webServer.serve_forever()
+    except KeyboardInterrupt:
+        pass
+    webServer.server_close()
+    cam.Close()
+    print("Server stopped.")
