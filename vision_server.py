@@ -23,22 +23,32 @@ serverPort = 8080
 img = pylon.PylonImage()
 
 #TO DO
-def capture():
-    print("CAPTURING SCREENSHOT")
 
-    cam.StartGrabbing(pylon.GrabStrategy_LatestImageOnly)
-    converter = pylon.ImageFormatConverter()
-    # converting to opencv bgr format
-    converter.OutputPixelFormat = pylon.PixelType_BGR8packed
-    converter.OutputBitAlignment = pylon.OutputBitAlignment_MsbAligned
-    grabResult = cam.RetrieveResult(5000, pylon.TimeoutHandling_ThrowException)
-    # Access the image data
-    image = converter.Convert(grabResult)
-    img = image.GetArray()
-    filename = '/tmp/vision_output.bmp'
-    cv2.imwrite(filename, img)
-    cam.StopGrabbing()
-    return(filename)
+class Camera:
+    def __init__(self):
+        pylon_cam = pylon.TlFactory.GetInstance()
+        self.cam = pylon.InstantCamera(pylon_cam.CreateFirstDevice())
+        self.output_filename = '/tmp/vision_output.bmp'
+    
+    def capture_image_array(self):
+        self.cam.Open()
+        self.cam.StartGrabbing(pylon.GrabStrategy_LatestImageOnly)
+        grabResult = self.cam.RetrieveResult(5000, pylon.TimeoutHandling_ThrowException)
+        converter = pylon.ImageFormatConverter()
+        converter.OutputPixelFormat = pylon.PixelType_BGR8packed
+        converter.OutputBitAlignment = pylon.OutputBitAlignment_MsbAligned
+        image = converter.Convert(grabResult)
+        img = image.GetArray()
+        cam.StopGrabbing()
+        cam.close()
+        return(img)
+
+    def save_to_disk(self, image_array):
+        cv2.imwrite(self.output_filename, image_array)
+    
+    def save_image(self):
+        self.save_to_disk(self.capture_image_array())
+        return(self.output_filename)
 
 def execute_touch():
     print("EXECUTING TOUCH")
@@ -51,11 +61,7 @@ def execute_text_command(command):
 def execute_predefined_actions():
     print("EXECUTING PREDEFINED ACTIONS")
 
-
-
-
-#SERVER, DO NOT CHANGE
-class MyServer(BaseHTTPRequestHandler):
+class VisionServer(BaseHTTPRequestHandler):
     def send_image_filename(self, filename):
         self.send_response(200)
         self.send_header("Content-type", "text")
@@ -64,7 +70,8 @@ class MyServer(BaseHTTPRequestHandler):
 
     def do_GET(self):
         if self.path == '/capture':
-            self.send_image_filename(capture())
+            filename = cam.save_image()
+            self.send_image_filename(filename)
 
     def get_params(self):
         ctype, pdict = cgi.parse_header(self.headers['content-type'])
@@ -76,33 +83,28 @@ class MyServer(BaseHTTPRequestHandler):
         
         if self.path == '/execute_touch':
             execute_touch()
-            self.send_image_filename(capture())
+            filename = cam.save_image()
+            self.send_image_filename(filename)
 
         if self.path == '/execute_text_command':
             command = self.get_params()['text'][0]
             execute_text_command(command)
-            self.send_image_filename(capture())
+            filename = cam.save_image()
+            self.send_image_filename(filename)
         
         if self.path == '/execute_predefined_actions':
             execute_predefined_actions()
-            self.send_image_filename(capture())   
+            filename = cam.save_image()
+            self.send_image_filename(filename)   
 
 
 if __name__ == "__main__":
-  
-  #camera....................................
-    #camera....................................
-    pylon_cam = pylon.TlFactory.GetInstance()
-    cam = pylon.InstantCamera(pylon_cam.CreateFirstDevice())
-    cam.Open()
-    #...........................................
-
-    webServer = HTTPServer((hostName, serverPort), MyServer)
+    cam = Camera.new()
+    webServer = HTTPServer((hostName, serverPort), VisionServer)
     print("Server started http://%s:%s" % (hostName, serverPort))
     try:
         webServer.serve_forever()
     except KeyboardInterrupt:
         pass
     webServer.server_close()
-    cam.Close()
     print("Server stopped.")
