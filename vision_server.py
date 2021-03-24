@@ -99,7 +99,7 @@ class VisionServer(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    cam = Camera.new()
+    cam = Camera()
     webServer = HTTPServer((hostName, serverPort), VisionServer)
     print("Server started http://%s:%s" % (hostName, serverPort))
     try:
