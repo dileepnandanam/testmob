@@ -36,7 +36,7 @@ def capture():
     image = converter.Convert(grabResult)
     img = image.GetArray()
     filename = '/tmp/vision_output.bmp'
-    cv2.imwrite(img, filename)
+    cv2.imwrite(filename, img)
     cam.StopGrabbing()
     return(filename)
 
