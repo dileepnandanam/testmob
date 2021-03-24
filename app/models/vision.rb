@@ -24,6 +24,7 @@ class Vision
   end
 
   def image_from_filename(filename)
+    filename = [filename, '/tmp/vision_output.bmp'].select(&:present?)
     File.open(filename, 'rb') do |img|
       'data:image/bmp;base64,' + Base64.strict_encode64(img.read)
     end
