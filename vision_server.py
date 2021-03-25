@@ -39,8 +39,8 @@ class Camera:
         converter.OutputBitAlignment = pylon.OutputBitAlignment_MsbAligned
         image = converter.Convert(grabResult)
         img = image.GetArray()
-        cam.StopGrabbing()
-        cam.close()
+        self.cam.StopGrabbing()
+        self.cam.close()
         return(img)
 
     def save_to_disk(self, image_array):
