@@ -40,7 +40,7 @@ class Camera:
         image = converter.Convert(grabResult)
         img = image.GetArray()
         self.cam.StopGrabbing()
-        self.cam.close()
+        self.cam.Close()
         return(img)
 
     def save_to_disk(self, image_array):
