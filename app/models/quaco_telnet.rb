@@ -10,6 +10,13 @@ class QuacoTelnet
     @@connection.waitfor(/\n/)
   end
 
+  def self.connect_test(timeout)
+    @@connection = Net::Telnet::new('Host' => AppConfig.where(name: 'host').first.value,
+                          'Port' => AppConfig.where(name: 'port').first.value.to_i,
+                          'Telnetmode' => false, "Timeout" => timeout)
+    @@connection.waitfor(/\n/)
+  end
+
   def self.disconnect
     @@connection.close
   end
