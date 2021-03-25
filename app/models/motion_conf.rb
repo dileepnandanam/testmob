@@ -8,5 +8,6 @@ class MotionConf
     conf_file = File.open(Rails.root.join('nginx_motion'), 'w')
     conf_file.write(conf)
     conf_file.close
+    `sudo /usr/sbin/service nginx restart`
   end
 end
