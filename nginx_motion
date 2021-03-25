@@ -1,0 +1,6 @@
+  location /admin_gmail_com {
+    proxy_pass http://127.0.0.1:8082;
+  }
+  location /dileep_gmail_com {
+    proxy_pass http://127.0.0.1:8082;
+  }

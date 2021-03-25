@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :tests
+
+  def motion_channel
+    email.gsub(/[@,\.]/, '_')
+  end
 end

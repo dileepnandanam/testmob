@@ -1,0 +1,5 @@
+<%- User.where(usertype: ['platform', 'client']).each do |user|%>
+  location /<%= user.motion_channel %> {
+    proxy_pass http://127.0.0.1:8082;
+  }
+<%- end %>
