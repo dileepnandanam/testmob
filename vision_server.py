@@ -81,8 +81,10 @@ class VisionServer(BaseHTTPRequestHandler):
 
         if self.path == 'connect':
             cam.connect()
+            self.send_data('ok')
         if self.path == 'disconnect':
             cam.disconnect()
+            self.send_data('ok')
 
     def get_params(self):
         ctype, pdict = cgi.parse_header(self.headers['content-type'])
