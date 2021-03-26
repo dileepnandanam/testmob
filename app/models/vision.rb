@@ -7,25 +7,32 @@ class Vision
     f=File.open('/tmp/vision_input.jpeg', 'wb')
     f.write(Base64.strict_decode64(image))
     f.close
-    image_from_filename `curl --form "p=q" -X POST localhost:8080/execute_touch`
+
+    coordinates = `curl localhost:8080/get_coordinates_from_image`
+    coordinates = coordinates.split(',').map(&:to_i)
+    #execute quaco
+    capture
   end
   
   def execute_predefined_actions
-    image_from_filename `curl --form "p=q" -X POST localhost:8080/execute_predefined_actions`
+    #execute quaco
+    capture
   end
   
   def execute_text_command(text)
-    image_from_filename `curl --form "text=#{text}" -X POST localhost:8080/execute_text_command`
+    coordinates = `curl --form "text_command#{text}" -X POST localhost:8080/get_coordinates_from_command`
+    coordinates = coordinates.split(',').map(&:to_i)
+    #execute quaco
+    capture
   end
   
   def capture
-    image_from_filename `curl localhost:8080/capture`
-
+    `curl localhost:8080/capture`
+    get_vision_output
   end
 
-  def image_from_filename(filename)
-    filename = [filename, '/tmp/vision_output.bmp'].select(&:present?).first
-    File.open(filename, 'rb') do |img|
+  def get_vision_output
+    File.open('/tmp/vision_output.bmp', 'rb') do |img|
       'data:image/bmp;base64,' + Base64.strict_encode64(img.read)
     end
   end
