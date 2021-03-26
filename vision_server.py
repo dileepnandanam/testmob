@@ -26,10 +26,15 @@ img = pylon.PylonImage()
 
 class Camera:
     def __init__(self):
+        self.output_filename = '/tmp/vision_output.bmp'
+
+    def connect(self):
         pylon_cam = pylon.TlFactory.GetInstance()
         self.cam = pylon.InstantCamera(pylon_cam.CreateFirstDevice())
-        self.output_filename = '/tmp/vision_output.bmp'
-    
+
+    def disconnect(self):
+        self.cam = None
+
     def capture_image_array(self):
         self.cam.Open()
         self.cam.StartGrabbing(pylon.GrabStrategy_LatestImageOnly)
@@ -73,6 +78,11 @@ class VisionServer(BaseHTTPRequestHandler):
         if self.path == '/get_coordinates_from_image':
             data = get_coordinates_from_image()
             self.send_data(data)
+
+        if self.path == 'connect':
+            cam.connect()
+        if self.path == 'disconnect':
+            cam.disconnect()
 
     def get_params(self):
         ctype, pdict = cgi.parse_header(self.headers['content-type'])
