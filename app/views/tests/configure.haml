@@ -34,14 +34,6 @@
 
 
   %br
-  - if false
-    .connection.float-left
-      %h3
-        TCP
-      - if QuacoTcp.connection.nil?
-        = link_to 'Connect to Quaco via Socket', connect_app_configs_path(type: 'tcp'), class: 'connection-action', method: :put
-      - else
-        = link_to 'Disconnect from Quaco Socket', disconnect_app_configs_path(type: 'tcp'), class: 'connection-action', method: :put
 
   .connection.float-left
     - if !Quaco.closed?
@@ -53,3 +45,9 @@
     = link_to 'Connect to Quaco via Telnet', connect_app_configs_path, class: 'connection-action', method: :put
     = link_to 'Disconnect from Quaco Telnet', disconnect_app_configs_path, class: 'connection-action', method: :put
     = link_to 'Flush', flush_app_configs_path, method: :put, class: 'connection-action'
+  %br
+
+  .connection.float-left
+
+    = link_to 'Connect Vision Cam', connect_vision_app_configs_path, class: 'connection-action', method: :put
+    = link_to 'Disconnect Vision Cam', disconnect_vision_app_configs_path, class: 'connection-action', method: :put

@@ -10,6 +10,16 @@ class AppConfigsController < ApplicationController
     redirect_to configure_tests_path
   end
 
+  def connect_vision
+    Vision.new.connect
+    redirect_to configure_tests_path
+  end
+
+  def disconnect_vision
+    Vision.new.disconnect
+    redirect_to configure_tests_path
+  end
+
   def flush
     Quaco.flush
     redirect_to new_test_path

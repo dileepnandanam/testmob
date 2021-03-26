@@ -49,6 +49,8 @@ Rails.application.routes.draw do
     put :flush, on: :collection
     put :connect, on: :collection
     put :disconnect, on: :collection
+    put :connect_vision, on: :collection
+    put :disconnect_vision, on: :collection
   end
 
   require 'resque/server'

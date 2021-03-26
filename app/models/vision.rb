@@ -36,4 +36,16 @@ class Vision
       'data:image/bmp;base64,' + Base64.strict_encode64(img.read)
     end
   end
+
+  def connect
+    unless `curl localhost:8080/connect` == 'ok'
+      raise VisionCamNotConnected
+    end 
+  end
+
+  def disconnect
+    unless `curl localhost:8080/disconnect` == 'ok'
+      raise VisionCamNotConnected
+    end
+  end
 end

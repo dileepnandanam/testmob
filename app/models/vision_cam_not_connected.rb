@@ -1,0 +1,2 @@
+class VisionCamNotConnected < StandardError
+end
