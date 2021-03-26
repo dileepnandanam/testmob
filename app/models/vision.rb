@@ -20,7 +20,7 @@ class Vision
   end
   
   def execute_text_command(text)
-    coordinates = `curl --form "text_command#{text}" -X POST localhost:8080/get_coordinates_from_command`
+    coordinates = `curl --form "text_command=#{text}" -X POST localhost:8080/get_coordinates_from_command`
     coordinates = coordinates.split(',').map(&:to_i)
     #execute quaco
     capture
