@@ -69,6 +69,7 @@ class VisionServer(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/capture':
             cam.save_image()
+            self.send_data('ok')
         if self.path == '/get_coordinates_from_image':
             data = get_coordinates_from_image()
             self.send_data(data)
