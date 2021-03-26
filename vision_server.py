@@ -79,10 +79,10 @@ class VisionServer(BaseHTTPRequestHandler):
             data = get_coordinates_from_image()
             self.send_data(data)
 
-        if self.path == 'connect':
+        if self.path == '/connect':
             cam.connect()
             self.send_data('ok')
-        if self.path == 'disconnect':
+        if self.path == '/disconnect':
             cam.disconnect()
             self.send_data('ok')
 
