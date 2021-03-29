@@ -13,6 +13,12 @@ Rails.application.routes.draw do
     get '/actions/:action_id', to: 'actions#perform'
     get '/auth/login', to: 'auth#login'
     post '/auth/login', to: 'auth#login'
+    resources :interactive_tests do
+      post :execute_touch, on: :collection
+      post :execute_predefined_actions, on: :collection
+      post :execute_text_command, on: :collection
+      get :capture_screen_shot, on: :collection
+    end
   end
 
   resources :tests do
@@ -21,12 +27,7 @@ Rails.application.routes.draw do
     post :submit, on: :collection
   end
 
-  resources :interactive_tests do
-    post :execute_touch, on: :collection
-    post :execute_predefined_actions, on: :collection
-    post :execute_text_command, on: :collection
-    get :capture_screen_shot, on: :collection
-  end
+  resources :interactive_tests, only: [:index]
 
   resources :api_docs
 

@@ -26,7 +26,7 @@ img = pylon.PylonImage()
 
 class Camera:
     def __init__(self):
-        self.output_filename = '/tmp/vision_output.bmp'
+        self.output_filename = '/tmp/vision_output.jpg'
 
     def connect(self):
         pylon_cam = pylon.TlFactory.GetInstance()
