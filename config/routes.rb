@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     put :demo_finished, on: :member
     put :pending_demo, on: :member
   end
-  scope 'api', module: 'api' do
+  scope 'api', module: 'api', as: :api do
     get '/actions/:action_id', to: 'actions#perform'
     get '/auth/login', to: 'auth#login'
     post '/auth/login', to: 'auth#login'
