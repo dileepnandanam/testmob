@@ -33,7 +33,7 @@ class Vision
 
   def get_vision_output
     File.open('/tmp/vision_output.jpg', 'rb') do |img|
-      'data:image/bmp;base64,' + Base64.strict_encode64(img.read)
+      'data:image/jpg;base64,' + Base64.strict_encode64(img.read)
     end
   end
 
