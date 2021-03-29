@@ -66,6 +66,12 @@ $(document).on('turbolinks:load', () => {
   var dragx2 = 0
   var dragy2 = 0
 
+  s = (dimension) => {
+    original_width = $('.vision-screenshot').prop('naturalWidth')
+    screen_width = $('.vision-screenshot').width()
+    factor = parseFloat(original_width)/parseFloat(screen_width)
+    return(parseInt(dimension*factor))
+  }
   reset_drag = () => {
     dragx1 = 0
     dragy1 = 0
@@ -84,7 +90,7 @@ $(document).on('turbolinks:load', () => {
   $('.vision-screenshot-overlay').mouseup((e) => {
     dragx2 = e.originalEvent.layerX
     dragy2 = e.originalEvent.layerY
-    crop(dragx1, dragy1, dragx2, dragy1 + dragx2 - dragx1)
+    crop(s(dragx1), s(dragy1), s(dragx2), s(dragy1 + dragx2 - dragx1))
     reset_drag()
   })
   $(".vision-screenshot-overlay").mouseout((e) => {
