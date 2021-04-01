@@ -10,6 +10,9 @@ $(document).on('turbolinks:load', () => {
   $(document).on('ajax:success', '.detect-marker', (e) => {
     $('.marker-data').html(e.detail[0].result)
   })
+  $(document).on('ajax:error', '.detect-marker', (e) => {
+    $('.marker-data').html('not detected')
+  })
 
   $(document).on('ajax:success', '.execute-predefined', (e) => {
     $('.vision-screenshot').attr('src', e.detail[0].screen_shot)
