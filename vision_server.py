@@ -98,7 +98,7 @@ class VisionServer(BaseHTTPRequestHandler):
             self.send_data('ok')
 
         if self.path == '/detect_marker':
-            if cam.detect_marker() == None
+            if cam.detect_marker() == None:
                 self.send_data('not detected')
             else:
                 self.send_data('ok')
