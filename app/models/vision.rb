@@ -44,11 +44,8 @@ class Vision
   end
 
   def detect_marker
-    if (result = `curl localhost:8080/detect_marker`) == 'not detected'
-      raise MarkerNotFound
-    else
-      return result
-    end
+    result = `curl localhost:8080/detect_marker`
+    return [result, 'Vision Not connected'].find(&:present?)
   end
 
   def disconnect
