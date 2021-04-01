@@ -10,6 +10,7 @@ import cv2
 from io import BytesIO
 import pathlib
 
+from UndistortedImg_module import calculate_camera_matrix
 
 #interactive console
 #import code; code.interact(local=dict(globals(), **locals()))
@@ -52,7 +53,9 @@ class Camera:
         cv2.imwrite(self.output_filename, image_array)
     
     def save_image(self):
-        self.save_to_disk(self.capture_image_array())
+        image = self.capture_image_array()
+        undistorted = calculate_camera_matrix(image)
+        self.save_to_disk(undistorted)
         return(self.output_filename)
 
 def get_coordinates_from_image():
