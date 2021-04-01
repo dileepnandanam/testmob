@@ -35,7 +35,7 @@ class Camera:
 
     def get_marker_data(self):
         self.marker_data = detect(self.capture_image_array(), 31)
-        if marker_data == None:
+        if self.marker_data == None:
             time.sleep(3)
             self.get_marker_data()
 
