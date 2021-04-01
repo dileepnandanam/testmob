@@ -9,9 +9,8 @@ from PIL import Image as im
 import cv2
 from io import BytesIO
 import pathlib
-
+from aruco_module_line_detector import detect
 from UndistortedImg_module import calculate_camera_matrix
-
 #interactive console
 #import code; code.interact(local=dict(globals(), **locals()))
 
@@ -32,6 +31,13 @@ class Camera:
     def connect(self):
         pylon_cam = pylon.TlFactory.GetInstance()
         self.cam = pylon.InstantCamera(pylon_cam.CreateFirstDevice())
+        self.get_marker_data()
+
+    def get_marker_data(self):
+        self.marker_data = detect(self.capture_image_array(), 31)
+        if marker_data == None:
+            time.sleep(3)
+            self.get_marker_data()
 
     def disconnect(self):
         self.cam = None
@@ -47,15 +53,14 @@ class Camera:
         img = image.GetArray()
         self.cam.StopGrabbing()
         self.cam.Close()
-        return(img)
+        return(calculate_camera_matrix(img))
 
     def save_to_disk(self, image_array):
         cv2.imwrite(self.output_filename, image_array)
     
     def save_image(self):
         image = self.capture_image_array()
-        undistorted = calculate_camera_matrix(image)
-        self.save_to_disk(undistorted)
+        self.save_to_disk(image)
         return(self.output_filename)
 
 def get_coordinates_from_image():
