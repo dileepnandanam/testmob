@@ -7,6 +7,10 @@ $(document).on('turbolinks:load', () => {
     fill_overlay()
   })
 
+  $(document).on('ajax:success', '.detect-marker', (e) => {
+    $('.marker-data').html(e.detail[0].result)
+  })
+
   $(document).on('ajax:success', '.execute-predefined', (e) => {
     $('.vision-screenshot').attr('src', e.detail[0].screen_shot)
     set_loading(false)

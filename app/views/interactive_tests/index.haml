@@ -27,3 +27,7 @@
         = label_tag :command
         = text_field_tag :text_command
         = submit_tag 'Execute', class: 'controll-btn'
+    - if current_user.usertype == 'platform'
+      .action-group
+        = link_to "detect marker", detect_marker_api_interactive_tests_path, class: 'detect-marker', remote: true
+        .marker-data

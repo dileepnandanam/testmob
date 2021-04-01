@@ -1,0 +1,2 @@
+class MarkerNotFound < StandardError
+end

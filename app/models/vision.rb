@@ -43,6 +43,14 @@ class Vision
     end 
   end
 
+  def detect_marker
+    if (result = `curl localhost:8080/detect_marker`) == 'not detected'
+      raise MarkerNotFound
+    else
+      return result
+    end
+  end
+
   def disconnect
     unless `curl localhost:8080/disconnect` == 'ok'
       raise VisionCamNotConnected

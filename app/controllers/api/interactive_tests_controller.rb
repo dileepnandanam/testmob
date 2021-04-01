@@ -14,4 +14,8 @@ class Api::InteractiveTestsController < ApplicationController
   def capture_screen_shot
     render json: {screen_shot: Vision.new.capture}
   end
+
+  def detect_marker
+    render json: {result: Vision.new.detect_marker}
+  end
 end

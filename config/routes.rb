@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       post :execute_predefined_actions, on: :collection
       post :execute_text_command, on: :collection
       get :capture_screen_shot, on: :collection
+      get :detect_marker, on: :collection
     end
   end
 

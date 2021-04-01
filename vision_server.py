@@ -31,13 +31,16 @@ class Camera:
     def connect(self):
         pylon_cam = pylon.TlFactory.GetInstance()
         self.cam = pylon.InstantCamera(pylon_cam.CreateFirstDevice())
-        self.get_marker_data()
 
     def get_marker_data(self):
         self.marker_data = detect(self.capture_image_array(), 31)
         if self.marker_data == None:
             time.sleep(3)
             self.get_marker_data()
+
+    def detect_marker(self):
+        self.marker_data = detect(self.capture_image_array(), 31)
+        return self.marker_data
 
     def disconnect(self):
         self.cam = None
@@ -93,6 +96,12 @@ class VisionServer(BaseHTTPRequestHandler):
         if self.path == '/disconnect':
             cam.disconnect()
             self.send_data('ok')
+
+        if self.path == '/detect_marker':
+            if cam.detect_marker() == None
+                self.send_data('not detected')
+            else:
+                self.send_data('ok')
 
     def get_params(self):
         ctype, pdict = cgi.parse_header(self.headers['content-type'])
