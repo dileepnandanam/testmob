@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 import numpy
-calib = numpy.load('calibration_file/calib.npz')
+calib = numpy.load('/home/sastra_admin/quaco_web/calibration_file/calib.npz')
 
 
 def calculate_camera_matrix(img ,crop = False):
