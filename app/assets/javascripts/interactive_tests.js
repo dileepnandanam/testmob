@@ -37,8 +37,19 @@ $(document).on('turbolinks:load', () => {
     set_loading(false)
   })
   
-  $('.refresh-vision, .execute-predefined, .execute-command input[type="submit"], .controll-btn').on('click', () => {
+  $('.refresh-vision, .execute-predefined, .execute-command input[type="submit"]').on('click', () => {
     set_loading(true)
+  })
+  step = 100
+  $('.zoom-in').click((e) => {
+    let init_width = parseInt($('.vision-screenshot').css('width'))
+    $('.vision-screenshot').css('width', (init_width + step) + 'px')
+    set_overlay_dimensions()
+  })
+  $('.zoom-out').click((e) => {
+    let init_width = parseInt($('.vision-screenshot').css('width'))
+    $('.vision-screenshot').css('width', (init_width - step) + 'px')
+    set_overlay_dimensions()
   })
   set_loading = (isLoading) => {
     //$('.vision-screenshot').attr('src', $('.loading').data('url'))

@@ -2,8 +2,13 @@
   .border-1.col-lg-3.quaco-panel.p-2
     = render partial: 'tests/video_feedback_cv'
   .border-1.col-lg-5.vision-panel.p-2.mt-2
-    %h3.loading
+    %h3.loading.pull-left
       Executing...
+    .zoom-buttons
+      .zoom-in
+        +
+      .zoom-out
+        = "-"
     .vision-screenshot-wrapper
       .vision-screenshot-container
         %img.vision-screenshot{src: ''}
@@ -29,5 +34,5 @@
         = submit_tag 'Execute', class: 'controll-btn'
     - if current_user.usertype == 'platform'
       .action-group
-        = link_to "detect marker", detect_marker_api_interactive_tests_path, class: 'detect-marker', remote: true
+        = link_to "detect marker", detect_marker_api_interactive_tests_path, class: 'detect-marker controll-btn', remote: true
         .marker-data
