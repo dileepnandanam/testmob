@@ -8,8 +8,8 @@ class Vision
     f.write(Base64.strict_decode64(image))
     f.close
 
-    coordinates = `curl localhost:8080/get_coordinates_from_image`
-    coordinates = coordinates.split(',').map(&:to_i)
+    result = `curl localhost:8080/get_coordinates_from_image`
+    raise_error_for(result)
     #execute quaco
     capture
   end
@@ -20,15 +20,33 @@ class Vision
   end
   
   def execute_text_command(text)
-    coordinates = `curl --form "text_command=#{text}" -X POST localhost:8080/get_coordinates_from_command`
-    coordinates = coordinates.split(',').map(&:to_i)
+    result = `curl --form "text_command=#{text}" -X POST localhost:8080/get_coordinates_from_command`
+    raise_error_for(result)
     #execute quaco
     capture
   end
   
   def capture
-    `curl localhost:8080/capture`
+    result = `curl localhost:8080/capture`
+    raise_error_for(result)
     get_vision_output
+  end
+
+  def connect
+    result = `curl localhost:8080/connect`
+    raise_error_for(result)
+    result
+  end
+
+  def detect_marker
+    result = `curl localhost:8080/detect_marker`
+    raise_error_for(result)
+    result
+  end
+
+  def disconnect
+    result = `curl localhost:8080/disconnect` == 'ok'
+    raise_error_for(result)
   end
 
   def get_vision_output
@@ -37,20 +55,17 @@ class Vision
     end
   end
 
-  def connect
-    unless `curl localhost:8080/connect` == 'ok'
-      raise VisionCamNotConnected
-    end 
-  end
-
-  def detect_marker
-    result = `curl localhost:8080/detect_marker`
-    return [result, 'Vision Not connected'].find(&:present?)
-  end
-
-  def disconnect
-    unless `curl localhost:8080/disconnect` == 'ok'
-      raise VisionCamNotConnected
+  def raise_error_for(result)
+    if result == 'coordinates_not_found'
+      raise VisionError::CoordinatesNotFound
+    elsif result == 'marker_not_found'
+      raise VisionError::MarkerNotFound
+    elsif result == 'cam_not_conneted'
+      raise VisionError::CamNotConnected
+    elsif result == 'cam_not_detected'
+      raise VisionError::CamNotDetected
+    elsif result == ''
+      raise VisionError::ServerNotRunning
     end
   end
 end

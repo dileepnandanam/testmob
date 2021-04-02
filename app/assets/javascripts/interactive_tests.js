@@ -10,9 +10,6 @@ $(document).on('turbolinks:load', () => {
   $(document).on('ajax:success', '.detect-marker', (e) => {
     $('.marker-data').html(e.detail[0].result)
   })
-  $(document).on('ajax:error', '.detect-marker', (e) => {
-    $('.marker-data').html('not detected')
-  })
 
   $(document).on('ajax:success', '.execute-predefined', (e) => {
     $('.vision-screenshot').attr('src', e.detail[0].screen_shot)
@@ -36,7 +33,11 @@ $(document).on('turbolinks:load', () => {
     $('.vision-screenshot').attr('src', e.detail[0].screen_shot)
     set_loading(false)
   })
-  
+  $(document).on('ajax:error', '.refresh-vision, .detect-marker, .execute-predefined, .execute-command, .execute-touch', (e) => {
+    $('.message').html(e.detail[0].status)
+    set_loading(false)
+    setTimeout(()=> {$('.message').html('')}, 3000)
+  })
   $('.refresh-vision, .execute-predefined, .execute-command input[type="submit"]').on('click', () => {
     set_loading(true)
   })

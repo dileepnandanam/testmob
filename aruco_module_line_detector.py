@@ -108,5 +108,3 @@ def detect(frame , marker_size): #frame = img , marker_size = 31
 
     return result
 
-
-

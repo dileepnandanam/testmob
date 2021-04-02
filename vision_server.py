@@ -27,6 +27,7 @@ img = pylon.PylonImage()
 class Camera:
     def __init__(self):
         self.output_filename = '/tmp/vision_output.jpg'
+        self.cam = None
 
     def connect(self):
         pylon_cam = pylon.TlFactory.GetInstance()
@@ -69,10 +70,10 @@ class Camera:
 def get_coordinates_from_image():
     input_image = cv2.imread('/tmp/vision_input.jpeg')
     vision_image = cv2.imread('/tmp/vision_output.jpeg')
-    return('122,122')
+    return(None)
 
 def get_coordinates_from_command(command):
-    return('122,122')
+    return(None)
 
 
 class VisionServer(BaseHTTPRequestHandler):
@@ -84,24 +85,40 @@ class VisionServer(BaseHTTPRequestHandler):
 
     def do_GET(self):
         if self.path == '/capture':
-            cam.save_image()
-            self.send_data('ok')
+            if cam.cam == None:
+                self.send_data('cam_not_detected')
+            else:    
+                cam.save_image()
+                self.send_data('ok')
+        
         if self.path == '/get_coordinates_from_image':
             data = get_coordinates_from_image()
-            self.send_data(data)
+            if data == None:
+                self.send_data('coordinates_not_found')
+            else:
+                self.send_data(data)
 
         if self.path == '/connect':
-            cam.connect()
-            self.send_data('ok')
+            try:
+                cam.connect()
+                self.send_data('cam connected')
+            except:
+                self.send_data('cam_not_conneted')
+    
         if self.path == '/disconnect':
             cam.disconnect()
             self.send_data('ok')
 
         if self.path == '/detect_marker':
-            if cam.detect_marker() == None:
-                self.send_data('not detected')
+            if cam.cam == None:
+                self.send_data('cam_not_detected')
+                return()
+            marker_data = cam.detect_marker()
+            if marker_data == None:
+                self.send_data('marker_not_found')
             else:
-                self.send_data('ok')
+                self.send_data(marker_data)
+
 
     def get_params(self):
         ctype, pdict = cgi.parse_header(self.headers['content-type'])
@@ -113,7 +130,10 @@ class VisionServer(BaseHTTPRequestHandler):
         if self.path == '/get_coordinates_from_command':
             command = self.get_params()['text_command'][0]
             data = get_coordinates_from_command(command)
-            self.send_data(data)
+            if data == None:
+                self.send_data('coordinates_not_found')
+            else:
+                self.send_data(data)
 
 
 
