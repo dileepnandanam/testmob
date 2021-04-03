@@ -121,7 +121,7 @@ class VisionServer(BaseHTTPRequestHandler):
             if marker_data == None:
                 self.send_data('marker_not_found')
             else:
-                self.send_data(marker_data)
+                self.send_data(str(marker_data))
 
 
     def get_params(self):
