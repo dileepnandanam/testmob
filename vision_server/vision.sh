@@ -8,7 +8,7 @@
 # Description:       <DESCRIPTION>
 ### END INIT INFO
 
-SCRIPT='python3 /home/sastra_admin/quaco_web/vision_server.py' 
+SCRIPT='python3 /home/sastra_admin/quaco_web/vision_server/vision_server.py' 
 RUNAS='sastra_admin'
 
 PIDFILE='/home/sastra_admin/quaco_web/shared/pids/vision.pid'
