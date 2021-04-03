@@ -11,6 +11,10 @@ $(document).on('turbolinks:load', () => {
     $('.marker-data').html(e.detail[0].result)
     set_loading(false)
   })
+  $(document).on('ajax:success', '.connect-vision, .disconnect-vision', (e) => {
+    $('.vision-data').html(e.detail[0].result)
+    set_loading(false)
+  })
 
   $(document).on('ajax:success', '.execute-predefined', (e) => {
     $('.vision-screenshot').attr('src', e.detail[0].screen_shot)
@@ -34,7 +38,7 @@ $(document).on('turbolinks:load', () => {
     $('.vision-screenshot').attr('src', e.detail[0].screen_shot)
     set_loading(false)
   })
-  $(document).on('ajax:error', '.refresh-vision, .detect-marker, .execute-predefined, .execute-command, .execute-touch', (e) => {
+  $(document).on('ajax:error', '.refresh-vision, .detect-marker, .execute-predefined, .execute-command, .execute-touch, .connect-vision, .disconnect-vision', (e) => {
     $('.message').html(e.detail[0].status)
     set_loading(false)
     setTimeout(()=> {$('.message').html('')}, 3000)

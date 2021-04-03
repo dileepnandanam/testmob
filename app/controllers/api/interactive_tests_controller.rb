@@ -24,6 +24,16 @@ class Api::InteractiveTestsController < ApplicationController
     render json: {result: Vision.new.detect_marker}
   end
 
+  def connect_vision
+    Vision.new.connect
+    render json: {result: 'Connected'}
+  end
+
+  def disconnect_vision
+    Vision.new.disconnect
+    render json: {result: 'Disconnected'}
+  end
+
   protected
 
   

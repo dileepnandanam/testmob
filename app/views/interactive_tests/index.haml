@@ -36,5 +36,10 @@
         = submit_tag 'Execute', class: 'controll-btn'
     - if current_user.usertype == 'platform'
       .action-group
+        %h2
+          Admin config
         = link_to "detect marker", detect_marker_api_interactive_tests_path, class: 'detect-marker controll-btn', remote: true
         .marker-data
+        = link_to "connect cam", connect_vision_api_interactive_tests_path, class: 'connect-vision d-block controll-btn', remote: true
+        = link_to "disconnect cam", disconnect_vision_api_interactive_tests_path, class: 'disconnect-vision d-block controll-btn', remote: true
+        .vision-data

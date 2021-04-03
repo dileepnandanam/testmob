@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       post :execute_text_command, on: :collection
       get :capture_screen_shot, on: :collection
       get :detect_marker, on: :collection
+      get :connect_vision, on: :collection
+      get :disconnect_vision, on: :collection
     end
   end
 
