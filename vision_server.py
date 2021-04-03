@@ -44,6 +44,7 @@ class Camera:
         for threshold in range(1, 30):
             self.marker_data = detect(image, 31, threshold)
             if self.marker_data != None:
+                self.threshold = threshold
                 break;
         return self.marker_data
 
