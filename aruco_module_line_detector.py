@@ -23,7 +23,7 @@ avg_pix_per_mm = 0
 id_1 = 45#15#45 
 id_2 = 25
 
-def detect(frame , marker_size): #frame = img , marker_size = 31
+def detect(frame , marker_size, thresh): #frame = img , marker_size = 31
     global marker_x_plus
     global marker_x_minus
 
@@ -45,7 +45,7 @@ def detect(frame , marker_size): #frame = img , marker_size = 31
     aruco_dict = aruco.Dictionary_get(aruco.DICT_6X6_250)
     # detector parameters can be set here (List of detection parameters[3])
     parameters = aruco.DetectorParameters_create()
-    parameters.adaptiveThreshConstant = 10
+    parameters.adaptiveThreshConstant = thresh
     # lists of ids and the corners belonging to each id
     corners, ids, rejectedImgPoints = aruco.detectMarkers(gray, aruco_dict, parameters=parameters)
     # check if the ids list is not empty

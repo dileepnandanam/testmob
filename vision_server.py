@@ -40,7 +40,11 @@ class Camera:
             self.get_marker_data()
 
     def detect_marker(self):
-        self.marker_data = detect(self.capture_image_array(), 31)
+        image = self.capture_image_array()
+        for threshold in range(1, 30):
+            self.marker_data = detect(image, 31, threshold)
+            if self.marker_data != None:
+                break;
         return self.marker_data
 
     def disconnect(self):
