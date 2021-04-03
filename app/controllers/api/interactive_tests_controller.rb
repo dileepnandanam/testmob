@@ -1,4 +1,4 @@
-class Api::InteractiveTestsController < ApplicationController
+class Api::InteractiveTestsController < Api::BaseController
   rescue_from VisionError::ServerNotRunning, with: :server_not_found
   rescue_from VisionError::CamNotConnected, with: :cam_not_found
   rescue_from VisionError::CoordinatesNotFound, with: :coordinates_not_found
