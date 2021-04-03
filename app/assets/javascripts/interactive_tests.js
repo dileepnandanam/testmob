@@ -9,6 +9,7 @@ $(document).on('turbolinks:load', () => {
 
   $(document).on('ajax:success', '.detect-marker', (e) => {
     $('.marker-data').html(e.detail[0].result)
+    set_loading(false)
   })
 
   $(document).on('ajax:success', '.execute-predefined', (e) => {
@@ -38,7 +39,7 @@ $(document).on('turbolinks:load', () => {
     set_loading(false)
     setTimeout(()=> {$('.message').html('')}, 3000)
   })
-  $('.refresh-vision, .execute-predefined, .execute-command input[type="submit"]').on('click', () => {
+  $('.detect-marker, .refresh-vision, .execute-predefined, .execute-command input[type="submit"]').on('click', () => {
     set_loading(true)
   })
   step = 100
