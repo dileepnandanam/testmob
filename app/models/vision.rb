@@ -11,7 +11,7 @@ class Vision
     result = `curl localhost:8080/get_coordinates_from_image`
     raise_error_for(result)
     #execute quaco
-    capture
+    [capture, result]
   end
   
   def execute_predefined_actions

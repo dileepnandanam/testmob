@@ -5,7 +5,8 @@ class Api::InteractiveTestsController < Api::BaseController
   rescue_from VisionError::MarkerNotFound, with: :marker_not_found
   rescue_from VisionError::CamNotDetected, with: :cam_not_detected
   def execute_touch
-    render json: {screen_shot: Vision.new.execute_touch(params[:croped_image])}
+    screen_shot, result = Vision.new.execute_touch(params[:croped_image])
+    render json: {screen_shot: screen_shot, result: result}
   end
 
   def execute_predefined_actions

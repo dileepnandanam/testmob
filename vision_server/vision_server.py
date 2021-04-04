@@ -11,6 +11,7 @@ from io import BytesIO
 import pathlib
 from aruco_module_line_detector import detect
 from UndistortedImg_module import calculate_camera_matrix
+from match_template import find_match
 #interactive console
 #import code; code.interact(local=dict(globals(), **locals()))
 
@@ -73,9 +74,9 @@ class Camera:
         return(self.output_filename)
 
 def get_coordinates_from_image():
-    input_image = cv2.imread('/tmp/vision_input.jpeg')
+    input_image = cv2.imread('/tmp/vision_input.jpeg', 0)
     vision_image = cv2.imread('/tmp/vision_output.jpeg')
-    return(None)
+    return(find_match(vision_image, input_image))
 
 def get_coordinates_from_command(command):
     return(None)
@@ -101,7 +102,7 @@ class VisionServer(BaseHTTPRequestHandler):
             if data == None:
                 self.send_data('coordinates_not_found')
             else:
-                self.send_data(data)
+                self.send_data(str(data))
 
         if self.path == '/connect':
             try:
