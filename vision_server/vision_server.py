@@ -27,7 +27,7 @@ img = pylon.PylonImage()
 
 class Camera:
     def __init__(self):
-        self.output_filename = '/tmp/vision_output.jpg'
+        self.output_filename = '/tmp/vision_output.jpeg'
         self.cam = None
 
     def connect(self):
