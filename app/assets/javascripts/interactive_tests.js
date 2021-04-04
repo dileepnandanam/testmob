@@ -50,7 +50,7 @@ $(document).on('turbolinks:load', () => {
     set_loading(false)
     setTimeout(()=> {$('.message').html('')}, 3000)
   })
-  $('.restart-vision-server, .detect-marker, .refresh-vision, .execute-predefined, .execute-command input[type="submit"]').on('click', () => {
+  $('.restart-vision-server, .detect-marker, .refresh-vision, .execute-predefined, .execute-command, input[type="submit"]').on('click', () => {
     set_loading(true)
   })
   step = 100
