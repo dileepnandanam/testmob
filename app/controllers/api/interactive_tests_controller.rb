@@ -34,6 +34,11 @@ class Api::InteractiveTestsController < Api::BaseController
     render json: {result: 'Disconnected'}
   end
 
+  def restart_vision_server
+    Vision.new.restart_server
+    render json: {result: 'Done'}
+  end
+
   protected
 
   

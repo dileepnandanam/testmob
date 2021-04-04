@@ -16,7 +16,6 @@
         .vision-selection
 
   .border-1.col-lg-4.control-panel.p-2
-    .message
     = link_to 'Capture screen shot', capture_screen_shot_api_interactive_tests_path, remote: true, class: 'btn-primary refresh-vision controll-btn'
 
     .clearfix
@@ -34,6 +33,7 @@
         = label_tag :command
         = text_field_tag :text_command
         = submit_tag 'Execute', class: 'controll-btn'
+    .message.mt-2
     - if current_user.usertype == 'platform'
       .action-group
         %h2
@@ -43,3 +43,5 @@
         = link_to "connect cam", connect_vision_api_interactive_tests_path, class: 'connect-vision d-block controll-btn', remote: true
         = link_to "disconnect cam", disconnect_vision_api_interactive_tests_path, class: 'disconnect-vision d-block controll-btn', remote: true
         .vision-data
+        = link_to "Restart vision server", restart_vision_server_api_interactive_tests_path, class: 'restart-vision-server d-block controll-btn', remote: true
+        .vision-server-data

@@ -55,6 +55,10 @@ class Vision
     end
   end
 
+  def restart_server
+    `sudo service vision_server restart`
+  end
+
   def raise_error_for(result)
     if result == 'coordinates_not_found'
       raise VisionError::CoordinatesNotFound

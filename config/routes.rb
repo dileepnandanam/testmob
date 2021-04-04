@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       get :detect_marker, on: :collection
       get :connect_vision, on: :collection
       get :disconnect_vision, on: :collection
+      get :restart_vision_server, on: :collection
     end
   end
 

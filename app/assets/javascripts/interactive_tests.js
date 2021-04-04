@@ -11,6 +11,13 @@ $(document).on('turbolinks:load', () => {
     $('.marker-data').html(e.detail[0].result)
     set_loading(false)
   })
+
+  $(document).on('ajax:success', '.restart-vision-server', (e) => {
+    $('.vision-server-data').html(e.detail[0].result)
+    set_loading(false)
+    setTimeout(() => {$('.vision-server-data').html('')}, 3000)
+  })
+
   $(document).on('ajax:success', '.connect-vision, .disconnect-vision', (e) => {
     $('.vision-data').html(e.detail[0].result)
     set_loading(false)
@@ -39,11 +46,11 @@ $(document).on('turbolinks:load', () => {
     set_loading(false)
   })
   $(document).on('ajax:error', '.refresh-vision, .detect-marker, .execute-predefined, .execute-command, .execute-touch, .connect-vision, .disconnect-vision', (e) => {
-    $('.message').html(e.detail[0].status)
+    $('.message').html(`<div class="exception d-inline-block">${e.detail[0].status}</div>`)
     set_loading(false)
     setTimeout(()=> {$('.message').html('')}, 3000)
   })
-  $('.detect-marker, .refresh-vision, .execute-predefined, .execute-command input[type="submit"]').on('click', () => {
+  $('.restart-vision-server, .detect-marker, .refresh-vision, .execute-predefined, .execute-command input[type="submit"]').on('click', () => {
     set_loading(true)
   })
   step = 100
