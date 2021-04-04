@@ -10,4 +10,7 @@ def find_match(big_image, small_image):
     matched = None
     for pt in zip(*loc[::-1]):
         matched = pt, (pt[0] + w, pt[1] + h)
+        cv2.rectangle(big_image, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2)
+
+    cv2.imwrite('/tmp/vision_output.jpeg',img_rgb)
     return(matched)
