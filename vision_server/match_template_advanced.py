@@ -76,7 +76,7 @@ def match_image(main_image, template , rotate_check = False):
 	else:
 		result = match(template , gray_image)
 	
-    cv2.rectangle(cv2.imread('/tmp/vision_output.jpeg'), (result[0]-30,result[1]-30), (result[0]+30,result[1]+30), (0,0,255), 2)
+		cv2.rectangle(cv2.imread('/tmp/vision_output.jpeg'), (result[0]-30,result[1]-30), (result[0]+30,result[1]+30), (0,0,255), 2)
 
-    cv2.imwrite('/tmp/vision_output.jpeg',big_image)
+		cv2.imwrite('/tmp/vision_output.jpeg',big_image)
 	return result
