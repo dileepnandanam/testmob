@@ -12,6 +12,7 @@ import pathlib
 from aruco_module_line_detector import detect
 from UndistortedImg_module import calculate_camera_matrix
 from match_template import find_match
+from match_template_advanced import match_image
 #interactive console
 #import code; code.interact(local=dict(globals(), **locals()))
 
@@ -76,7 +77,7 @@ class Camera:
 def get_coordinates_from_image():
     input_image = cv2.imread('/tmp/vision_input.jpeg', 0)
     vision_image = cv2.imread('/tmp/vision_output.jpeg')
-    return(find_match(vision_image, input_image))
+    return(match_image(vision_image, input_image))
 
 def get_coordinates_from_command(command):
     return(None)
