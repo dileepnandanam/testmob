@@ -1,67 +1,37 @@
-#!/bin/sh
-### BEGIN INIT INFO
-# Provides:          <NAME>
-# Required-Start:    $local_fs $network $named $time $syslog
-# Required-Stop:     $local_fs $network $named $time $syslog
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Description:       <DESCRIPTION>
-### END INIT INFO
+#!/bin/bash
+# chkconfig: 2345 20 80
+# description: Description comes here....
 
-SCRIPT='python3 /home/sastra_admin/quaco_web/vision_server/vision_server.py' 
-RUNAS='sastra_admin'
-
-PIDFILE='/home/sastra_admin/quaco_web/shared/pids/vision.pid'
-LOGFILE='/home/sastra_admin/quaco_web/shared/log/vision.log'
+CMD="python3.7 /home/sastra_admin/quaco_web/vision_server/vision_server.py"
+PIDFILE="/home/sastra_admin/quaco_web/shared/pids/vision.pid"
+PATH="$PATH:/home/sastra_admin/.local/bin:/home/sastra_admin/.rbenv/shims:/home/sastra_admin/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
 start() {
-  if [ -f /var/run/$PIDNAME ] && kill -0 $(cat /var/run/$PIDNAME); then
-    echo 'Service already running' >&2
-    return 1
-  fi
-  echo 'Starting service…' >&2
-  local CMD="$SCRIPT &> \"$LOGFILE\" & echo \$!"
-  su -c "$CMD" $RUNAS > "$PIDFILE"
-  echo 'Service started' >&2
+   CMD="$CMD &> /home/sastra_admin/quaco_web/shared/log/vision.log & echo \$!"
+   su -c "$CMD" sastra_admin > $PIDFILE
 }
 
 stop() {
-  if [ ! -f "$PIDFILE" ] || ! kill -0 $(cat "$PIDFILE"); then
-    echo 'Service not running' >&2
-    return 1
-  fi
-  echo 'Stopping service…' >&2
-  kill -15 $(cat "$PIDFILE") && rm -f "$PIDFILE"
-  echo 'Service stopped' >&2
-}
-
-uninstall() {
-  echo -n "Are you really sure you want to uninstall this service? That cannot be undone. [yes|No] "
-  local SURE
-  read SURE
-  if [ "$SURE" = "yes" ]; then
-    stop
-    rm -f "$PIDFILE"
-    echo "Notice: log file is not be removed: '$LOGFILE'" >&2
-    update-rc.d -f <NAME> remove
-    rm -fv "$0"
-  fi
+   kill $(cat "$PIDFILE")
 }
 
 case "$1" in
-  start)
-    start
-    ;;
-  stop)
-    stop
-    ;;
-  uninstall)
-    uninstall
-    ;;
-  restart)
-    stop
-    start
-    ;;
-  *)
-    echo "Usage: $0 {start|stop|restart|uninstall}"
+    start)
+       start
+       ;;
+    stop)
+       stop
+       ;;
+    restart)
+       stop
+       start
+       ;;
+    status)
+       # code to check status of app comes here
+       # example: status program_name
+       ;;
+    *)
+       echo "Usage: $0 {start|stop|status|restart}"
 esac
+
+exit 0
