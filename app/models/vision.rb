@@ -11,7 +11,7 @@ class Vision
     result = `curl localhost:8080/get_coordinates_from_image`
     raise_error_for(result)
     x,y = eval(result)
-    Quaco.execute_now("t:m:#{x}:#{y}:")
+    Quaco.execute_now("t:r:#{x}:#{y}:20:23:100:")
     sleep(2)
     [capture, result]
   end
