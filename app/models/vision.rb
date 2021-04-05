@@ -57,6 +57,8 @@ class Vision
 
   def restart_server
     `sudo service vision_server restart`
+    connect
+    detect_marker
   end
 
   def raise_error_for(result)

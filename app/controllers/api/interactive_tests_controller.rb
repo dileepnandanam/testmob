@@ -44,7 +44,7 @@ class Api::InteractiveTestsController < Api::BaseController
 
   
   def server_not_found
-    render json: {status: 'Vision server not running'}, status: 422
+    render json: {status: 'Vision server not responding'}, status: 422
   end
   def cam_not_found
     render json: {status: 'Vision cam not connected'}, status: 422
