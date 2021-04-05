@@ -94,7 +94,8 @@ class Camera:
         img = image.GetArray()
         self.cam.StopGrabbing()
         self.cam.Close()
-        return(calculate_camera_matrix(img))
+        self.get_processed_frame(calculate_camera_matrix(img))
+        return()
 
     def save_to_disk(self, image_array):
         cv2.imwrite(self.output_filename, image_array)
@@ -177,6 +178,13 @@ class VisionServer(BaseHTTPRequestHandler):
         return cgi.parse_multipart(self.rfile, pdict)
 
     def do_POST(self):
+
+        if self.path == '/get_coordinates':
+            x = self.get_params()['x'][0]
+            y = self.get_params()['y'][0]
+            data = (100,100)
+            self.send_data(str(data))
+
         if self.path == '/get_coordinates_from_command':
             command = self.get_params()['text_command'][0]
             data = get_coordinates_from_command(command)
