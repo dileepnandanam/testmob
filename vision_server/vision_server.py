@@ -52,7 +52,7 @@ class Camera:
         for threshold in range(1, 30):
             self.marker_data = detect(image, 31, threshold)
             if self.marker_data != None:
-                ploat_marker(marker_data)
+                self.ploat_marker()
                 self.threshold = threshold
 
                 x1 = int(self.marker_data[0])
