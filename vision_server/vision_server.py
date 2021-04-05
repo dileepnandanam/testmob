@@ -75,9 +75,9 @@ class Camera:
         return self.marker_data
 
 
-    def get_processed_frame(self):
+    def get_processed_frame(self, img):
         if self.reference == True:
-            self.processed_frame = four_point_transform(self.capture_image_array(), self.pts)
+            self.processed_frame = four_point_transform(img, self.pts)
         return self.processed_frame
 
     def disconnect(self):
@@ -118,7 +118,7 @@ def get_real_coordinates(data):
 
 def get_coordinates_from_image():
     input_image = cv2.imread('/tmp/vision_input.jpeg',0)
-    vision_image = cv2.imread('/tmp/vision_output.jpeg')
+    vision_image = cam.get_processed_frame(cv2.imread('/tmp/vision_output.jpeg'))
     return(find_match(vision_image, input_image))
 
 def get_coordinates_from_command(command):
