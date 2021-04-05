@@ -22,7 +22,8 @@ class Api::InteractiveTestsController < Api::BaseController
   end
 
   def detect_marker
-    render json: {result: Vision.new.detect_marker}
+    screen_shot, result = Vision.new.detect_marker
+    render json: {result: result, screen_shot: screen_shot}
   end
 
   def connect_vision

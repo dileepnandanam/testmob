@@ -44,7 +44,7 @@ class Vision
   def detect_marker
     result = `curl localhost:8080/detect_marker`
     raise_error_for(result)
-    result
+    [get_vision_output, result]
   end
 
   def disconnect

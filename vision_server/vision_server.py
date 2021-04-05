@@ -39,6 +39,12 @@ class Camera:
         pylon_cam = pylon.TlFactory.GetInstance()
         self.cam = pylon.InstantCamera(pylon_cam.CreateFirstDevice())
 
+    def ploat_marker(self):
+        x1,y1,x2,y2,s = self.marker_data
+        vision_output = cv2.imread(self.output_filename)
+        cv2.rectangle(vision_output, (x1-30,y1-30),(x1+30,y1+30), (0,0,255), 2)
+        cv2.rectangle(vision_output, (x2-30,y2-30),(x2+30,y2+30), (0,0,255), 2)
+        cv2.imwrite(self.output_filename, vision_output)
 
     def detect_marker(self):
         global pix_per_mm
@@ -46,6 +52,7 @@ class Camera:
         for threshold in range(1, 30):
             self.marker_data = detect(image, 31, threshold)
             if self.marker_data != None:
+                ploat_marker(marker_data)
                 self.threshold = threshold
 
                 x1 = int(self.marker_data[0])

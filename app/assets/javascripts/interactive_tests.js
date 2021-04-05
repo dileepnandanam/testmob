@@ -9,6 +9,7 @@ $(document).on('turbolinks:load', () => {
 
   $(document).on('ajax:success', '.detect-marker', (e) => {
     $('.marker-data').html(e.detail[0].result)
+    $('.vision-screenshot').attr('src', e.detail[0].screen_shot)
     set_loading(false)
   })
 
