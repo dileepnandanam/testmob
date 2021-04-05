@@ -18,7 +18,9 @@ class Vision
   end
   
   def execute_predefined_actions
-    #execute quaco
+    Quaco.execute_now('m:1:')
+    Quaco.execute_now("t:r:#{165}:#{292}:20:23:100:")
+    sleep(2)
     capture
   end
   
