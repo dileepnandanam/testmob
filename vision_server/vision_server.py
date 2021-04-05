@@ -39,12 +39,6 @@ class Camera:
         pylon_cam = pylon.TlFactory.GetInstance()
         self.cam = pylon.InstantCamera(pylon_cam.CreateFirstDevice())
 
-    def get_marker_data(self):
-        self.marker_data = detect(self.capture_image_array(), 31)
-        if self.marker_data == None:
-            time.sleep(3)
-            self.get_marker_data()
-
 
     def detect_marker(self):
         global pix_per_mm
