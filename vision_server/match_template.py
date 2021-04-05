@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 
 def midpoint(matched):
-    x = (matched[1][0] - matched[2][0])/2
-    y = (matched[1][1] - matched[2][1])/2
+    x = (matched[1][0] - matched[0][0])/2
+    y = (matched[1][1] - matched[0][1])/2
     return((x,y))
 
 def find_match(big_image, small_image):
