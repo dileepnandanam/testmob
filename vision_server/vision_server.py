@@ -118,7 +118,7 @@ def get_real_coordinates(data):
 def get_coordinates_from_image():
     input_image = cv2.imread('/tmp/vision_input.jpeg', 0)
     vision_image = cv2.imread('/tmp/vision_output.jpeg')
-    return(find_match(vision_image, input_image))
+    return(match_image(vision_image, input_image))
 
 def get_coordinates_from_command(command):
     return(None)
