@@ -57,6 +57,7 @@ class Vision
 
   def restart_server
     `sudo service vision_server restart`
+    sleep 4
     connect
     detect_marker
   end
