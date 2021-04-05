@@ -41,6 +41,15 @@ class Api::InteractiveTestsController < Api::BaseController
     render json: {result: 'Done'}
   end
 
+  def perform
+    action_id = params[:action_id]
+    api_params = params.permit(
+      :x,:y,:z,:x1,:y1,:x2,:y2,:taps,:delay,:speed,:direction,:duration,:back_pos,:height,:force,:new_name,:index,:ip,:port
+    ).to_h 
+    quaco_instruction = QuacoInstructionBuilder.new(action_id, api_params).build
+    render plain: quaco_instruction
+  end
+
   protected
 
   

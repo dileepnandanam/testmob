@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   scope 'api', module: 'api', as: :api do
     get '/actions/:action_id', to: 'actions#perform'
+    post '/actions/:action_id', to: 'actions#perform'
     get '/auth/login', to: 'auth#login'
     post '/auth/login', to: 'auth#login'
     resources :interactive_tests do
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
       get :disconnect_vision, on: :collection
       get :restart_vision_server, on: :collection
     end
+    get '/test/:action_id', to: 'interactive_tests#perform'
   end
 
   resources :tests do
