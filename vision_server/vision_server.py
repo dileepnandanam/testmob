@@ -42,8 +42,8 @@ class Camera:
     def ploat_marker(self):
         x1,y1,x2,y2,s = self.marker_data
         vision_output = cv2.imread(self.output_filename)
-        cv2.rectangle(vision_output, (x1-30,y1-30),(x1+30,y1+30), (0,0,255), 2)
-        cv2.rectangle(vision_output, (x2-30,y2-30),(x2+30,y2+30), (0,0,255), 2)
+        cv2.rectangle(vision_output, (int(x1)-30,int(y1)-30),(int(x1)+30,int(y1)+30), (0,0,255))
+        cv2.rectangle(vision_output, (int(x2)-30,int(y2)-30),(int(x2)+30,int(y2)+30), (0,0,255))
         cv2.imwrite(self.output_filename, vision_output)
 
     def detect_marker(self):
