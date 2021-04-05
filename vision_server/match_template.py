@@ -4,7 +4,7 @@ import numpy as np
 def midpoint(matched):
     x = (matched[1][0] - matched[0][0])/2
     y = (matched[1][1] - matched[0][1])/2
-    return((x,y))
+    return((matched[0][0] + x, matched[0][1] + y))
 
 def find_match(big_image, small_image):
     img_gray = cv2.cvtColor(big_image, cv2.COLOR_BGR2GRAY)
