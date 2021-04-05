@@ -13,6 +13,9 @@ from aruco_module_line_detector import detect
 from UndistortedImg_module import calculate_camera_matrix
 from match_template import find_match
 from match_template_advanced import match_image
+import rect_drw_eqn
+from perspective_transform import  four_point_transform
+
 #interactive console
 #import code; code.interact(local=dict(globals(), **locals()))
 
@@ -41,14 +44,39 @@ class Camera:
             time.sleep(3)
             self.get_marker_data()
 
+
     def detect_marker(self):
+        global pix_per_mm
         image = self.capture_image_array()
         for threshold in range(1, 30):
             self.marker_data = detect(image, 31, threshold)
             if self.marker_data != None:
                 self.threshold = threshold
+
+                x1 = int(self.marker_data[0])
+                y1 = int(self.marker_data[1])
+                x2 = int(self.marker_data[2])
+                y2 = int(self.marker_data[3])
+
+                pix_per_mm = self.marker_data[4] 
+            
+                if y1 < y2:
+                    values=rect_drw_eqn.equn1(x1,y1,x2,y2)
+                else:
+                    values=rect_drw_eqn.equn2(x1,y1,x2,y2)
+        
+                self.pts = np.array([(x1, y1), (x2, y2), (values[0], values[1]), (values[2], values[3])])
+                self.reference = True
                 break;
+            else:
+                self.reference = False  
         return self.marker_data
+
+
+    def get_processed_frame(self):
+        if self.reference == True:
+            self.processed_frame = four_point_transform(self.capture_image_array(), self.pts)
+        return self.processed_frame
 
     def disconnect(self):
         self.cam = None
@@ -73,6 +101,18 @@ class Camera:
         image = self.capture_image_array()
         self.save_to_disk(image)
         return(self.output_filename)
+
+def get_real_coordinates(data):
+    global pix_per_mm
+
+    REF_X1 = 256
+    REF_Y1 = 100
+
+    real_x_mm = int(REF_X1 - ( data[0] * pix_per_mm))
+    real_y_mm = int(REF_Y1 + ( data[1] * pix_per_mm ))
+    real_coordinates = [int(real_x_mm),int(real_y_mm)]
+
+    return real_coordinates
 
 def get_coordinates_from_image():
     input_image = cv2.imread('/tmp/vision_input.jpeg', 0)
@@ -103,7 +143,8 @@ class VisionServer(BaseHTTPRequestHandler):
             if data == None:
                 self.send_data('coordinates_not_found')
             else:
-                self.send_data(str(data))
+                real_coordinate = get_real_coordinates(data)
+                self.send_data(str(real_coordinate))
 
         if self.path == '/connect':
             try:
