@@ -27,12 +27,12 @@
         = submit_tag 'Touch', class: 'btn-priamry execute-touch controll-btn'
 
     = link_to 'Execute predefined instructions', execute_predefined_actions_api_interactive_tests_path, remote: true, method: :post, class: 'btn-primary execute-predefined controll-btn'
-    
-    .action-group
-      = form_with(url: execute_text_command_api_interactive_tests_path, method: 'POST', remote: true, class: 'execute-command') do
-        = label_tag :command
-        = text_field_tag :text_command
-        = submit_tag 'Execute', class: 'controll-btn'
+    - if current_user.usertype == 'platform'
+      .action-group
+        = form_with(url: execute_text_command_api_interactive_tests_path, method: 'POST', remote: true, class: 'execute-command') do
+          = label_tag :command
+          = text_field_tag :text_command
+          = submit_tag 'Execute', class: 'controll-btn'
     .message.mt-2
     - if current_user.usertype == 'platform'
       .action-group
