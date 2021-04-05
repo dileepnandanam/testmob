@@ -16,7 +16,8 @@ def find_match(big_image, small_image):
     for pt in zip(*loc[::-1]):
         matched = pt, (pt[0] + w, pt[1] + h)
         point1,point2 = pt, (pt[0] + w, pt[1] + h)
-        cv2.rectangle(big_image, point1, point2, (0,0,255), 2)
+    
+    cv2.rectangle(big_image, point1, point2, (0,0,255), 2)
 
     cv2.imwrite('/tmp/vision_output.jpeg',big_image)
     return(midpoint(matched))
