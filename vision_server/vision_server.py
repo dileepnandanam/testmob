@@ -34,6 +34,7 @@ class Camera:
     def __init__(self):
         self.output_filename = '/tmp/vision_output.jpeg'
         self.cam = None
+        self.marker_data = None
 
     def connect(self):
         pylon_cam = pylon.TlFactory.GetInstance()
@@ -138,7 +139,9 @@ class VisionServer(BaseHTTPRequestHandler):
         if self.path == '/capture':
             if cam.cam == None:
                 self.send_data('cam_not_detected')
-            else:    
+            else if cam.marker_data == None:
+                self.send_data('marker_not_found')
+            else:  
                 cam.save_image()
                 self.send_data('ok')
         
@@ -181,9 +184,12 @@ class VisionServer(BaseHTTPRequestHandler):
     def do_POST(self):
 
         if self.path == '/get_coordinates':
-            x,y = eval(self.get_params()['c'][0].replace('\\',''))
-            data = get_real_coordinates([x,y])
-            self.send_data(str([data[0],data[1]]))
+            if cam.marker_data == None:
+                self.send_data('marker_not_found')
+            else:
+                x,y = eval(self.get_params()['c'][0].replace('\\',''))
+                data = get_real_coordinates([x,y])
+                self.send_data(str([data[0],data[1]]))
 
         if self.path == '/get_coordinates_from_command':
             command = self.get_params()['text_command'][0]
