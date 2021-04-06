@@ -52,7 +52,6 @@ class Camera:
         for threshold in range(1, 30):
             self.marker_data = detect(image, 31, threshold)
             if self.marker_data != None:
-                self.ploat_marker()
                 self.threshold = threshold
 
                 x1 = int(self.marker_data[0])
@@ -101,6 +100,7 @@ class Camera:
     
     def save_image(self):
         image = self.capture_image_array()
+        image = self.get_processed_frame(image)
         self.save_to_disk(image)
         return(self.output_filename)
 
@@ -118,7 +118,7 @@ def get_real_coordinates(data):
 
 def get_coordinates_from_image():
     input_image = cv2.imread('/tmp/vision_input.jpeg',0)
-    vision_image = cam.get_processed_frame(cv2.imread('/tmp/vision_output.jpeg'))
+    vision_image = cv2.imread('/tmp/vision_output.jpeg')
     return(find_match(vision_image, input_image))
 
 def get_coordinates_from_command(command):
