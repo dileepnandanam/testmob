@@ -7,15 +7,15 @@ class QuacoInstructionBuilder
   def build
     if(@params.keys.include?('x'))
       x,y = Vision.new.get_coordinates(@params[:x], @params[:y])
-      @params.merge({x:x, y:y})
+      @params.merge!({x:x, y:y})
     end
     if(@params.keys.include?('x1'))
       x1,y1 = Vision.new.get_coordinates(@params[:x1], @params[:y1])
-      @params.merge({x1:x1, y1:y1})
+      @params.merge!({x1:x1, y1:y1})
     end
     if(@params.keys.include?('x2'))
       x2,y2 = Vision.new.get_coordinates(@params[:x2], @params[:y2])
-      @params.merge({x2:x2, y2:y2})
+      @params.merge!({x2:x2, y2:y2})
     end
     Rails.logger.debug @params
     command = INSTRUCTION_MAP[@action].call(@params)
