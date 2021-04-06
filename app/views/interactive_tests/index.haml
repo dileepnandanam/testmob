@@ -29,7 +29,7 @@
         = hidden_field_tag :x, 500, class: 'touch-point-x'
         = hidden_field_tag :y, 500, class: 'touch-point-y'
         = submit_tag 'Touch on midpoint', class: 'btn-priamry execute-touch controll-btn'
-
+      .midpoint
     = link_to 'Execute predefined instructions', execute_predefined_actions_api_interactive_tests_path, remote: true, method: :post, class: 'btn-primary execute-predefined controll-btn'
     - if current_user.usertype == 'platform'
       .action-group

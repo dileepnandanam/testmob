@@ -123,8 +123,11 @@ $(document).on('turbolinks:load', () => {
     dragx2 = e.originalEvent.layerX
     dragy2 = e.originalEvent.layerY
     crop(s(dragx1), s(dragy1), s(dragx2), s(dragy1 + dragx2 - dragx1))
-    $('.touch-point-x').val(s(parseInt(dragx1 + (dragx2-dragx1)/2)))
-    $('.touch-point-y').val(s(parseInt(dragy1 + (dragy2-dragy1)/2)))
+    mx = s(parseInt(dragx1 + (dragx2-dragx1)/2))
+    my = s(parseInt(dragy1 + (dragy2-dragy1)/2))
+    $('.touch-point-x').val(mx)
+    $('.touch-point-y').val(my)
+    $('.midpoint').html(`${mx}:${my}`)
     reset_drag()
   })
 
