@@ -47,9 +47,9 @@ class Api::InteractiveTestsController < Api::BaseController
       :x,:y,:z,:x1,:y1,:x2,:y2,:taps,:delay,:speed,:direction,:duration,:back_pos,:height,:force,:new_name,:index,:ip,:port
     ).to_h 
     quaco_instruction = QuacoInstructionBuilder.new(action_id, api_params).build
-    Quaco.execute_now(quaco_instruction)
+    result = Quaco.execute_now(quaco_instruction)
     sleep(2)
-    render json: {screen_shot: Vision.new.capture}
+    render json: {screen_shot: Vision.new.capture, api_call: quaco_instruction, result: result}
   end
 
   protected
