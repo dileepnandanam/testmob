@@ -68,7 +68,9 @@ class Vision
   end
 
   def get_coordinates(x,y)
-    eval(`curl --form "x=#{x}&y=#{y}" -X POST localhost:8080/get_coordinates`)
+    result = `curl --form "x=#{x}&y=#{y}" -X POST localhost:8080/get_coordinates`
+    raise_error_for(result)
+    eval result
   end
 
   def raise_error_for(result)
