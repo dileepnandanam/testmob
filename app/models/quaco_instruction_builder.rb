@@ -1,7 +1,7 @@
 class QuacoInstructionBuilder
   def initialize(action, params)
     @action = action
-    @params = params
+    @params = params.with_indifferent_access
   end
 
   def build
