@@ -1,4 +1,5 @@
 class Api::AuthController < ApplicationController
+  protect_from_forgery with: :null_session
   def login
     email = params[:email]
     password = params[:password]
