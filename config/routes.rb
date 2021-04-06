@@ -27,6 +27,9 @@ Rails.application.routes.draw do
     get '/test/init', to: 'interactive_tests#init'
     get '/test/capture', to: 'interactive_tests#capture_screen_shot'
     get '/test/:action_id', to: 'interactive_tests#perform'
+    post '/test/init', to: 'interactive_tests#init'
+    post '/test/capture', to: 'interactive_tests#capture_screen_shot'
+    post '/test/:action_id', to: 'interactive_tests#perform'
   end
 
   resources :tests do
