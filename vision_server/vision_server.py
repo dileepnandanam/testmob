@@ -191,7 +191,7 @@ class VisionServer(BaseHTTPRequestHandler):
             x = self.get_params()['x'][0]
             y = self.get_params()['y'][0]
             data = get_coordinates(x,y)
-            self.send_data(str(data))
+            self.send_data(str([data[0],[1]]))
 
         if self.path == '/get_coordinates_from_command':
             command = self.get_params()['text_command'][0]
