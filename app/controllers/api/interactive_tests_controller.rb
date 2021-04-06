@@ -41,6 +41,12 @@ class Api::InteractiveTestsController < Api::BaseController
     render json: {result: 'Done'}
   end
 
+  def init
+    Vision.new.connect
+    Vision.new.detect_marker
+    render json: {status: 'Success'}
+  end
+
   def perform
     action_id = params[:action_id]
     api_params = params.permit(
@@ -50,7 +56,7 @@ class Api::InteractiveTestsController < Api::BaseController
     Rails.logger.debug("-------------#{quaco_instruction}-------------")
     result = Quaco.execute_now(quaco_instruction)
     sleep(2)
-    render json: {screen_shot: Vision.new.capture, api_call: quaco_instruction, result: result}
+    render json: {api_call: quaco_instruction, result: result, status: 'Success', screen_shot: Vision.new.capture}
   end
 
   protected
