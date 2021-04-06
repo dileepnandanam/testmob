@@ -139,7 +139,7 @@ class VisionServer(BaseHTTPRequestHandler):
         if self.path == '/capture':
             if cam.cam == None:
                 self.send_data('cam_not_detected')
-            else if cam.marker_data == None:
+            elif cam.marker_data == None:
                 self.send_data('marker_not_found')
             else:  
                 cam.save_image()
@@ -167,7 +167,7 @@ class VisionServer(BaseHTTPRequestHandler):
         if self.path == '/detect_marker':
             if cam.cam == None:
                 self.send_data('cam_not_detected')
-                return()
+
             marker_data = cam.detect_marker()
             if marker_data == None:
                 self.send_data('marker_not_found')
