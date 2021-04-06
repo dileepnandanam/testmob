@@ -17,6 +17,7 @@ class QuacoInstructionBuilder
       x2,y2 = Vision.new.get_coordinates(@params[:x2], @params[:y2])
       @params.merge({x2:x2, y2:y2})
     end
+    Rails.logger.debug @params
     command = INSTRUCTION_MAP[@action].call(@params)
     return command
   end
