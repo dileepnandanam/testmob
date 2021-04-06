@@ -125,6 +125,14 @@ def get_coordinates_from_image():
 def get_coordinates_from_command(command):
     return(None)
 
+def get_coordinates(x,y):
+    x1,y1,x2,y2,ratio = cam.marker_data
+    mx = x1+(x2-x1)/2
+    my = y1+(y2-y1)/2
+
+    qx = (x-mx)*ratio
+    qy = (y-my)*ratio
+    return((int(qx),int(qy)))
 
 class VisionServer(BaseHTTPRequestHandler):
     def send_data(self, data):
@@ -182,7 +190,7 @@ class VisionServer(BaseHTTPRequestHandler):
         if self.path == '/get_coordinates':
             x = self.get_params()['x'][0]
             y = self.get_params()['y'][0]
-            data = (100,100)
+            data = get_coordinates(x,y)
             self.send_data(str(data))
 
         if self.path == '/get_coordinates_from_command':
