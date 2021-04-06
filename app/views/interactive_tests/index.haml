@@ -25,7 +25,7 @@
       
       = form_with(url: execute_touch_api_interactive_tests_path, remote: true, method: 'POST', class: 'execute-touch') do
         = submit_tag 'Touch on image', class: 'btn-priamry execute-touch controll-btn'
-      = form_with(url: '/api/test/touch_touch_and_return', remote: true, method: 'GET', class: 'execute-touch touch-point') do
+      = form_with(url: '/api/test/touch_touch_and_return', remote: true, method: 'GET', class: 'touch-point') do
         = hidden_field_tag :x, 500, class: 'touch-point-x'
         = hidden_field_tag :y, 500, class: 'touch-point-y'
         = submit_tag 'Touch on midpoint', class: 'btn-priamry execute-touch controll-btn'

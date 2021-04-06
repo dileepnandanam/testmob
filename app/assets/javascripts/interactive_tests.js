@@ -42,7 +42,7 @@ $(document).on('turbolinks:load', () => {
     $(form).find('input[name="croped_image"]').hide()
   })
 
-  $(document).on('ajax:success', '.execute-touch', (e) => {
+  $(document).on('ajax:success', '.execute-touch, .touch-point', (e) => {
     $('.vision-screenshot').attr('src', e.detail[0].screen_shot)
     set_loading(false)
   })
