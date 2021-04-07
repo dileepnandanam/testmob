@@ -28,14 +28,13 @@ serverPort = 8080
 #Globals for Camera
 img = pylon.PylonImage()
 
-gx = None
-gy = None
 class Camera:
     def __init__(self):
         self.output_filename = '/tmp/vision_output.jpeg'
         self.cam = None
         self.marker_data = None
-
+        self.gx = None
+        self.gy = None
     def connect(self):
         pylon_cam = pylon.TlFactory.GetInstance()
         self.cam = pylon.InstantCamera(pylon_cam.CreateFirstDevice())
@@ -102,8 +101,8 @@ class Camera:
     def save_image(self):
         image = self.capture_image_array()
         image = self.get_processed_frame(image)
-        if gx != None:
-            cv2.rectangle(image, (gx-10,gy-10),(gx+10, gy+10),(0,0,255),4)
+        if self.gx != None:
+            cv2.rectangle(image, (self.gx-10,self.gy-10),(self.gx+10, self.gy+10),(0,0,255),4)
         self.save_to_disk(image)
         return(self.output_filename)
 
@@ -190,7 +189,7 @@ class VisionServer(BaseHTTPRequestHandler):
                 self.send_data('marker_not_found')
             else:
                 x,y = eval(self.get_params()['c'][0].replace('\\',''))
-                gx,gy = x,y
+                cam.gx,cam.gy = x,y
                 data = get_real_coordinates([x,y])
                 self.send_data(str([data[0],data[1]]))
 
