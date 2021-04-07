@@ -14,7 +14,8 @@ class Api::InteractiveTestsController < Api::BaseController
   end
 
   def execute_text_command
-    render json: {screen_shot: Vision.new.execute_text_command(params[:text_command])}
+    screen_shot, result = Vision.new.execute_text_command(params[:text_command])
+    render json: {screen_shot: screen_shot, result: result}
   end
 
   def capture_screen_shot

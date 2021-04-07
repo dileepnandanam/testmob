@@ -27,8 +27,11 @@ class Vision
   def execute_text_command(text)
     result = `curl --form "text_command=#{text}" -X POST localhost:8080/get_coordinates_from_command`
     raise_error_for(result)
-    #execute quaco
-    capture
+    x,y = eval(result)
+    Quaco.execute_now('m:1:')
+    Quaco.execute_now("t:r:#{x}:#{y}:20:23:100:")
+    sleep(2)
+    [get_vision_output, result]
   end
   
   def capture

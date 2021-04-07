@@ -16,7 +16,7 @@ from match_template_advanced import match_image
 import rect_drw_eqn
 from perspective_transform import  four_point_transform
 import numpy as np
-
+from keras_ocr_module import match_text
 #interactive console
 #import code; code.interact(local=dict(globals(), **locals()))
 
@@ -125,7 +125,11 @@ def get_coordinates_from_image():
     return(find_match(vision_image, input_image))
 
 def get_coordinates_from_command(command):
-    return(None)
+    vision_image = cv2.imread('/tmp/vision_output.jpeg')
+    x,y = match_text(vision_image, command)
+    cv2.rectangle(vision_image, (int(x)-30,int(y)-30),(int(x)+30,int(y)+30), (0,0,255), 2)
+    cv2.imwrite('/tmp/vision_output.jpeg', vision_image)
+    return(x,y)
 
 def get_coordinates(x,y):
     return(x,y)
@@ -200,7 +204,8 @@ class VisionServer(BaseHTTPRequestHandler):
             if data == None:
                 self.send_data('coordinates_not_found')
             else:
-                self.send_data(data)
+                x,y = data
+                self.send_data(str([x,y]))
 
 
 
