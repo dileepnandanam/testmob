@@ -443,6 +443,14 @@ pre {
   pointer-events: none;
   border: 1px dashed yellow;
 }
+.vision-midpoint {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: red;
+  width: 8px;
+  height: 8px;
+}
 .quaco-panel img {
   width: 326px !important;
   top: 137px !important;
