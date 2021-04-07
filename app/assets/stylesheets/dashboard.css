@@ -464,7 +464,6 @@ pre {
   display: none;
 }
 .vision-screenshot {
-  width: 900px;
   transition: width 0.3s linear 0s;
 }
 .zoom-buttons {

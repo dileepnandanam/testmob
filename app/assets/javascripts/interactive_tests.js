@@ -98,11 +98,13 @@ $(document).on('turbolinks:load', () => {
   var dragx2 = 0
   var dragy2 = 0
 
-  s = (dimension) => {
+  factor = () => {
     original_width = $('.vision-screenshot').prop('naturalWidth')
     screen_width = $('.vision-screenshot').width()
-    factor = parseFloat(original_width)/parseFloat(screen_width)
-    return(parseInt(dimension*factor))
+    return(parseFloat(original_width)/parseFloat(screen_width))
+  }
+  s = (dimension) => {
+    return(parseInt(dimension*factor()))
   }
   reset_drag = () => {
     dragx1 = 0
