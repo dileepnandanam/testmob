@@ -103,6 +103,7 @@ class Camera:
         image = self.get_processed_frame(image)
         if self.gx != None:
             cv2.rectangle(image, (self.gx-10,self.gy-10),(self.gx+10, self.gy+10),(0,0,255),4)
+            cv2.rectangle(image, (self.gx-80,self.gy-80),(self.gx+80, self.gy+80),(0,0,255),4)
         self.save_to_disk(image)
         return(self.output_filename)
 
