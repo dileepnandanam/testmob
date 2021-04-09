@@ -5,6 +5,10 @@ class QuacoInstructionBuilder
   end
 
   def build
+    unless INSTRUCTION_MAP.keys.include? @action
+      return 'not_found'
+    end
+
     if(@params.keys.include?('x'))
       x,y = Vision.new.get_coordinates(@params[:x], @params[:y])
       @params.merge!({x:x, y:y})
