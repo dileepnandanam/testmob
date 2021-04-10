@@ -75,27 +75,35 @@ class Api::InteractiveTestsController < Api::BaseController
   protected
 
   def quaco_execution_failed
-    render json: {api_call: @quaco_instruction, result: OutputSender::O_MAP[@result.to_i], status: 'Quaco execution failed'}, status: 422
+    render json: {api_call: quaco_input(@quaco_instruction), result: quaco_output(@result), status: 'Quaco execution failed'}, status: 422
   end
   def wrong_quaco_instruction
-    render json: {api_call: "Not generated", result: "", status: 'Wrong API call'}, status: 422
+    render json: {api_call: quaco_input(@quaco_instruction), result: "", status: 'Wrong API call'}, status: 422
   end
   def quaco_disconnected
-    render json: {api_call: @quaco_instruction, result: "", status: 'Quaco disconnected'}, status: 422
+    render json: {api_call: quaco_input(@quaco_instruction), result: "", status: 'Quaco disconnected'}, status: 422
   end
   def server_not_found
-    render json: {api_call: 'Not generated', result: "", status: 'Vision server not responding'}, status: 422
+    render json: {api_call: quaco_input(@quaco_instruction), result: quaco_output(@result), status: 'Vision server not responding'}, status: 422
   end
   def cam_not_found
-    render json: {api_call: 'Not generated', result: "", status: 'Vision cam not connected'}, status: 422
+    render json: {api_call: quaco_input(@quaco_instruction), result: quaco_output(@result), status: 'Vision cam not connected'}, status: 422
   end
   def coordinates_not_found
-    render json: {api_call: 'Not generated', result: "", status: 'Coordinates not found'}, status: 422
+    render json: {api_call: quaco_input(@quaco_instruction), result: quaco_output(@result), status: 'Coordinates not found'}, status: 422
   end
   def marker_not_found
-    render json: {api_call: 'Not generated', result: "", status: 'Marker not detected'}, status: 422
+    render json: {api_call: quaco_input(@quaco_instruction), result: quaco_output(@result), status: 'Marker not detected'}, status: 422
   end
   def cam_not_detected
-    render json: {api_call: 'Not generated', result: "", status: 'Vision Cam not detected'}, status: 422
+    render json: {api_call: quaco_input(@quaco_instruction), result: quaco_output(@result), status: 'Vision Cam not detected'}, status: 422
+  end
+
+  def quaco_output(result)
+    "#{OutputSender::O_MAP[result.to_i]}"
+  end
+
+  def quaco_input(quaco_instruction)
+    quaco_instruction.present? ? quaco_instruction : 'Not generated'
   end
 end
