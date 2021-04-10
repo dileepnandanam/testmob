@@ -100,7 +100,7 @@ class Api::InteractiveTestsController < Api::BaseController
   end
 
   def quaco_output(result)
-    "#{OutputSender::O_MAP[result.to_i]}"
+    result.blank? ? '' : "#{OutputSender::O_MAP[result.to_i]}"
   end
 
   def quaco_input(quaco_instruction)
