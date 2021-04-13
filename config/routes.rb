@@ -38,7 +38,9 @@ Rails.application.routes.draw do
     post :submit, on: :collection
   end
 
-  resources :interactive_tests, only: [:index]
+  resources :interactive_tests do
+    get :check, on: :collection
+  end
 
   resources :api_docs
 

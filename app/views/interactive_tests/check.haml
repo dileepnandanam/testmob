@@ -1,0 +1,15 @@
+= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+= stylesheet_link_tag 'check'
+.board
+  - (1..100).each do |row|
+    - (1..100).each do |col|
+      .check
+
+:javascript
+  $(document).on('turbolinks:load', function() {
+    $('.check').click((e) => {
+      $('.check').css('background', 'white')
+      $(e.target).css('background', 'black')
+    })
+  })

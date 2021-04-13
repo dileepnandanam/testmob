@@ -5,6 +5,10 @@ class InteractiveTestsController < ApplicationController
     
   end
 
+  def check
+    render 'check', layout: false
+  end
+
   protected
 
   def check_user
