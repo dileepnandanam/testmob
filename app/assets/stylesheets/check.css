@@ -3,8 +3,13 @@
   height: 20px;
   display: inline-block;
   border: 1px solid black;
-  float: left;
+  position: absolute;
+  background-color: black;
+  border-radius: 50%;
 }
 .board {
+  width: 2000px;
+  height: 2000px;
   overflow: scroll;
+  position: relative;
 }

@@ -2,14 +2,11 @@
 
 = stylesheet_link_tag 'check'
 .board
-  - (1..100).each do |row|
-    - (1..100).each do |col|
-      .check
-
+  .check
 :javascript
   $(document).on('turbolinks:load', function() {
-    $('.check').click((e) => {
-      $('.check').css('background', 'white')
-      $(e.target).css('background', 'black')
+    $('.board').click((e) => {
+      $('.check').css('top', `${e.originalEvent.layerY - 10}px`)
+      $('.check').css('left', `${e.originalEvent.layerX - 10}px`)
     })
   })
