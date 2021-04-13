@@ -194,7 +194,7 @@ class VisionServer(BaseHTTPRequestHandler):
                 self.send_data('marker_not_found')
             else:
                 x,y = eval(self.get_params()['c'][0].replace('\\',''))
-                #cam.gx,cam.gy = x,y
+                cam.gx,cam.gy = x,y
                 data = get_real_coordinates([x,y])
                 self.send_data(str([data[0],data[1]]))
 
