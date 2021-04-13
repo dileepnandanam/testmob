@@ -65,7 +65,7 @@ class Api::InteractiveTestsController < Api::BaseController
     @result = Quaco.execute_now(@quaco_instruction)
     if @result == 'disconnected'
       raise VisionError::QuacoDisconnected
-    elsif @result != '1\n'
+    elsif @result != "1\n"
       raise VisionError::QuacoExecutionError
     end
     sleep(2)
