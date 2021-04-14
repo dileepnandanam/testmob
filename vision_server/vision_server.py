@@ -93,7 +93,7 @@ class Camera:
         img = image.GetArray()
         self.cam.StopGrabbing()
         self.cam.Close()
-        return(calculate_camera_matrix(img))
+        return(calculate_camera_matrix(calculate_camera_matrix(calculate_camera_matrix(img))))
 
     def save_to_disk(self, image_array):
         cv2.imwrite(self.output_filename, image_array)
