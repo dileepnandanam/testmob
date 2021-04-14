@@ -10,7 +10,7 @@ class InteractiveTestsController < ApplicationController
   end
 
   def checker
-    render 'checker', layout: false
+    render 'checker'
   end
 
   protected
