@@ -40,6 +40,7 @@ Rails.application.routes.draw do
 
   resources :interactive_tests do
     get :check, on: :collection
+    get :checker, on: :collection
   end
 
   resources :api_docs

@@ -9,6 +9,10 @@ class InteractiveTestsController < ApplicationController
     render 'check', layout: false
   end
 
+  def checker
+    render 'checker', layout: false
+  end
+
   protected
 
   def check_user

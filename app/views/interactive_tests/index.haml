@@ -21,6 +21,7 @@
     = link_to 'Capture screen shot', '/api/test/capture', remote: true, class: 'btn-primary refresh-vision controll-btn'
     - if current_user.usertype == 'platform'
       = link_to 'Test screen', check_interactive_tests_path, class: 'btn-primary controll-btn'
+      = link_to 'Caliberate screen', checker_interactive_tests_path, class: 'btn-primary controll-btn'
     .clearfix
     .action-group
       %canvas.crop-result
