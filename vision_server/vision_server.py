@@ -97,7 +97,11 @@ class Camera:
 
     def capture_image_array(self):
         img = self.capture_raw()
-        return(calculate_camera_matrix(calculate_camera_matrix(calculate_camera_matrix(img))))
+        img = calculate_camera_matrix(img)
+        img = calculate_camera_matrix(img)
+        img = calculate_camera_matrix(img)
+        img = calculate_camera_matrix(img)
+        return(img)
 
     def save_to_disk(self, image_array):
         cv2.imwrite(self.output_filename, image_array)
