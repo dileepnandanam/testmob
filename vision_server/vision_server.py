@@ -82,7 +82,7 @@ class Camera:
     def disconnect(self):
         self.cam = None
 
-    def capture_image_array(self):
+    def capture_raw(self):
         self.cam.Open()
         self.cam.StartGrabbing(pylon.GrabStrategy_LatestImageOnly)
         grabResult = self.cam.RetrieveResult(5000, pylon.TimeoutHandling_ThrowException)
@@ -93,6 +93,10 @@ class Camera:
         img = image.GetArray()
         self.cam.StopGrabbing()
         self.cam.Close()
+        return(img)
+
+    def capture_image_array(self):
+        img = self.capture_raw()
         return(calculate_camera_matrix(calculate_camera_matrix(calculate_camera_matrix(img))))
 
     def save_to_disk(self, image_array):
@@ -133,6 +137,12 @@ def get_coordinates_from_command(command):
 
 def get_coordinates(x,y):
     return(x,y)
+
+def save_distorted()
+    cam = Camera()
+    cam.connect()
+    c = cam.capture_raw()
+    cv2.imwrite('/home/sastra_admin/distorted.jpg', c)
 
 class VisionServer(BaseHTTPRequestHandler):
     def send_data(self, data):
