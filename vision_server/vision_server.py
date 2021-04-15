@@ -138,7 +138,7 @@ def get_coordinates_from_command(command):
 def get_coordinates(x,y):
     return(x,y)
 
-def save_distorted()
+def save_distorted():
     cam = Camera()
     cam.connect()
     c = cam.capture_raw()
