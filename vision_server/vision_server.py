@@ -97,8 +97,8 @@ class Camera:
 
     def capture_image_array(self):
         img = self.capture_raw()
-        img = calculate_camera_matrix(img)
-        img = calculate_camera_matrix(img)
+        #img = calculate_camera_matrix(img)
+        #img = calculate_camera_matrix(img)
         img = calculate_camera_matrix(img)
         img = calculate_camera_matrix(img)
         return(img)
