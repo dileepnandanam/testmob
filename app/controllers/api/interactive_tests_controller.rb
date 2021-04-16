@@ -68,11 +68,11 @@ class Api::InteractiveTestsController < Api::BaseController
     elsif @result != "1\n"
       raise VisionError::QuacoExecutionError
     end
-    if params[:capture].present? && params[:wait].present?
+    if params[:capture] == "true" && params[:wait].present?
       sleep(params[:wait].to_i)
     end
     api_result = {api_call: @quaco_instruction, result: "Command Executed Successfully", status: 'Success'}
-    if params[:capture].present?
+    if params[:capture] == "true"
       api_result.merge!(screen_shot: Vision.new.capture)
     end
     render json: api_result
