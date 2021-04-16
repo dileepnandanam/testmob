@@ -61,6 +61,7 @@ class Camera:
 
                 pix_per_mm = self.marker_data[4] 
                 h, w = image.shape[:2]
+                h = h-70
                 if y1 < y2:
                     values=rect_drw_eqn.equn1(x1,y1,x2,y2,h)
                 else:
