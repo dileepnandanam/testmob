@@ -60,11 +60,11 @@ class Camera:
                 y2 = int(self.marker_data[3])
 
                 pix_per_mm = self.marker_data[4] 
-            
+                h, w = image.shape[:2]
                 if y1 < y2:
-                    values=rect_drw_eqn.equn1(x1,y1,x2,y2)
+                    values=rect_drw_eqn.equn1(x1,y1,x2,y2,h)
                 else:
-                    values=rect_drw_eqn.equn2(x1,y1,x2,y2)
+                    values=rect_drw_eqn.equn2(x1,y1,x2,y2,h)
         
                 self.pts = np.array([(x1, y1), (x2, y2), (values[0], values[1]), (values[2], values[3])])
                 self.reference = True

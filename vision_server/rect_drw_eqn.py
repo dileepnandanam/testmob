@@ -2,9 +2,9 @@ import numpy
 import math
 import matplotlib.pyplot as plt 
 
-def equn1(x1,y1,x2,y2):
+def equn1(x1,y1,x2,y2,h):
 
-	dp = 2000
+	dp = abs(h-y2)
 	if abs(x2-x1) == 0:
 	    [x3,y3] = [x2-dp,y2]
 	    [x4,y4] = [x1-dp,y1]
@@ -24,8 +24,8 @@ def equn1(x1,y1,x2,y2):
 	#print (list1)
 	return list1
 
-def equn2(x1,y1,x2,y2):
-	dp = 2000
+def equn2(x1,y1,x2,y2,h):
+	dp = abs(h-y1)
 	if abs(x2-x1) == 0:
 	    [x3,y3] = [x2+dp,y2]
 	    [x4,y4] = [x1+dp,y1]
