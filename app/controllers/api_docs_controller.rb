@@ -1,4 +1,5 @@
 class ApiDocsController < ApplicationController
+  before_action :check_user
   def index
     @api_doc = ApiDoc.first
     render 'show'
@@ -44,5 +45,11 @@ class ApiDocsController < ApplicationController
 
   def api_doc_params
     params.require(:api_doc).permit(:name, :content)
+  end
+
+  def check_user
+    unless current_user.present?
+      redirect_to root_path
+    end
   end
 end
