@@ -36,8 +36,8 @@ class QuacoInstructionBuilder
 
   INSTRUCTION_MAP = {
     'swipe_swipe' => -> (p) {"w:#{p[:x1]}:#{p[:y1]}:#{p[:x2]}:#{p[:y2]}:#{SPEED}:"},
-    'swipe_swipe_and_return' => -> (p) {"w:#{p[:x1]}:#{p[:y1]}:#{p[:x2]}:#{p[:y2]}:#{SPEED}:"},
-    'flick_flick' => -> (p) {"w:#{p[:x1]}:#{p[:y1]}:#{p[:x2]}:#{p[:y2]}:#{SPEED}:"},
+    'swipe_swipe_and_return' => -> (p) {"w:r:#{p[:x1]}:#{p[:y1]}:#{p[:x2]}:#{p[:y2]}:#{SPEED}:"},
+    'flick_flick' => -> (p) {"f:l:#{p[:x1]}:#{p[:y1]}:#{p[:x2]}:#{p[:y2]}:#{SPEED}:"},
     'touch_tap' => -> (p) {"t:m:#{p[:x]}:#{p[:y]}:#{TAPS}:#{DELAY}:#{BACK_POS}:#{FORCE}:"},
     'move_to_xy_plane_move' => -> (p) {"p:f:#{p[:x]}:#{p[:y]}:"},
     'touch_event_move' => -> (p) {"t:e:#{DURATION}:#{BACK_POS}:#{FORCE}:"},
