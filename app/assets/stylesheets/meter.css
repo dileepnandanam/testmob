@@ -21,6 +21,9 @@
   background-color: black;
   margin: 20px 0px 20px;
 }
+.meter-test-image img {
+  width: 100%;
+}
 .meter-test-ocr-result {
   padding: 20px;
   background-color: black;
