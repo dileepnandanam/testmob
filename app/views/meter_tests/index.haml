@@ -3,13 +3,13 @@
     = render partial: 'tests/video_feedback_cv'
   .col-lg-8.p-3.pull-right
     = link_to meter_test_path(@energy_meter_test), remote: true do
-      .meter-tab.float-left
+      .meter-tab.float-left.energy_meter.meter-tab-active
         Energy Meter
     = link_to meter_test_path(@gas_meter_test), remote: true do
-      .meter-tab.float-left
+      .meter-tab.float-left.gas_meter
         Gas Meter
     = link_to meter_test_path(@ppmid_test), remote: true do
-      .meter-tab.float-left
+      .meter-tab.float-left.ppmid
         PPMID
     .clearfix
     .meter-test
