@@ -5,7 +5,7 @@
 %h4
   OCR Reading
 .meter-test-ocr-result
-= link_to I18n.t('meter-action.' + @meter_test.name), run_meter_test_path(@meter_test), class: 'run-meter-test rounded-panel', method: :post, remote: true, data: {disable_with: 'Executing...'}
+= link_to I18n.t('meter-action.' + @meter_test.name), run_meter_test_path(@meter_test), class: 'run-meter-test rounded-panel', method: :post, onClick: '$(this).hide()'
 %h4.mt-4
   Quaco output
 .meter-test-result
