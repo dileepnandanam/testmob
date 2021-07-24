@@ -16,7 +16,7 @@ def detect_charectors(path):
     img = cv2.resize(img, dim, interpolation = cv2.INTER_AREA)
 
     image = img
-    #image = cv2.rotate(img, cv2.cv2.ROTATE_90_COUNTERCLOCKWISE)
+    image = cv2.rotate(img, cv2.cv2.ROTATE_90_COUNTERCLOCKWISE)
     #image = cv2.rotate(img, cv2.cv2.ROTATE_90_CLOCKWISE)
 
     pipeline = keras_ocr.pipeline.Pipeline()    
