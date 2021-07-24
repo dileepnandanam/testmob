@@ -20,6 +20,7 @@ class MeterTestsController < ApplicationController
   end
 
   def get_ocr_result
-
+    @ocr_result = Vision.new.get_ocr_result
+    @image = Vision.new.get_vision_output
   end
 end

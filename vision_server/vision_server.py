@@ -16,7 +16,7 @@ from match_template_advanced import match_image
 import rect_drw_eqn
 from perspective_transform import  four_point_transform
 import numpy as np
-from keras_ocr_module import match_text
+from keras_ocr_module import detect_charectors
 #interactive console
 #import code; code.interact(local=dict(globals(), **locals()))
 
@@ -195,6 +195,18 @@ class VisionServer(BaseHTTPRequestHandler):
             else:
                 self.send_data(str(marker_data))
 
+        if self.path == '/get_ocr_result':
+            if cam.cam == None:
+                self.send_data('Connect cam')
+
+            img = cam.capture_raw()
+            cv2.imwrite(cam.output_filename, img)
+            chars = detect_charectors(cam.output_filename)
+
+            if chars:
+                self.send_data(chars)
+            else
+                self.send_data('Charectors not recognized!')
 
     def get_params(self):
         ctype, pdict = cgi.parse_header(self.headers['content-type'])

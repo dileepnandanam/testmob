@@ -33,6 +33,10 @@ class Vision
     sleep(2)
     [get_vision_output, result]
   end
+
+  def get_ocr_result
+    `curl localhost:8080/get_ocr_result`
+  end
   
   def capture
     result = `curl localhost:8080/capture`
