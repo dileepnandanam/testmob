@@ -205,7 +205,7 @@ class VisionServer(BaseHTTPRequestHandler):
 
             if chars:
                 self.send_data(chars)
-            else
+            else:
                 self.send_data('Charectors not recognized!')
 
     def get_params(self):
