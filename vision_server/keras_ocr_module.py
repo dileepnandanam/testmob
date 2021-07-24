@@ -8,6 +8,13 @@ def detect_charectors(path):
     img = cv2.imread(path)
     result_string = ""
 
+    # resize image
+    scale_percent = 50 # percent of original size
+    width = int(img.shape[1] * scale_percent / 100)
+    height = int(img.shape[0] * scale_percent / 100)
+    dim = (width, height) 
+    img = cv2.resize(img, dim, interpolation = cv2.INTER_AREA)
+
     image = img
     #image = cv2.rotate(img, cv2.cv2.ROTATE_90_COUNTERCLOCKWISE)
     #image = cv2.rotate(img, cv2.cv2.ROTATE_90_CLOCKWISE)
