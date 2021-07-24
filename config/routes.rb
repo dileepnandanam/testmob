@@ -58,6 +58,10 @@ Rails.application.routes.draw do
     get :test_scenarios, on: :collection
   end
 
+  resources :meter_tests do
+    post :run, on: :member
+  end
+
   resources :test_scenarios
 
   resources :app_configs do
