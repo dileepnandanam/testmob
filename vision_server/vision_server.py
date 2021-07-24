@@ -16,7 +16,7 @@ from match_template_advanced import match_image
 import rect_drw_eqn
 from perspective_transform import  four_point_transform
 import numpy as np
-#from keras_ocr_module import match_text
+from keras_ocr_module import match_text
 #interactive console
 #import code; code.interact(local=dict(globals(), **locals()))
 
