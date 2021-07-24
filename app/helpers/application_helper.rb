@@ -12,7 +12,8 @@ module ApplicationHelper
     'test_induviduals_others' => 'test',
     'test_induviduals_power_control' => 'test',
     'test_induviduals_rig_control' => 'test',
-    'interactive_tests_index' => 'interactive_tests'
+    'interactive_tests_index' => 'interactive_tests',
+    'meter_tests_index' => 'meter_tests'
   }
 
   def phase(name)

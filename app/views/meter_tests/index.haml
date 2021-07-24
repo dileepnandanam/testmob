@@ -1,24 +1,41 @@
-- if current_user.usertype == 'platform'
-  .col-lg-8.meter-commands-form
-    Energy Meter Commands
-    = form_for(@energy_meter_test, url: meter_test_path(@energy_meter_test), remote: true) do |f|
-      .form-group
-        = f.label 'Code', class: 'control-label'
-        = f.text_area :code, class: 'form-control'
-      = f.submit 'submit'
-      %br
-  .col-lg-8.meter-commands-form
-    Gas Meter Commands
-    = form_for(@gas_meter_test, url: meter_test_path(@gas_meter_test), remote: true) do |f|
-      .form-group
-        = f.label 'Code', class: 'control-label'
-        = f.text_area :code, class: 'form-control'
-      = f.submit 'submit'
-      %br
-  .col-lg-8.meter-commands-form
-    PPMID Commands
-    = form_for(@ppmid_test, url: meter_test_path(@ppmid_test), remote: true) do |f|
-      .form-group
-        = f.label 'Code', class: 'control-label'
-        = f.text_area :code, class: 'form-control'
-      = f.submit 'submit'
+.row
+  .border-1.col-lg-4.quaco-panel.p-2
+    = render partial: 'tests/video_feedback_cv'
+  .col-lg-8.p-3.pull-right
+    = link_to meter_test_path(@energy_meter_test), remote: true do
+      .meter-tab.float-left
+        Energy Meter
+    = link_to meter_test_path(@gas_meter_test), remote: true do
+      .meter-tab.float-left
+        Gas Meter
+    = link_to meter_test_path(@ppmid_test), remote: true do
+      .meter-tab.float-left
+        PPMID
+    .clearfix
+    .meter-test
+      = render partial: 'show'
+
+    - if current_user.usertype == 'platform'
+      .col-lg-8.meter-commands-form
+        Energy Meter Commands
+        = form_for(@energy_meter_test, url: meter_test_path(@energy_meter_test), remote: true) do |f|
+          .form-group
+            = f.label 'Code', class: 'control-label'
+            = f.text_area :code, class: 'form-control'
+          = f.submit 'submit'
+          %br
+      .col-lg-8.meter-commands-form
+        Gas Meter Commands
+        = form_for(@gas_meter_test, url: meter_test_path(@gas_meter_test), remote: true) do |f|
+          .form-group
+            = f.label 'Code', class: 'control-label'
+            = f.text_area :code, class: 'form-control'
+          = f.submit 'submit'
+          %br
+      .col-lg-8.meter-commands-form
+        PPMID Commands
+        = form_for(@ppmid_test, url: meter_test_path(@ppmid_test), remote: true) do |f|
+          .form-group
+            = f.label 'Code', class: 'control-label'
+            = f.text_area :code, class: 'form-control'
+          = f.submit 'submit'

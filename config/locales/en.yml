@@ -30,4 +30,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  energy_meter: Energy Meter
+  ppmid: PPMID
+  gas_meter: Gas Meter
+  meter-action:
+    energy_meter: Get Energy Meter Reading
+    ppmid: Enable PPMID
+    gas_meter: Get Gas Meter Reading
+  

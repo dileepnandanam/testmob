@@ -1,3 +1,45 @@
 .meter-commands-form {
   margin-bottom: 20px;
 }
+.meter-tab {
+  padding:  12px 20px;
+  background-color: yellow;
+  margin: 20px;
+}
+.meter-test {
+  margin: 20px 20px 20px;
+}
+.meter-test-result {
+  padding: 20px;
+  margin: 20px 0px 20px;
+  background-color: black;
+  color: white;
+}
+.meter-test-image {
+  min-height: 300px;
+  min-width: 300px;
+  background-color: black;
+  margin: 20px 0px 20px;
+}
+.meter-test-ocr-result {
+  padding: 20px;
+  background-color: black;
+  margin: 20px 0px 20px;
+  color: white;
+}
+.run-meter-test {
+  padding: 12px;
+  margin: 20px 0px 20px;
+  background-color: green;
+  color: white;
+}
+.run-meter-test:hover {
+  text-decoration: none;
+  background-color: lightgreen;
+}
+.rounded-panel {
+  border-radius: 12px;
+}
+.meter-test-area {
+  padding: 20px;
+}

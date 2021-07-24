@@ -60,6 +60,7 @@ Rails.application.routes.draw do
 
   resources :meter_tests do
     post :run, on: :member
+    get :get_ocr_result, on: :collection
   end
 
   resources :test_scenarios

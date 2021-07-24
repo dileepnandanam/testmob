@@ -1,0 +1,8 @@
+%h3
+  = I18n.t @meter_test.name
+.meter-test-image.rounded-panel
+%h4
+  OCR Reading
+.meter-test-ocr-result.rounded-panel
+= link_to I18n.t('meter-action.' + @meter_test.name), run_meter_test_path(@meter_test), class: 'run-meter-test', method: :post, remote: true
+.meter-test-result.rounded-panel
