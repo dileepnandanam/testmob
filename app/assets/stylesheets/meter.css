@@ -3,14 +3,14 @@
 }
 .meter-tab {
   padding:  12px 20px;
-  background-color: grey;
+  background-color: blue;
   color: white;
   margin: 20px;
 }
 .meter-tab-active {
   color: black;
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid blue;
 }
 .meter-test {
   margin: 20px 20px 20px;
