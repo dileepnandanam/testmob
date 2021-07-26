@@ -16,7 +16,8 @@ from match_template_advanced import match_image
 import rect_drw_eqn
 from perspective_transform import  four_point_transform
 import numpy as np
-from keras_ocr_module import detect_charectors
+#from keras_ocr_module import detect_charectors
+from keras_ocr_module import detect_charectors_tesseract
 #interactive console
 #import code; code.interact(local=dict(globals(), **locals()))
 
@@ -230,7 +231,7 @@ class VisionServer(BaseHTTPRequestHandler):
             img = cam.capture_raw()
             img = cv2.rotate(img, cv2.cv2.ROTATE_90_COUNTERCLOCKWISE)
             cv2.imwrite(cam.output_filename, img)
-            chars = detect_charectors(cam.output_filename, target)
+            chars = detect_charectors_tesseract(cam.output_filename, target)
 
             if chars:
                 self.send_data(chars)

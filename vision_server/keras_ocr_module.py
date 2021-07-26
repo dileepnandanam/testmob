@@ -1,4 +1,5 @@
-import keras_ocr
+
+#import keras_ocr
 import pytesseract
 import numpy as np
 import cv2
@@ -30,7 +31,7 @@ def detect_charectors_tesseract(path, target):
     img = cv2.imread(path)
 
     # resize image
-    scale_percent = 50 # percent of original size
+    scale_percent = 50 #50 # percent of original size
     width = int(img.shape[1] * scale_percent / 100)
     height = int(img.shape[0] * scale_percent / 100)
     dim = (width, height) 
@@ -43,7 +44,7 @@ def detect_charectors_tesseract(path, target):
     h,w,c = image.shape
     Gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     Blured = cv2.medianBlur(Gray,3)
-    thresholdValue = 215 #180
+    thresholdValue = 161 #93 #93- em #139- gm
     _, dst = cv2.threshold(Blured, thresholdValue , 255, 0)
     kernel = np.ones((1, 1), np.uint8)
     Dialated = cv2.dilate(dst, kernel, iterations=1) # APPLY DILATION
@@ -51,5 +52,14 @@ def detect_charectors_tesseract(path, target):
     blur = cv2.medianBlur(Eroded,3)
     Eroded_img =cv2.addWeighted(Eroded, 1.5, blur, -0.5, 0)
     ocr_text = pytesseract.image_to_string(Eroded_img, config='--psm 3', lang='eng')
+    #ocr_text = "status  = Ok r"
+    #ocr_text1 = str(len(ocr_text))
+    #file = open("a.txt", "w")
+    #file.write(ocr_text)
+    str1 = ""
+    s =ocr_text.splitlines()
+    for ele in s:
+        str1 += ele
 
-    return ocr_text
+
+    return str1
