@@ -4,7 +4,7 @@
   = image_tag('')
 %h4
   OCR Reading
-.meter-test-ocr-result
+.meter-test-ocr-result{data: {target: @meter_test.name}}
 = link_to I18n.t('meter-action.' + @meter_test.name), run_meter_test_path(@meter_test), class: 'run-meter-test rounded-panel', method: :post, onClick: '$(this).hide();$(".meter-test-result").html("")'
 %h4.mt-4
   Quaco output

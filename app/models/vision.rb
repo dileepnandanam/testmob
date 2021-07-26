@@ -34,8 +34,8 @@ class Vision
     [get_vision_output, result]
   end
 
-  def get_ocr_result
-    `curl localhost:8080/get_ocr_result`
+  def get_ocr_result(target)
+    `curl --form "target=#{target}" -X POST localhost:8080/get_ocr_result`
   end
   
   def capture

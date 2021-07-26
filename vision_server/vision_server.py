@@ -195,20 +195,6 @@ class VisionServer(BaseHTTPRequestHandler):
             else:
                 self.send_data(str(marker_data))
 
-        if self.path == '/get_ocr_result':
-            if cam.cam == None:
-                self.send_data('Connect cam')
-
-            img = cam.capture_raw()
-            img = cv2.rotate(img, cv2.cv2.ROTATE_90_COUNTERCLOCKWISE)
-            cv2.imwrite(cam.output_filename, img)
-            chars = detect_charectors(cam.output_filename)
-
-            if chars:
-                self.send_data(chars)
-            else:
-                self.send_data('Charectors not recognized!')
-
     def get_params(self):
         ctype, pdict = cgi.parse_header(self.headers['content-type'])
         pdict['boundary'] = bytes(pdict['boundary'], "utf-8")
@@ -234,6 +220,22 @@ class VisionServer(BaseHTTPRequestHandler):
             else:
                 x,y = data
                 self.send_data(str([x,y]))
+
+        if self.path == '/get_ocr_result':
+            target = self.get_params()['target'][0]
+
+            if cam.cam == None:
+                self.send_data('Connect cam')
+
+            img = cam.capture_raw()
+            img = cv2.rotate(img, cv2.cv2.ROTATE_90_COUNTERCLOCKWISE)
+            cv2.imwrite(cam.output_filename, img)
+            chars = detect_charectors(cam.output_filename, target)
+
+            if chars:
+                self.send_data(chars)
+            else:
+                self.send_data('Charectors not recognized!')
 
 
 

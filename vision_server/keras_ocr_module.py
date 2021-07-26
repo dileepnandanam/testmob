@@ -4,7 +4,7 @@ import numpy as np
 import cv2
 
 
-def detect_charectors(path):
+def detect_charectors(path, target):
     img = cv2.imread(path)
     result_string = ""
 
@@ -26,7 +26,7 @@ def detect_charectors(path):
 
     return result_string
 
-def detect_charectors_tesseract(path):
+def detect_charectors_tesseract(path, target):
     img = cv2.imread(path)
 
     # resize image
