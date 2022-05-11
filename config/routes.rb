@@ -24,6 +24,10 @@ Rails.application.routes.draw do
       get :disconnect_vision, on: :collection
       get :restart_vision_server, on: :collection
     end
+    resources :meter_tests do
+      post :execute, on: :collection
+      get :execute, on: :collection
+    end
     get '/test/init', to: 'interactive_tests#init'
     get '/test/capture', to: 'interactive_tests#capture_screen_shot'
     get '/test/:action_id', to: 'interactive_tests#perform'
