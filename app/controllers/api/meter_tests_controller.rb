@@ -1,6 +1,26 @@
 class Api::MeterTestsController < Api::BaseController
-  def execute
-    lines = params[:commands].split("##")
+  def connect_bluetooth
+    results = execute TestScenario.for('energy_meter').code
+    ocr_results = Vision.new.get_ocr_result(params[:target])
+    render json: {ocr_results: ocr_results, results: results, screen_shot: Vision.new.get_vision_output}
+  end
+
+  def multimedia_play
+    results = execute TestScenario.for('gas_meter').code
+    ocr_results = Vision.new.get_ocr_result(params[:target])
+    render json: {ocr_results: ocr_results, results: results, screen_shot: Vision.new.get_vision_output}
+  end
+
+  def search_navigation
+    results = execute TestScenario.for('ppmid').code
+    ocr_results = Vision.new.get_ocr_result(params[:target])
+    render json: {ocr_results: ocr_results, results: results, screen_shot: Vision.new.get_vision_output}
+  end
+
+  protected
+
+  def execute(commands)
+    lines = commands.split(/\n/)
     results = []
     lines.each do |line|
       if Quaco.closed?
@@ -19,7 +39,6 @@ class Api::MeterTestsController < Api::BaseController
       end
     end
 
-    ocr_results = Vision.new.get_ocr_result(params[:target])
-    render json: {ocr_results: ocr_results, results: results, screen_shot: Vision.new.get_vision_output}
+    return results
   end
 end

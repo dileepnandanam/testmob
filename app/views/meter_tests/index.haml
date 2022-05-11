@@ -4,20 +4,20 @@
   .col-lg-8.p-3.pull-right
     = link_to meter_test_path(@energy_meter_test), remote: true do
       .meter-tab.float-left.energy_meter.meter-tab-active
-        Energy Meter
+        Connect bluetooth
     = link_to meter_test_path(@gas_meter_test), remote: true do
       .meter-tab.float-left.gas_meter
-        Gas Meter
+        Multimedia Play
     = link_to meter_test_path(@ppmid_test), remote: true do
       .meter-tab.float-left.ppmid
-        PPMID
+        Search Navigation
     .clearfix
     .meter-test
       = render partial: 'show'
 
     - if current_user.usertype == 'platform'
       .col-lg-8.meter-commands-form
-        Energy Meter Commands
+        Connect Bluetooth Commands
         = form_for(@energy_meter_test, url: meter_test_path(@energy_meter_test), remote: true) do |f|
           .form-group
             = f.label 'Code', class: 'control-label'
@@ -25,7 +25,7 @@
           = f.submit 'submit'
           %br
       .col-lg-8.meter-commands-form
-        Gas Meter Commands
+        Multimedia Play Commands
         = form_for(@gas_meter_test, url: meter_test_path(@gas_meter_test), remote: true) do |f|
           .form-group
             = f.label 'Code', class: 'control-label'
@@ -33,7 +33,7 @@
           = f.submit 'submit'
           %br
       .col-lg-8.meter-commands-form
-        PPMID Commands
+        Search Navigation Commands
         = form_for(@ppmid_test, url: meter_test_path(@ppmid_test), remote: true) do |f|
           .form-group
             = f.label 'Code', class: 'control-label'

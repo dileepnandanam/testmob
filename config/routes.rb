@@ -24,9 +24,13 @@ Rails.application.routes.draw do
       get :disconnect_vision, on: :collection
       get :restart_vision_server, on: :collection
     end
-    resources :meter_tests do
-      post :execute, on: :collection
-      get :execute, on: :collection
+    resources :test_actions, controller: 'meter_tests' do
+      post :connect_bluetooth, on: :collection
+      post :multimedia_play, on: :collection
+      post :search_navigation, on: :collection
+      get :connect_bluetooth, on: :collection
+      get :multimedia_play, on: :collection
+      get :search_navigation, on: :collection
     end
     get '/test/init', to: 'interactive_tests#init'
     get '/test/capture', to: 'interactive_tests#capture_screen_shot'
