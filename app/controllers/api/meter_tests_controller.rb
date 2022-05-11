@@ -20,6 +20,6 @@ class Api::MeterTestsController < Api::BaseController
     end
 
     ocr_results = Vision.new.get_ocr_result(params[:target])
-    render json: {ocr_results: ocr_results, results: results, screen_shot: Vision.new.capture}
+    render json: {ocr_results: ocr_results, results: results, screen_shot: Vision.new.get_vision_output}
   end
 end

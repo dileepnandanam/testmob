@@ -229,7 +229,7 @@ class VisionServer(BaseHTTPRequestHandler):
                 self.send_data('Connect cam')
 
             img = cam.capture_raw()
-            img = cv2.rotate(img, cv2.cv2.ROTATE_90_COUNTERCLOCKWISE)
+            #img = cv2.rotate(img, cv2.cv2.ROTATE_90_COUNTERCLOCKWISE)
             cv2.imwrite(cam.output_filename, img)
             chars = detect_charectors_tesseract(cam.output_filename, target)
 
