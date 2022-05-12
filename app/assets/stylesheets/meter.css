@@ -2,10 +2,11 @@
   margin-bottom: 20px;
 }
 .meter-tab {
-  padding:  12px 20px;
+  font-size: 18px;
+  padding:  6px 10px;
   background-color: blue;
   color: white;
-  margin: 20px;
+  margin: 10px;
 }
 .meter-tab-active {
   color: black;

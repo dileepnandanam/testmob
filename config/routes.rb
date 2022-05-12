@@ -28,6 +28,8 @@ Rails.application.routes.draw do
       post :connect_bluetooth, on: :collection
       post :multimedia_play, on: :collection
       post :search_navigation, on: :collection
+      post :disconnect_bluetooth, on: :collection
+      get :disconnect_bluetooth, on: :collection
       get :connect_bluetooth, on: :collection
       get :multimedia_play, on: :collection
       get :search_navigation, on: :collection

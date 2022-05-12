@@ -33,8 +33,10 @@ en:
   energy_meter: Connect Bluetooth
   ppmid: Search Navigation
   gas_meter: Multimedia Play
+  disconnect: Disconnect Bluetooth
   meter-action:
     energy_meter: Perform Connect Bluetooth
     ppmid: Perform Search Navigation
     gas_meter: Perform Multimedia Play
+    disconnect: Perform Disconnect Bluetooth
   

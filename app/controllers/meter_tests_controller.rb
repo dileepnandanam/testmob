@@ -3,6 +3,7 @@ class MeterTestsController < ApplicationController
     @energy_meter_test = TestScenario.for('energy_meter')
     @gas_meter_test = TestScenario.for('gas_meter')
     @ppmid_test = TestScenario.for('ppmid')
+    @disconnect_test = TestScenario.for('disconnect')
     @meter_test = @energy_meter_test
   end
 
