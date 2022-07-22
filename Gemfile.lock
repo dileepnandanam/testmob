@@ -105,7 +105,6 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
-    curb (0.9.11)
     debug_inspector (0.0.3)
     declarative (0.0.10)
     declarative-option (0.1.0)
@@ -367,7 +366,7 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    tzinfo (1.2.7)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uber (0.1.0)
     uglifier (4.2.0)
@@ -406,7 +405,6 @@ DEPENDENCIES
   certified
   chromedriver-helper
   coffee-rails (~> 4.2)
-  curb
   devise
   font-awesome-rails
   google-cloud-storage (~> 1.8)
